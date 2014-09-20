@@ -1,4 +1,5 @@
 define(function (require) {
   var canvas = require('canvas');
-  canvas.x();  
+  var canvasContainer = document.getElementById('canvas-container');
+  canvas.build(canvasContainer);  
 });
