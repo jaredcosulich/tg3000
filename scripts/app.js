@@ -5,7 +5,8 @@
 requirejs.config({
   baseUrl: 'scripts/lib',
   paths: {
-    app: '../app'
+    app: '../app',
+    cs: 'coffee-script'
   }
 });
 
