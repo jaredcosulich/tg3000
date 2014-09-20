@@ -1,7 +1,4 @@
 define(function (require) {
-  alert('hi');
-  var canvas = require('canvax');
-  console.log('yo');
-  //   canvas.x();
-  
+  var canvas = require('canvas');
+  canvas.x();  
 });

@@ -1,7 +1,7 @@
 define(function () {
   return {
     x: function() {
-      console.log('hi');
+      console.log('hi2');
     }
   }
 });
