@@ -24,12 +24,7 @@ define(function () {
       var canvasContainer = _canvas.getContainer();
       landscape = {width: parseInt(canvasContainer.style.width), height: parseInt(canvasContainer.style.height)};
       this.position(landscape.width / 2, landscape.height / 2);
-      canvasContainer.appendChild(_turtle);
-      
-      this.moveUp(100);
-      this.moveLeft(20);
-      this.moveDown(10);
-      this.moveRight(40);
+      canvasContainer.appendChild(_turtle);      
     },
     
     position: function (x, y) {
