@@ -6,10 +6,7 @@ define(function (require) {
   var turtle = require('turtle');
   turtle.init(canvas);
   
-  turtle.moveUp(100);
-  turtle.moveLeft(20);
-  turtle.moveDown(10);
-  turtle.moveRight(40);
-  turtle.moveDown(40);
-  
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(30);
 });

@@ -29,8 +29,11 @@ define(function () {
       return _container;
     },
     
-    draw: function(x, y, width, height) {
-      _context.fillRect(x, y, width, height);
+    line: function(xStart, yStart, xEnd, yEnd) {      
+      _context.beginPath();
+      _context.moveTo(xStart, yStart);
+      _context.lineTo(xEnd, yEnd);
+      _context.stroke();
     }
     
   }

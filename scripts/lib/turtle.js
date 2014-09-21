@@ -10,6 +10,7 @@ define(function () {
   var _penSize = 1;
   var _width = 10;
   var _height = 10;
+  var _angle = 0;
   
   return {
     init: function(canvas) {
@@ -23,36 +24,42 @@ define(function () {
       
       var canvasContainer = _canvas.getContainer();
       landscape = {width: parseInt(canvasContainer.style.width), height: parseInt(canvasContainer.style.height)};
-      this.position(landscape.width / 2, landscape.height / 2);
+      this.moveTo(landscape.width / 2, landscape.height / 2);
       canvasContainer.appendChild(_turtle);      
     },
     
-    position: function (x, y) {
+    moveTo: function (x, y) {
       _turtle.style.left = x - (_width / 2) + 'px';
       _turtle.style.top = y - (_height / 2) + 'px';
+
+      _canvas.line(_xPosition, _yPosition, x, y)
+
       _xPosition = x;
       _yPosition = y;
     },
     
-    moveUp: function (length) {
-      _canvas.draw(_xPosition, _yPosition - length, _penSize, length);
-      this.position(_xPosition, _yPosition - length);
+    setAngle: function(angle) {
+      _angle = angle;
     },
     
-    moveDown: function (length) {
-      _canvas.draw(_xPosition, _yPosition, _penSize, length);
-      this.position(_xPosition, _yPosition + length);
+    move: function (length) {
+      this.moveTo(_xPosition + (length * Math.cos(_angle)), _yPosition + (length * (Math.sin(_angle))))
     },
     
-    moveRight:function (length) {
-      _canvas.draw(_xPosition, _yPosition, length, _penSize);
-      this.position(_xPosition + length, _yPosition);
+    forward: function (length) {
+      this.move(length);
     },
     
-    moveLeft: function (length) {
-      _canvas.draw(_xPosition - length, _yPosition, length, _penSize);
-      this.position(_xPosition - length, _yPosition);
+    backward: function (length) {
+      this.move(length * -1);
+    },
+    
+    right: function (angleDiff) {
+      this.setAngle(_angle + angleDiff);
+    },
+
+    left: function (angleDiff) {
+      this.setAngle(_angle - angleDiff);
     }
-    
   }
 });
