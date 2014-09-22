@@ -9,4 +9,6 @@ define(function (require) {
   turtle.forward(100);
   turtle.right(90);
   turtle.forward(30);
+  turtle.right(15);
+  turtle.backward(100);
 });
