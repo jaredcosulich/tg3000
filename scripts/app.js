@@ -6,7 +6,8 @@ requirejs.config({
   baseUrl: 'scripts/lib',
   paths: {
     app: '../app',
-    text: 'text'
+    text: 'text',
+    ace: 'http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace'
   }
 });
 

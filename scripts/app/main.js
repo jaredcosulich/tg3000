@@ -1,7 +1,10 @@
 define(function (require) {
+  var editor = require('editor')
+  editor.init('editor')
+  
   var chapterContainer = document.getElementById('chapter-container');
   var chapter = require('chapter');
-  chapter.init(chapterContainer, 'text/');
+  chapter.init(chapterContainer, 'text/', editor);
   chapter.load(1);
   
   var canvasContainer = document.getElementById('canvas-container');
