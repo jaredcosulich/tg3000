@@ -1,16 +1,19 @@
 define(function () {
   var _turtle;
   var _canvas;
+
+  var _width = 10;
+  var _height = 10;
+
   var landscape = {
     width: 0,
     height: 0
   }
   var _xPosition = 0;
   var _yPosition = 0;
-  var _penSize = 1;
-  var _width = 10;
-  var _height = 10;
   var _angle = -90;
+
+  var _penSize = 1;
   var _penDown = true;
   
   return {
@@ -24,10 +27,15 @@ define(function () {
       _turtle.style.position = 'absolute';
       
       var canvasContainer = _canvas.getContainer();
-      landscape = {width: parseInt(canvasContainer.style.width), height: parseInt(canvasContainer.style.height)};
+      landscape = {
+        width: parseInt(canvasContainer.style.width), 
+        height: parseInt(canvasContainer.style.height)
+      };
+      
       this.setPen(false);
       this.moveTo(landscape.width / 2, landscape.height / 2);
       this.setPen(true);
+      
       canvasContainer.appendChild(_turtle);      
     },
     
