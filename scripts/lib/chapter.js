@@ -20,8 +20,14 @@ define(function (require) {
       var chapterDivs = document.getElementsByTagName('DIV');
       for (i in chapterDivs) {
         var chapterDiv = chapterDivs[i];
-        if((' ' + chapterDiv.className + ' ').indexOf(' ' + 'turtle-code' + ' ') > -1) {
-          this.initCodeBlock(chapterDiv);
+        var codeNames = ['turtle', 'javascript'];
+        for (j in codeNames) {
+          if((' ' + chapterDiv.className + ' ').indexOf(' ' + codeNames[j] + '-code' + ' ') > -1) {
+            this.initCodeBlock(chapterDiv);
+            if (codeNames[j] == 'turtle') {
+              chapterDiv.style.display = 'none';              
+            }
+          }          
         }
       }
     },

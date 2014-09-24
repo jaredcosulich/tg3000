@@ -5,10 +5,6 @@ define(function () {
   var _width = 10;
   var _height = 10;
 
-  var landscape = {
-    width: 0,
-    height: 0
-  }
   var _xPosition = 0;
   var _yPosition = 0;
   var _angle = -90;
@@ -26,17 +22,13 @@ define(function () {
       _turtle.style.backgroundColor = 'blue';
       _turtle.style.position = 'absolute';
       
-      var canvasContainer = _canvas.getContainer();
-      landscape = {
-        width: parseInt(canvasContainer.style.width), 
-        height: parseInt(canvasContainer.style.height)
-      };
+      var dimensions = _canvas.getDimensions();
       
       this.setPen(false);
-      this.moveTo(landscape.width / 2, landscape.height / 2);
+      this.moveTo(dimensions.width / 2, dimensions.height / 2);
       this.setPen(true);
       
-      canvasContainer.appendChild(_turtle);      
+      _canvas.getContainer().appendChild(_turtle);      
     },
     
     setPen: function(down) {
