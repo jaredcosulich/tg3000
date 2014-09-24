@@ -39,27 +39,28 @@ define(function() {return function () {/*
 </p>
 
 <div class='turtle-code'>
-  TO SQUARE
-     FORWARD 100
-     RIGHT 90
-     FORWARD 100
-     RIGHT 90
-     FORWARD 100
-     RIGHT 90
-     FORWARD 100
+TO SQUARE
+   FORWARD 100
+   RIGHT 90
+   FORWARD 100
+   RIGHT 90
+   FORWARD 100
+   RIGHT 90
+   FORWARD 100
 </div>
 
 <div class='javascript-code'>
-  function square() {
-    turtle.forward(100);
-    turtle.right(90);
-    turtle.forward(100);
-    turtle.right(90);
-    turtle.forward(100);
-    turtle.right(90);
-    turtle.forward(100);
-    turtle.right(90);
-  }
+function square() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+}
+square();
 </div>
 
 <p>

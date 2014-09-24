@@ -33,15 +33,15 @@ define(function (require) {
     },
     
     initCodeBlock: function(codeBlock) {
-      var turtleCode = codeBlock.innerHTML;
-      codeBlock.innerHTML = turtleCode.
-        replace(/\n\s\s\s\s/ig, '<br/>&nbsp;&nbsp;&nbsp;&nbsp;').
+      var code = codeBlock.innerHTML;
+      codeBlock.innerHTML = code.
+        replace(/\n\s\s/ig, '<br/>&nbsp;&nbsp;&nbsp;&nbsp;').
         replace(/\n/ig, '<br/>');
         
       var runButton = document.createElement('BUTTON');
       runButton.innerHTML = 'Run This Code';
       runButton.onclick = function() {
-        _editor.executeTurtle(turtleCode)
+        _editor.execute(code)
       };
       codeBlock.appendChild(runButton);      
     },

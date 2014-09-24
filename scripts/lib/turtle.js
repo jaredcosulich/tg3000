@@ -21,14 +21,17 @@ define(function () {
       _turtle.style.width = _width + 'px';
       _turtle.style.backgroundColor = 'blue';
       _turtle.style.position = 'absolute';
-      
-      var dimensions = _canvas.getDimensions();
-      
+      _canvas.getContainer().appendChild(_turtle);            
+      this.reset();      
+    },
+    
+    reset: function() {
+      this.clear();
       this.setPen(false);
+      var dimensions = _canvas.getDimensions();      
       this.moveTo(dimensions.width / 2, dimensions.height / 2);
       this.setPen(true);
-      
-      _canvas.getContainer().appendChild(_turtle);      
+      _angle = -90;
     },
     
     setPen: function(down) {
@@ -76,6 +79,10 @@ define(function () {
 
     left: function (angleDiff) {
       this.setAngle(_angle - angleDiff);
+    },
+    
+    clear: function () {
+      _canvas.clear();
     }
   }
 });

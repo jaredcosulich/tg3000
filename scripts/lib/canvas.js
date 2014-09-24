@@ -42,6 +42,10 @@ define(function () {
       _context.moveTo(xStart, yStart);
       _context.lineTo(xEnd, yEnd);
       _context.stroke();
+    },
+    
+    clear: function() {
+      _context.clearRect (0, 0, _dimensions.width, _dimensions.height);
     }
     
   }
