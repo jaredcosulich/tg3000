@@ -73,6 +73,17 @@ TO SQUARE
       FORWARD 100
       RIGHT 90
 </div>
+<div class='javascript-code'>
+function square() {
+  for (var i=0; i<4; ++i) {
+    turtle.forward(100);
+    turtle.right(90);
+  }
+}
+square();
+</div>
+
+
 <p>
   This procedure will repeat the indented commands \textsc{forward} 100 and \textsc{right} 90 four times.
 </p>

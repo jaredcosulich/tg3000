@@ -10,9 +10,14 @@ define(['ace'], function (require) {
     },
     
     execute: function (javascript) {
-      _editor.setValue(javascript);
+      var code = this.process(javascript);
+      _editor.setValue(code);
       this.turtle.reset()
-      eval('var turtle = this.turtle;' + javascript);
+      eval('var turtle = this.turtle;' + code);
+    },
+    
+    process: function(code) {
+      return code.replace(/&lt;/ig, '<');
     }
   }
 
