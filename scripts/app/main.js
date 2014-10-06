@@ -7,10 +7,10 @@ define(function (require) {
   turtle.init(canvas);
   
   var editor = require('editor')
-  editor.init(document.getElementById('code-container'), 'editor', turtle)
+  editor.init(document.getElementById('code-container'), 'editor', turtle);
   
   var chapterContainer = document.getElementById('chapter-container');
   var chapter = require('chapter');
-  chapter.init(chapterContainer, 'text/', editor);
+  chapter.init(chapterContainer, 'text/', turtle);
   chapter.load(1);
 });

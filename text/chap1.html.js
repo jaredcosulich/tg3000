@@ -49,7 +49,7 @@ TO SQUARE
    FORWARD 100
 </div>
 
-<div class='javascript-code'>
+<div class='javascript-code' id='basic-square'>
 function square() {
   turtle.forward(100);
   turtle.right(90);
@@ -73,7 +73,7 @@ TO SQUARE
       FORWARD 100
       RIGHT 90
 </div>
-<div class='javascript-code'>
+<div class='javascript-code' id='square-loop'>
 function square() {
   for (var i=0; i<4; ++i) {
     turtle.forward(100);

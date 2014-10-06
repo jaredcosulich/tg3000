@@ -30,12 +30,15 @@ define(['ace'], function () {
       return _editor.getValue();
     },
     
+    setCode: function(code) {
+      _editor.setValue(code);
+      _editor.gotoLine(0);      
+      this.turtle.reset()
+    },
+    
     execute: function (javascript) {
       var code = this.process(javascript);
-      _editor.setValue(code);
-      _editor.gotoLine(0);
-      
-      this.turtle.reset()
+      this.setCode(code);
       eval('var turtle = this.turtle;' + code);
     },
     
