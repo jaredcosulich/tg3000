@@ -46,6 +46,14 @@ define(function (require) {
     },
     
     initCodeBlock: function(codeBlock) {
+      if (_editorFactory == undefined) {
+        var _self = this;
+        setTimeout(function() {
+          _self.initCodeBlock(codeBlock);
+        }, 100);
+        return;
+      }
+      
       var code = codeBlock.innerHTML;
       
       codeBlock.innerHTML = code.replace(/\s+/, '');
