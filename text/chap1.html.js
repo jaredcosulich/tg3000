@@ -83,6 +83,25 @@ function square() {
 square();
 </div>
 
+<p>
+  This is an example of a {\em procedure}. (Such definitions are also commonly referred to as programs or functions.) The first line of the procedure (the {\em title line}) specifies the procedure's name. We've chosen to name this procedure \textsc{square}, but we could have named it anything at all. The rest of the procedure (the body) specifies a list of instructions the turtle is to carry out in response to the \textsc{square} command. There are a few useful tricks for writing procedures. One of them is called {\em iteration}, meaning repetition --- doing something over and over. Here's a more concise way of telling the turtle to draw a square, using iteration:
+</p>
+
+<div class='turtle-code'>
+TO SQUARE2
+   REPEAT 8
+      FORWARD 50
+      RIGHT 45
+</div>
+<div class='javascript-code' id='square-loop2'>
+function square() {
+  for (var i=0; i<8; ++i) {
+    turtle.forward(50);
+    turtle.right(45);
+  }
+}
+square();
+</div>
 
 <p>
   This procedure will repeat the indented commands \textsc{forward} 100 and \textsc{right} 90 four times.

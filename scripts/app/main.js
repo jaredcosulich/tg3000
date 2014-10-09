@@ -6,8 +6,8 @@ define(function (require) {
   var turtle = require('turtle');
   turtle.init(canvas);
   
-  var editor = require('editor')
-  editor.init(document.getElementById('code-container'), 'editor', turtle);
+  // var editor = require('editor')
+  // editor.init(document.getElementById('code-container'), 'editor', turtle);
   
   var chapterContainer = document.getElementById('chapter-container');
   var chapter = require('chapter');

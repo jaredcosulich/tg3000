@@ -2,12 +2,18 @@ define(function (require) {
   var _textPath;
   var _container;
   var _turtle;
+  var _editorFactory;
   
   return {
     init: function(container, textPath, turtle) {
       _container = container;
       _textPath = textPath;
       _turtle = turtle;
+
+      require(['editor_factory'], function(editorFactory) {
+        _editorFactory = editorFactory;
+        _editorFactory.init(turtle);
+      });
     },
     
     clean: function (stringFunction) {
@@ -19,6 +25,7 @@ define(function (require) {
     initCodeBlocks: function() {
       var chapterDivs = _container.getElementsByTagName('DIV');
       var chapterDivCount = chapterDivs.length;
+      var codeBlocks = [];
       for (var i=0; i<chapterDivCount; ++i) {
         var chapterDiv = chapterDivs[i];
         var codeNames = ['turtle', 'javascript'];
@@ -27,10 +34,14 @@ define(function (require) {
             if (codeNames[j] == 'turtle') {
               chapterDiv.style.display = 'none';              
             } else {
-              this.initCodeBlock(chapterDiv);
-            }
+              codeBlocks.push(chapterDiv);
+            }        
           }          
         }
+      }
+      
+      for (var i=0; i<codeBlocks.length; ++i) {
+        this.initCodeBlock(codeBlocks[i]);
       }
     },
     
@@ -41,9 +52,8 @@ define(function (require) {
       var lineCount = codeBlock.innerHTML.match(/\n/g).length;
       codeBlock.style.height = (lineCount * 21) + 'px';
       
-      require(['editor'], function(editor) {
-        editor.init(codeBlock, codeBlock.id, _turtle)
-      });
+      _editorFactory.createEditor(codeBlock, codeBlock.id);
+      
       
       //   
       // var runButton = document.createElement('BUTTON');
