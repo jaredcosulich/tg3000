@@ -2,8 +2,8 @@ define(function () {
   var _turtle;
   var _canvas;
 
-  var _width = 10;
-  var _height = 10;
+  var _width = 16;
+  var _height = 18;
 
   var _xPosition = 0;
   var _yPosition = 0;
@@ -21,9 +21,9 @@ define(function () {
       _canvas = canvas;
       _turtle = document.createElement('DIV');
       _turtle.id = 'turtle';
+      _turtle.innerHTML = '<img src=\'images/mouse.png\'/>';
       _turtle.style.height = _height + 'px';
       _turtle.style.width = _width + 'px';
-      _turtle.style.backgroundColor = 'blue';
       _turtle.style.position = 'absolute';
       _canvas.getContainer().appendChild(_turtle);            
       this.reset();      
@@ -104,6 +104,11 @@ define(function () {
     
     setAngle: function(angle) {
       _angle = angle;
+      
+      var rotate = 'rotate(' + (angle + 90) + 'deg)';
+      _turtle.style.WebkitTransform = rotate; 
+      _turtle.style.msTransform = rotate; 
+      _turtle.style.transform = rotate; 
     },
     
     angleInRadians: function() {
