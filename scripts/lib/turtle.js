@@ -63,7 +63,7 @@ define(function () {
     setSpeed: function(speed) {
       switch(speed) {
         case 'slow':
-          _executionDelay = 1000;
+          _executionDelay = 500;
           break;
         case 'fast':
           _executionDelay = 10;

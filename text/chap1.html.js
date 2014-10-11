@@ -88,19 +88,19 @@ square();
 </p>
 
 <div class='inline-editor turtle-code'>
-TO SQUARE2
+TO OCTAGON
    REPEAT 8
       FORWARD 50
       RIGHT 45
 </div>
-<div class='inline-editor javascript-code' id='square-loop2'>
-function square() {
+<div class='inline-editor javascript-code' id='octagon-loop'>
+function octagon() {
   for (var i=0; i<8; ++i) {
     turtle.forward(50);
     turtle.right(45);
   }
 }
-square();
+octagon();
 </div>
 
 <p>
