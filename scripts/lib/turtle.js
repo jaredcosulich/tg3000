@@ -49,12 +49,15 @@ define(function () {
     },
     
     reset: function() {
-      this.clear();
+      this.clearCanvas();
       this.setPen(false);
       var dimensions = _canvas.getDimensions();      
       this.moveTo(dimensions.width / 2, dimensions.height / 2);
       this.setPen(true);
       _angle = -90;
+      _commands = [];
+      clearTimeout(_executionTimeout);
+      _executionTimeout = undefined;
     },
     
     setSpeed: function(speed) {
@@ -134,7 +137,7 @@ define(function () {
       this.changeAngle(angleDiff * -1);
     },
     
-    clear: function () {
+    clearCanvas: function () {
       _canvas.clear();
     }
   }

@@ -20,24 +20,24 @@ define(['ace'], function (require) {
     },
     
     initRunButtons: function(editorId) {
+      var runButton = this.createRunButton(_containers[editorId], 'Run');
+      runButton.style.left = '60px';    
+      var _self = this;
+      runButton.onclick = function() {
+        _self.execute(_self.getCode(editorId))
+      };      
+
       var runSlowButton = this.createRunButton(_containers[editorId], 'Run Slow');
-      runSlowButton.style.left = '60px';    
+      runSlowButton.style.left = '112px';    
       var _self = this;
       runSlowButton.onclick = function() {
         _self.execute(_self.getCode(editorId), 'slow')
       };      
 
-      var runSlowButton = this.createRunButton(_containers[editorId], 'Run');
-      runSlowButton.style.left = '138px';    
+      var runFastButton = this.createRunButton(_containers[editorId], 'Run Fast');
+      runFastButton.style.left = '189px';    
       var _self = this;
-      runSlowButton.onclick = function() {
-        _self.execute(_self.getCode(editorId))
-      };      
-
-      var runSlowButton = this.createRunButton(_containers[editorId], 'Run Fast');
-      runSlowButton.style.left = '189px';    
-      var _self = this;
-      runSlowButton.onclick = function() {
+      runFastButton.onclick = function() {
         _self.execute(_self.getCode(editorId), 'fast')
       };      
     },
