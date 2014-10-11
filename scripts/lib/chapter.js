@@ -50,7 +50,7 @@ define(function (require) {
         var _self = this;
         setTimeout(function() {
           _self.initCodeBlock(codeBlock);
-        }, 100);
+        }, 100);  
         return;
       }
       
