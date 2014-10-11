@@ -15,22 +15,40 @@ define(['ace'], function (require) {
       _editors[editorId] = editor;
       _containers[editorId] = container;
 
-      this.initRunButton(editorId);
+      this.initRunButtons(editorId);
       return 
     },
     
-    initRunButton: function(editorId) {
-      var runButton = document.createElement('BUTTON');
-      var container = _containers[editorId];
-      container.appendChild(runButton);            
-      runButton.innerHTML = 'Run';
-      runButton.style.position = 'absolute';
-      runButton.style.top = (parseInt(container.offsetHeight) - parseInt(runButton.offsetHeight) - 12) + 'px';
-      runButton.style.left = ((parseInt(container.offsetWidth) - parseInt(runButton.offsetWidth)) / 2) + 'px';      
+    initRunButtons: function(editorId) {
+      var runSlowButton = this.createRunButton(_containers[editorId], 'Run Slow');
+      runSlowButton.style.left = '60px';    
       var _self = this;
-      runButton.onclick = function() {
+      runSlowButton.onclick = function() {
+        _self.execute(_self.getCode(editorId), 'slow')
+      };      
+
+      var runSlowButton = this.createRunButton(_containers[editorId], 'Run');
+      runSlowButton.style.left = '138px';    
+      var _self = this;
+      runSlowButton.onclick = function() {
         _self.execute(_self.getCode(editorId))
       };      
+
+      var runSlowButton = this.createRunButton(_containers[editorId], 'Run Fast');
+      runSlowButton.style.left = '189px';    
+      var _self = this;
+      runSlowButton.onclick = function() {
+        _self.execute(_self.getCode(editorId), 'fast')
+      };      
+    },
+    
+    createRunButton: function (container, html) {
+      var runButton = document.createElement('BUTTON');
+      runButton.innerHTML = html;
+      runButton.className = 'run-button';
+      runButton.style.top = (parseInt(container.offsetHeight) - parseInt(runButton.offsetHeight) - 36) + 'px';
+      container.appendChild(runButton);
+      return runButton;
     },
     
     getCode: function(editorId) {
@@ -41,8 +59,9 @@ define(['ace'], function (require) {
       return _editors[editorId];
     },
     
-    execute: function (javascript) {
+    execute: function (javascript, speed) {
       this.turtle.reset()
+      this.turtle.setSpeed(speed);
       var code = this.process(javascript);
       // this.setCode(code);
       eval('var turtle = this.turtle;' + code);

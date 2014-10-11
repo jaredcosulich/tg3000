@@ -12,6 +12,10 @@ define(function () {
   var _penSize = 1;
   var _penDown = true;
   
+  var _executionDelay = 0;
+  var _executionTimeout;
+  var _commands = [];
+  
   return {
     init: function(canvas) {
       _canvas = canvas;
@@ -25,6 +29,25 @@ define(function () {
       this.reset();      
     },
     
+    start: function() {
+      if (_executionTimeout ) {
+        return;
+      }
+      this.run();
+    },
+    
+    run: function () {
+      if (!_commands.length) {
+        return;
+      }
+      
+      var command = _commands.shift();
+      command();
+      
+      var _self = this;
+      _executionTimeout = setTimeout(function() { _self.run(); }, _executionDelay);        
+    },
+    
     reset: function() {
       this.clear();
       this.setPen(false);
@@ -32,6 +55,24 @@ define(function () {
       this.moveTo(dimensions.width / 2, dimensions.height / 2);
       this.setPen(true);
       _angle = -90;
+    },
+    
+    setSpeed: function(speed) {
+      switch(speed) {
+        case 'slow':
+          _executionDelay = 1000;
+          break;
+        case 'fast':
+          _executionDelay = 10;
+          break;
+        default:
+          _executionDelay = 100;
+      }
+    },
+    
+    addCommand: function(command) {
+      _commands.push(command);
+      this.start();
     },
     
     setPen: function(down) {
@@ -50,6 +91,14 @@ define(function () {
       _yPosition = y;
     },
     
+    changeAngle: function (angleDiff) {
+      var _self = this;
+      var command = function() { 
+        _self.setAngle(_angle + angleDiff);       
+      };
+      this.addCommand(command)      
+    },
+    
     setAngle: function(angle) {
       _angle = angle;
     },
@@ -59,10 +108,14 @@ define(function () {
     },
     
     move: function (length) {
-      this.moveTo(
-        _xPosition + (length * Math.cos(this.angleInRadians())), 
-        _yPosition + (length * (Math.sin(this.angleInRadians())))
-      );
+      var _self = this;
+      var command = function() {
+        _self.moveTo(
+          _xPosition + (length * Math.cos(_self.angleInRadians())), 
+          _yPosition + (length * (Math.sin(_self.angleInRadians())))
+        );                
+      }
+      this.addCommand(command);
     },
     
     forward: function (length) {
@@ -74,11 +127,11 @@ define(function () {
     },
     
     right: function (angleDiff) {
-      this.setAngle(_angle + angleDiff);
+      this.changeAngle(angleDiff);
     },
 
     left: function (angleDiff) {
-      this.setAngle(_angle - angleDiff);
+      this.changeAngle(angleDiff * -1);
     },
     
     clear: function () {
