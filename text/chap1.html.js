@@ -186,6 +186,20 @@ to rewrite these procedures in any language that has access to the basic
 turtle commands <span class='textsc'>forward</span>, <span class='textsc'>back</span>, <span class='textsc'>right</span>, <span class='textsc'>left</span>, <span class='textsc'>penup</span>, and <span class='textsc'>pendown</span>.
 </p>
 
+<!--
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1]{fig1-2}
+\caption{Attempt to draw a triangle}
+\end{center}
+\end{figure}
+-->
+
+<div class='figure'>
+<img src='images/figures/fig1-2.png'/>
+<div class='caption'>Attempt to draw a triangle.</div>
+</div>
+
 
 
 

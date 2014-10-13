@@ -72,6 +72,32 @@ define(function (require) {
       // codeBlock.appendChild(runButton);      
     },
     
+    sizeImages: function() {
+      var images = _container.getElementsByTagName('IMG');
+      for (var i=0; i<images.length; ++i) {
+        var image = images[i];
+        this.sizeImage(image);
+        var _self = this;
+        image.onload = function() {
+          _self.sizeImage(image);
+        }
+      }
+    },
+    
+    sizeImage: function(image) {
+      var width = image.width;
+      var height = image.height;
+      if (!width || !height) {
+        width = image.offsetWidth;
+        height = image.offsetHeight;
+      }
+      if (!width || !height) return;
+      var maxWidth = _container.offsetWidth * 2 / 3
+      var ratio = maxWidth / width;
+      image.width = maxWidth;
+      image.height = height * ratio;
+    },
+    
     load: function(index) {
       // console.log(require('text/chap1.html.js').toString())
       _self = this;
@@ -79,6 +105,7 @@ define(function (require) {
       require([chapterPath], function(chapterFunction) {
         var cleanHtml = _self.clean(chapterFunction);
         _container.innerHTML = cleanHtml;   
+        _self.sizeImages();
         _self.initCodeBlocks();
       });
     }
