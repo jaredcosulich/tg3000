@@ -56,8 +56,12 @@ define(function () {
       this.setPen(true);
       _angle = -90;
       _commands = [];
+      this.stop();
+    },
+    
+    stop: function() {
       clearTimeout(_executionTimeout);
-      _executionTimeout = undefined;
+      _executionTimeout = undefined;      
     },
     
     setSpeed: function(speed) {

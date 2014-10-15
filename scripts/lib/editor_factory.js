@@ -12,6 +12,7 @@ define(['ace'], function (require) {
       var editor = ace.edit(editorId);
       editor.setTheme("ace/theme/chrome");
       editor.getSession().setMode("ace/mode/javascript");
+      editor.getSession().setTabSize(2);
       _editors[editorId] = editor;
       _containers[editorId] = container;
 
@@ -40,6 +41,13 @@ define(['ace'], function (require) {
       runFastButton.onclick = function() {
         _self.execute(_self.getCode(editorId), 'fast')
       };      
+
+      var stopButton = this.createRunButton(_containers[editorId], 'Stop');
+      stopButton.style.left = '264px';    
+      var _self = this;
+      stopButton.onclick = function() {
+        _self.stopExecution();
+      };      
     },
     
     createRunButton: function (container, html) {
@@ -65,6 +73,10 @@ define(['ace'], function (require) {
       var code = this.process(javascript);
       // this.setCode(code);
       eval('var turtle = this.turtle;' + code);
+    },
+    
+    stopExecution: function() {
+      this.turtle.stop();
     },
     
     process: function(code) {

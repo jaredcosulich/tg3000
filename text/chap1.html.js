@@ -286,7 +286,7 @@ TO CIRCLE
 </div>
 <div class='inline-editor javascript-code' id='circle'>
 function circle() {
-  for (var i=0; i<9999; ++i) {
+  for (var i=0; i<999; ++i) {
     turtle.forward(1);
     turtle.right(1);
   }
