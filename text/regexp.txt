@@ -1,8 +1,8 @@
 {\\em\s([^}]+)}                         ->    <em>$1</em>
 
-{\\textsc\s([^}]+)}                     ->    <span class='textsc'>$1</span>
+{\\textsc\s([^}]+)}                     ->    <span class='textsc'>$1</span> 
 
-\\textsc{([^}]+)}                       ->    <span class='textsc'>$1</span>
+\\textsc{([^}]+)}                       ->    <span class='textsc'>$1</span> 
 
 \\begin{verbatim}                     ->    <div class='inline-editor turtle-code'>
 

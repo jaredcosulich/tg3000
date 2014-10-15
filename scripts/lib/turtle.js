@@ -16,6 +16,8 @@ define(function () {
   var _executionTimeout;
   var _commands = [];
   
+  var _scale = 0.5;
+  
   return {
     init: function(canvas) {
       _canvas = canvas;
@@ -77,6 +79,10 @@ define(function () {
       }
     },
     
+    setScale: function(scale) {
+      _scale = scale;
+    },
+    
     addCommand: function(command) {
       _commands.push(command);
       this.start();
@@ -120,11 +126,12 @@ define(function () {
     },
     
     move: function (length) {
+      var scaledLength = length * _scale;
       var _self = this;
       var command = function() {
         _self.moveTo(
-          _xPosition + (length * Math.cos(_self.angleInRadians())), 
-          _yPosition + (length * (Math.sin(_self.angleInRadians())))
+          _xPosition + (scaledLength * Math.cos(_self.angleInRadians())), 
+          _yPosition + (scaledLength * (Math.sin(_self.angleInRadians())))
         );                
       }
       this.addCommand(command);
