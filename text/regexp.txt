@@ -1,12 +1,25 @@
-{\\em\s([^}]+)}    ->    <em>$1</em>
+{\\em\s([^}]+)}                         ->    <em>$1</em>
 
-{\\textsc\s([^}]+)}    ->    <span class='textsc'>$1</span>
+{\\textsc\s([^}]+)}                     ->    <span class='textsc'>$1</span>
 
-\\textsc{([^}]+)}      ->    <span class='textsc'>$1</span>
+\\textsc{([^}]+)}                       ->    <span class='textsc'>$1</span>
 
-\\begin\{verbatim\}    ->    <div class='inline-editor turtle-code'>
+\\begin{verbatim}                     ->    <div class='inline-editor turtle-code'>
 
-\\end\{verbatim\}      ->    </div>\n\n
+\\end{verbatim}                       ->    </div>\n\n
+
+\\subsection{([^}]+)}                   ->    <h3>$1</h3>
 
 
+
+\\begin{figure}\n\\begin{center}\n\\includegraphics\[scale=\d\]{([^}]+)}\n\\caption{([^}]+)}\n\\end{center}\n\\end{figure}
+        ->      <div class='figure'>\n<img src='images/figures/$1.png'/>\n<div class='caption'>$2</div>\n</div>
+        
+\\begin{figure}\n\\begin{center}        ->    <div class='figure'>
+
+\\includegraphics\[scale=\d\]{([^}]+)}  ->    <img src='images/figures/$1.png'/>
+
+\\caption{([^}]+)}                      ->    <div class='caption'>$1</div>
+
+\\end{center}\n\\end{figure}            ->    </div>
 

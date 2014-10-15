@@ -75,13 +75,16 @@ define(function (require) {
     sizeImages: function() {
       var images = _container.getElementsByTagName('IMG');
       for (var i=0; i<images.length; ++i) {
-        var image = images[i];
-        this.sizeImage(image);
-        var _self = this;
-        image.onload = function() {
-          _self.sizeImage(image);
-        }
+        this.prepImage(images[i]);
       }
+    },
+    
+    prepImage: function(image) {
+      this.sizeImage(image);
+      var _self = this;
+      image.onload = function() {
+        _self.sizeImage(image);
+      }      
     },
     
     sizeImage: function(image) {
