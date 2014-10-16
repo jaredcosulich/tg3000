@@ -16,7 +16,7 @@ define(function () {
   var _executionTimeout;
   var _commands = [];
   
-  var _scale = 0.5;
+  var _scale = 0.75;
   
   return {
     init: function(canvas) {

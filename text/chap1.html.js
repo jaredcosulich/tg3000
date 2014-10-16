@@ -215,6 +215,17 @@ function tryAngle(size) {
 }
 tryAngle(100);
 </div>
+
+<div class='inline-editor javascript-code' id='triangle'>
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+triangle(100);
+</div>
+
 <p>
 But <span class='textsc'>try.angle</span> doesn't work, as shown in figure 1.2. In fact, running this ``triangle'' procedure draws half of a regular hexagon. The bug in the procedure is that, whereas we normally measure geometric figures by their interior angles, turtle turning corresponds to the exterior angle at the vertex. So if we want to draw a triangle we should have the turtle turn 120°. You might practice ``playing turtle'' on a few geometric figures until it becomes natural for you to think of measuring a vertex by how much the turtle must turn in drawing the vertex, rather than by the usual interior angle. Turtle angle has many advantages over interior angle, as you will see.
 </p>
@@ -222,6 +233,51 @@ But <span class='textsc'>try.angle</span> doesn't work, as shown in figure 1.2. 
 <div class='figure'>
 <img src='images/figures/fig1-3.png'/>
 <div class='caption'>(a) Initial attempt to draw house fails (b) Interface steps are needed</div>
+</div>
+<div class='inline-editor javascript-code' id='house-fail'>
+function square(size) {
+  for (var i=0; i<4; ++i) {
+  turtle.forward(size);
+  turtle.right(90);
+  }
+}
+
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+
+function house(side) {
+  square(side);
+  triangle(side);
+}
+
+house(100);
+</div>
+<div class='inline-editor javascript-code' id='house'>
+function square(size) {
+  for (var i=0; i<4; ++i) {
+    turtle.forward(size);
+    turtle.right(90);
+  }
+}
+
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+
+function house(side) {
+  square(side);
+  turtle.forward(side);
+  turtle.right(30);
+  triangle(side);
+}
+house(100);
 </div>
 <p>
 Now that we have a triangle and a square, we can use them as building blocks in more complex drawings --- a house, for example. But Figure 1.3 shows that simply running <span class='textsc'>square</span> followed by <span class='textsc'>triangle</span> doesn't quite work. The reason is that after \textsc{square}, the turtle is at neither the correct position nor the correct heading to begin drawing the roof. To fix this bug, we must add steps to the procedure that will move and rotate the turtle before the <span class='textsc'>triangle</span> procedure is run. In terms of designing programs to draw things, these extra steps serve as an interface between the part of the program that draws the walls of the house (the <span class='textsc'>square</span> procedure) and the part that draws the roof (the <span class='textsc'>triangle</span> procedure).
@@ -249,10 +305,55 @@ function thing() {
   turtle.forward(50);
 }
 
+thing();
+</div>
+
+
+<div class='inline-editor javascript-code' id='doodle1'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
+
 function thing1() {
   for (var i=0; i<4; ++i) {
     thing();
   }
+}
+
+thing1();
+</div>
+
+<div class='inline-editor javascript-code' id='doodle2'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
 }
 
 function thing2() {
@@ -263,6 +364,29 @@ function thing2() {
   }
 }
 
+thing2();
+</div>
+
+<div class='inline-editor javascript-code' id='doodle3'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
+
+
 function thing3() {
   for (var i=0; i<999; ++i) {
     thing();
@@ -271,7 +395,7 @@ function thing3() {
   }
 }
 
-thing();
+thing3();
 </div>
 <p>
 In general, thinking of procedures as a number of main steps separated by interfaces is a useful strategy for planning complex drawings. Using procedures and subprocedures is also a good way to create abstract designs. Figure 1.4 shows how to create elaborate patterns by rotating a simple ``doodle''.
