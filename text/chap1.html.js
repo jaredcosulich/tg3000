@@ -416,6 +416,7 @@ function circle() {
     turtle.right(1);
   }
 }
+circle();
 </div>
 <div class='figure'>
 <img src='images/figures/fig1-5.png'/>
