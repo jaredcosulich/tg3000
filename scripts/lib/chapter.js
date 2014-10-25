@@ -56,10 +56,7 @@ define(function (require) {
       
       var code = codeBlock.innerHTML;
       
-      codeBlock.innerHTML = code.replace(/\s+/, '');
-      var lineCount = codeBlock.innerHTML.match(/\n/g).length;
-      codeBlock.style.height = (lineCount * 21) + 'px';
-      
+      codeBlock.innerHTML = code.replace(/\s+/, '') + '\n';      
       _editorFactory.createEditor(codeBlock, codeBlock.id);
       
       

@@ -13,6 +13,9 @@ define(['ace'], function (require) {
       editor.setTheme("ace/theme/chrome");
       editor.getSession().setMode("ace/mode/javascript");
       editor.getSession().setTabSize(2);
+      editor.setOptions({
+          maxLines: Infinity
+      });
       _editors[editorId] = editor;
       _containers[editorId] = container;
 
@@ -21,41 +24,42 @@ define(['ace'], function (require) {
     },
     
     initRunButtons: function(editorId) {
-      var runButton = this.createRunButton(_containers[editorId], 'Run');
-      runButton.style.left = '60px';    
+      var table = document.createElement('TABLE');
+      table.className = 'run-buttons';
+      var tbody = document.createElement('TBODY');
+      var row = document.createElement('TR');
+      table.appendChild(tbody);
+      tbody.appendChild(row);
+      _containers[editorId].appendChild(table);
+      
       var _self = this;
-      runButton.onclick = function() {
-        _self.execute(_self.getCode(editorId))
-      };      
 
-      var runSlowButton = this.createRunButton(_containers[editorId], 'Run Slow');
-      runSlowButton.style.left = '112px';    
-      var _self = this;
-      runSlowButton.onclick = function() {
-        _self.execute(_self.getCode(editorId), 'slow')
-      };      
+      this.createRunButton(row, 'Run', function() { 
+        _self.execute(_self.getCode(editorId)); 
+      });
 
-      var runFastButton = this.createRunButton(_containers[editorId], 'Run Fast');
-      runFastButton.style.left = '189px';    
-      var _self = this;
-      runFastButton.onclick = function() {
-        _self.execute(_self.getCode(editorId), 'fast')
-      };      
-
-      var stopButton = this.createRunButton(_containers[editorId], 'Stop');
-      stopButton.style.left = '264px';    
-      var _self = this;
-      stopButton.onclick = function() {
-        _self.stopExecution();
-      };      
+      this.createRunButton(row, 'Run Slow', function() { 
+        _self.execute(_self.getCode(editorId), 'slow'); 
+      });
+      
+      this.createRunButton(row, 'Run Fast', function() { 
+        _self.execute(_self.getCode(editorId), 'fast'); 
+      });
+      
+      this.createRunButton(row, 'Stop', function() { 
+        _self.stopExecution(); 
+      });
     },
     
-    createRunButton: function (container, html) {
+    createRunButton: function (container, html, clickFunction) {
       var runButton = document.createElement('BUTTON');
       runButton.innerHTML = html;
       runButton.className = 'run-button';
-      runButton.style.top = (parseInt(container.offsetHeight) - parseInt(runButton.offsetHeight) - 36) + 'px';
-      container.appendChild(runButton);
+      runButton.onclick = clickFunction;
+
+      var cell = document.createElement('TD');
+      cell.appendChild(runButton);
+      container.appendChild(cell);
       return runButton;
     },
     
