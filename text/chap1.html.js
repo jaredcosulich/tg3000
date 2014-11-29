@@ -51,6 +51,7 @@ function square() {
   turtle.forward(100);
   turtle.right(90);
 }
+
 square();
 </div>
 <p>
@@ -280,7 +281,7 @@ function house(side) {
 house(100);
 </div>
 <p>
-Now that we have a triangle and a square, we can use them as building blocks in more complex drawings --- a house, for example. But Figure 1.3 shows that simply running <span class='textsc'>square</span> followed by <span class='textsc'>triangle</span> doesn't quite work. The reason is that after \textsc{square}, the turtle is at neither the correct position nor the correct heading to begin drawing the roof. To fix this bug, we must add steps to the procedure that will move and rotate the turtle before the <span class='textsc'>triangle</span> procedure is run. In terms of designing programs to draw things, these extra steps serve as an interface between the part of the program that draws the walls of the house (the <span class='textsc'>square</span> procedure) and the part that draws the roof (the <span class='textsc'>triangle</span> procedure).
+Now that we have a triangle and a square, we can use them as building blocks in more complex drawings --- a house, for example. But Figure 1.3 shows that simply running <span class='textsc'>square</span> followed by <span class='textsc'>triangle</span> doesn't quite work. The reason is that after <span class='textsc'>square</span> , the turtle is at neither the correct position nor the correct heading to begin drawing the roof. To fix this bug, we must add steps to the procedure that will move and rotate the turtle before the <span class='textsc'>triangle</span> procedure is run. In terms of designing programs to draw things, these extra steps serve as an interface between the part of the program that draws the walls of the house (the <span class='textsc'>square</span> procedure) and the part that draws the roof (the <span class='textsc'>triangle</span> procedure).
 </p>
 <div class='figure'>
 <img src='images/figures/fig1-4.png'/>
@@ -423,6 +424,206 @@ circle();
 <div class='caption'><span class='textsc'>forward</span> 1, <span class='textsc'>right</span> 1, repeated draws a circle</div>
 </div>
 
+
+<p>
+This draws a circular arc, as shown in figure 1.5. Since this program
+goes on ``forever'' (until you press the stop button on your computer), it
+is not very useful as a subprocedure in creating more complex iigures.
+More useful would be a version of the <span class='textsc'>circle</span>  procedure that would
+draw the figure once and then stop. When we study the mathematics of
+turtle geometry, we'll see that the turtle circle closes precisely when the
+turtle has turned through $360^{\circ}$. So if we generate the circle in chunks
+of <span class='textsc'>forward</span>  1, <span class='textsc'>right</span>  1, the circle will close after 
+precisely 360 chunks:
+</p>
+
+<div class='inline-editor turtle-code'>
+TO CIRCLE
+   REPEAT 360
+      FORWARD 1
+      RIGHT 1
+</div>
+<div class='inline-editor javascript-code' id='circle-360'>
+function circle() {
+  for (var i=0; i<360; ++i) {
+    turtle.forward(1);
+    turtle.right(1);
+  }
+}
+circle();
+</div>
+
+
+<p>
+If we repeat the basic chunk fewer than 360 times, we get circular arcs.
+For instance, 180 repetitions give a semicircle, and 60 repetitions give a
+60&deg; arc. The following procedures draw left and right arcs of <span class='textsc'>deg</span>  degrees
+on a circle of size <span class='textsc'>r</span> :
+</p>
+
+<div class='inline-editor turtle-code'>
+T0 ARCR R DEG
+   REPEAT DEG
+   FORWARD R
+   RIGHT 1
+
+TO ARCL R DEG
+   REPEAT DEG
+      FORWARD R
+      LEFT 1
+</div>
+<div class='inline-editor javascript-code' id='arc'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function arcl(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.left(1);
+  }
+}
+
+arcr(1, 60);
+arcl(1, 60);
+</div>
+
+<p>
+(See figure 1.6 and exercise 3 for more on making drawings with arcs.)
+</p>
+
+<p>
+The circle program above actually draws regular 360-gons, of course,
+rather than ``real'' circles, but for the purpose of making drawings on
+the display screen this difference is irrelevant. (See exercises 1 and 2.)
+</p>
+
+
+<h3>Turtle Geometry versus Coordinate Geometry</h3>
+
+<p>
+We can think of turtle commands as a way to draw geometric figures on
+a computer display. But we can also regard them as a way to describe
+figures. Let's compare turtle descriptions with a more familiar system
+for representing geometric figures --- the Cartesian coordinate system, in
+which points are specified by two numbers, the $x$ and $y$ coordinates relative to a pair of axes drawn in the plane. To put Cartesian coordinates
+into our computer framework, imagine a ``Cartesian turtle'' whose moves
+are directed by a command called <span class='textsc'>setXY</span> . <span class='textsc'>setXY</span>  takes two numbers as
+inputs. These numbers are interpreted as at and y coordinates, and the
+turtle moves to the corresponding point. We could draw a rectangle with
+<span class='textsc'>setXY</span>  using
+</p>
+
+<div class='inline-editor turtle-code'>
+TO CARTESIAN.RECTANGLE (WIDTH, HEIGHT)
+   SETXY (WIDTH, 0)
+   SETXY (WIDTH, HEIGHT)
+   SETXY (O, HEIGHT)
+   SETXY (O, O)
+</div>
+<div class='inline-editor javascript-code' id='cartesian-rectangle'>
+function cartesianRectangle(width, height) {
+  turtle.setXY(width, 0);
+  turtle.setXY(width, height);
+  turtle.setXY(0, height);
+  turtle.setXY(0, 0);
+}
+cartesianRectangle(100, 200);
+</div>
+
+
+
+<div class='figure'>
+<img src='images/figures/fig1-6.png'/>
+<div class='caption'>Some shapes that can be made using arcs</div>
+</div>
+
+<div class='inline-editor javascript-code' id='circles'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function circles() {
+  for (var i=0; i<9; ++i) {
+    arcr(1, 360);
+    turtle.right(40);
+  }
+}
+circles();
+</div>
+
+<div class='inline-editor javascript-code' id='sun'>
+function arcl(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.left(1);
+  }
+}
+
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function ray(length) {
+  for (var i=0; i<2; ++i) {
+    arcl(length, 90);
+    arcr(length, 90);
+  }
+}
+
+function sun(size) {
+  for (var i=0; i<9; ++i) {
+    ray(size);
+    turtle.right(160);
+  }
+}
+
+sun(100);
+</div>
+<div class='inline-editor javascript-code' id='flower'>
+function cartesianRectangle(width, height) {
+  turtle.setXY(width, 0);
+  turtle.setXY(width, height);
+  turtle.setXY(0, height);
+  turtle.setXY(0, 0);
+}
+cartesianRectangle(100, 200);
+</div>
+<div class='inline-editor javascript-code' id='monster'>
+function cartesianRectangle(width, height) {
+  turtle.setXY(width, 0);
+  turtle.setXY(width, height);
+  turtle.setXY(0, height);
+  turtle.setXY(0, 0);
+}
+cartesianRectangle(100, 200);
+</div>
+
+
+<p>
+You are probably familiar with the uses of coordinates in geometry:
+studying geometric figures via equations, plotting graphs of numerical
+relationships, and so on. Indeed, Descartes' marriage of algebra and
+geometry is one of the fundamental insights in the development of mathematics. Nevertheless, these kinds of coordinate systems --- Cartesian,
+polar, or what have you --- are not the only ways to relate numbers to
+geometry. The turtle <span class='textsc'>forward</span>  and <span class='textsc'>right</span>  commands give an alternative way of measuring figures in the plane, a way that complements the
+coordinate viewpoint. The geometry of coordinates is called coordinate
+geometry we shall refer to the geometry of <span class='textsc'>forward</span>  and <span class='textsc'>right</span>  as turtle
+geometry. And even though we will be making use of coordinates later
+on, let us begin by studying turtle geometry as a system in its own right.
+Whereas studying coordinate geometry leads to graphs and algebraic
+equations, turtle geometry will introduce some less familiar, but no less
+important, mathematical ideas.
+</p>
 
 
 

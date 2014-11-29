@@ -37,7 +37,7 @@ define(function () {
       return _dimensions;
     },
     
-    line: function(xStart, yStart, xEnd, yEnd) {      
+    line: function(xStart, yStart, xEnd, yEnd) {     
       _context.beginPath();
       _context.moveTo(xStart, yStart);
       _context.lineTo(xEnd, yEnd);

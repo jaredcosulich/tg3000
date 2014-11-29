@@ -5,8 +5,8 @@ define(function () {
   var _width = 16;
   var _height = 18;
 
-  var _xPosition = 0;
-  var _yPosition = 0;
+  var _xPosition;
+  var _yPosition;
   var _angle = -90;
 
   var _penSize = 1;
@@ -16,16 +16,21 @@ define(function () {
   var _executionTimeout;
   var _commands = [];
   
+  var _dimensions;
   var _scale = 0.75;
   
   return {
     init: function(canvas) {
       _canvas = canvas;
+      _dimensions = _canvas.getDimensions();
+      _xPosition = _dimensions.width / 2;
+      _yPosition = _dimensions.height / 2;
+      
       _turtle = document.createElement('DIV');
       _turtle.id = 'turtle';
       _turtle.innerHTML = '<img src=\'images/mouse.png\'/>';
       _turtle.style.height = _height + 'px';
-      _turtle.style.width = _width + 'px';
+      _turtle.style.width = _width + 'px'; 
       _turtle.style.position = 'absolute';
       _canvas.getContainer().appendChild(_turtle);            
       this.reset();      
@@ -53,8 +58,7 @@ define(function () {
     reset: function() {
       this.clearCanvas();
       this.setPen(false);
-      var dimensions = _canvas.getDimensions();      
-      this.moveTo(dimensions.width / 2, dimensions.height / 2);
+      this.setXY(0, 0);
       this.setPen(true);
       _angle = -90;
       _commands = [];
@@ -72,7 +76,7 @@ define(function () {
           _executionDelay = 500;
           break;
         case 'fast':
-          _executionDelay = 10;
+          _executionDelay = 1;
           break;
         default:
           _executionDelay = 100;
@@ -92,16 +96,21 @@ define(function () {
       _penDown = down
     },
     
-    moveTo: function (x, y) {
-      _turtle.style.left = x - (_width / 2) + 'px';
-      _turtle.style.top = y - (_height / 2) + 'px';
+    setXY: function (x, y) {
+      var widthAdjustment = _dimensions.width / 2;
+      var heightAdjustment = _dimensions.height / 2;
+      var xAdjusted = x + widthAdjustment;
+      var yAdjusted = y + heightAdjustment;
+      
+      _turtle.style.left = xAdjusted - (_width / 2) + 'px';
+      _turtle.style.top = yAdjusted - (_height / 2) + 'px';
 
       if (_penDown) {
-        _canvas.line(_xPosition, _yPosition, x, y);        
+        _canvas.line(_xPosition + widthAdjustment, _yPosition + heightAdjustment, xAdjusted, yAdjusted);        
       }
 
-      _xPosition = x;
-      _yPosition = y;
+      _xPosition = xAdjusted - widthAdjustment;
+      _yPosition = yAdjusted - heightAdjustment;
     },
     
     changeAngle: function (angleDiff) {
@@ -129,7 +138,7 @@ define(function () {
       var scaledLength = length * _scale;
       var _self = this;
       var command = function() {
-        _self.moveTo(
+        _self.setXY(
           _xPosition + (scaledLength * Math.cos(_self.angleInRadians())), 
           _yPosition + (scaledLength * (Math.sin(_self.angleInRadians())))
         );                
