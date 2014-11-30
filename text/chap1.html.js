@@ -587,27 +587,33 @@ function sun(size) {
   }
 }
 
-sun(100);
-</div>
-<div class='inline-editor javascript-code' id='flower'>
-function cartesianRectangle(width, height) {
-  turtle.setXY(width, 0);
-  turtle.setXY(width, height);
-  turtle.setXY(0, height);
-  turtle.setXY(0, 0);
-}
-cartesianRectangle(100, 200);
-</div>
-<div class='inline-editor javascript-code' id='monster'>
-function cartesianRectangle(width, height) {
-  turtle.setXY(width, 0);
-  turtle.setXY(width, height);
-  turtle.setXY(0, height);
-  turtle.setXY(0, 0);
-}
-cartesianRectangle(100, 200);
+sun(1);
 </div>
 
+<div class='inline-editor javascript-code' id='flower'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function petal(size) {
+  arcr(size, 60);
+  turtle.right(120);
+  arcr(size, 60);
+  turtle.right(120);
+}
+
+function flower(size) {
+  for (var i=0; i<6; ++i) {
+    petal(size);
+    turtle.right(60);
+  }
+}
+
+flower(3);
+</div>
 
 <p>
 You are probably familiar with the uses of coordinates in geometry:
