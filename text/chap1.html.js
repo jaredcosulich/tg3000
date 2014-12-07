@@ -631,6 +631,252 @@ equations, turtle geometry will introduce some less familiar, but no less
 important, mathematical ideas.
 </p>
 
+<h4>Intrinsic versus Extrinsic</h4>
+
+<p>
+One major difference between turtle geometry and coordinate geometry
+rests on the notion of the <em>intrinsic</em> properties of geometric figures. An
+intrinsic property is one which depends only on the figure in question,
+not on the figure's relation to a frame of reference. The fact that a
+rectangle has four equal angles is intrinsic to the rectangle. But the
+fact that a particular rectangle has two vertical sides is <em>extrinsic</em>, for
+an external reference frame is required to determine which direction is
+``vertical.'' Turtles prefer intrinsic descriptions of figures. For example,
+the turtle program to draw a rectangle can draw the rectangle in any
+orientation (depending on the turtle's initial heading), but the program
+<span class='textsc'>cartesian.rectangle</span> shown above would have to be modified if we
+did not want the sides of the rectangle drawn parallel to the coordinate
+axes, or one vertex at (0,0).
+</p>
+
+<div class='figure'>
+<img src='images/figures/fig1-7.png'/>
+<div class='caption'>Modifying the turtle program still produces a circle. Modifying the equation gives an ellipse.</div>
+</div>
+
+<p>
+Another intrinsic property is illustrated by the turtle program for
+drawing a circle: Go <span class='textsc'>forward</span> a little bit, turn <span class='textsc'>right</span> a little bit, and
+repeat this over and over. Contrast this with the Cartesian coordinate
+representation for a circle, $x^2 + y^2 = r^2$. The turtle representation
+makes it evident that the curve is everywhere the same, since the process
+that draws it does the same thing over and over. This property of the
+circle, however, is not at all evident from the Cartesian representation.
+</p>
+<p>
+Compare the modified program
+</p>
+
+<div class='inline-editor turtle-code'>
+TO CIRCLE
+   REPEAT FOREVER
+      FORWARD 2
+      RIGHT 1
+</div>
+
+<div class='inline-editor javascript-code' id='circle2'>
+function circle() {
+  for (var i=0; i<999; ++i) {
+    turtle.forward(2);
+    turtle.right(1);
+  }
+}
+
+circle();
+</div>
+
+<p>
+with the modified equation $x^2 + 2y^2 = r^2$. (See figure 1.7.) The drawing
+produced by the modified program is still everywhere the same, that is, a
+circle. In fact, it doesn't matter what inputs we use to <span class='textsc'>forward</span> or <span class='textsc'>right</span>
+(as long as they are small). We still get a circle. The modified equation,
+however, no longer describes a circle, but rather an ellipse whose sides
+look different from its top and bottom. A turtle drawing an ellipse would
+have to turn more per distance traveled to get around its ``pointy'' sides
+than to get around its flatter top and bottom. This notion of ``how
+pointy something is,'' expressed as the ratio of angle turned to distance
+traveled, is the intrinsic quantity that mathematicians call <em>curvature</em>.
+(See exercises 2 and 4.)
+</p>
+
+<h4>Local versus Global</h4>
+
+<p>
+The turtle representation of a circle is not only more intrinsic than the
+Cartesian coordinate description. It is also more local; that is, it deals
+with geometry a little piece at a time. The turtle can forget about the
+rest of the plane when drawing a circle and deal only with the small part
+of the plane that surrounds its current position. By contrast, $ x^2 + y^2 = r^2 $ relies on a large-scale, global coordinate system to deline its properties.
+And defining a circle to be the set of points equidistant from some fixed
+point is just as global as using $ x^2 + y^2 = r^2$. The turtle representation
+does not need to make reference to that ``faraway'' special point, the
+center. In later chapters we will see how the fact that the turtle does its
+geometry by feeling a little locality of the world at a time allows turtle
+geometry to extend easily out of the plane to curved surfaces.
+</p>
+
+<h4>Procedures versus Equations</h4> 
+
+<p>
+A final important difference between turtle geometry and coordinate
+geometry is that turtle geometry characteristically describes geometric
+objects in terms of procedures rather than in terms of equations. In 
+formulating turtle-geometric descriptions we have access to an entire range
+of procedural mechanisms (such as iteration) that are hard to capture in
+the traditional algebraic formalism. Moreover, the procedural descriptions 
+used in turtle geometry are readily modified in many ways. This
+makes turtle geometry a fruitful arena for mathematical exploration.
+</p>
+<p>
+Let's enter that arena now.
+</p>
+<h3>Some Simple Turtle Programs</h3>
+
+<p>
+If we were setting out to explore coordinate geometry we might begin
+by examining the graphs of some simple algebraic equations. Our investigation of turtle geometry begins instead by examining the geometric
+figures associated with simple procedures. Here's one of the simplest:
+</p>
+<p>
+Go <span class='textsc'>forward</span> some fixed amount, turn <span class='textsc'>right</span> some fixed amount, 
+and repeat this sequence over and over. This procedure is called <span class='textsc'>poly</span>.
+</p>
+<div class='inline-editor turtle-code'>
+TO POLY SIDE ANGLE
+   REPEAT FOREVER
+      FORWARD SIDE
+      RIGHT ANGLE
+</div>
+<div class='inline-editor javascript-code' id='poly'>
+function poly(side, angle) {
+  for (var i=0; i<999; ++i) {
+    turtle.forward(side);
+    turtle.right(angle);
+  }
+}
+
+poly(30, 30);
+</div>
+
+<p>
+It draws shapes like those in figure 1.8.
+</p>
+
+<p>
+<span class='textsc'>poly</span> is a generalization of some procedures we've already seen. Setting
+the angle inputs equal to 90, 120, and 60, we get, respectively, squares,
+equilateral triangles, and regular hexagons. Setting the angle input equal
+to 1 gives a circle. Spend some time exploring <span class='textsc'>poly</span>, examining how the
+figures vary as you change the inputs. Observe that rather than drawing
+each figure only once, <span class='textsc'>poly</span> makes the turtle retrace the same path over
+and over. (Later on we'll worry about how to make a version of <span class='textsc'>poly</span>
+that draws a figure once and then stops.)
+</p>
+<p>
+Another way to explore with <span class='textsc'>poly</span> is to modify not only the inputs,
+but also the program; for example (see figure 1.9),
+</p>
+<div class='inline-editor turtle-code'>
+TO NEWPOLY SIDE ANGLE
+   REPEAT FOREVER
+      FORWARD SIDE
+      RIGHT ANGLE
+      FORWARD SIDE
+      RIGHT (2 * ANGLE)
+</div>
+<div class='inline-editor javascript-code' id='newpoly'>
+function newPoly(side, angle) {
+  for (var i=0; i<999; ++i) {
+    turtle.forward(side);
+    turtle.right(angle);
+    turtle.forward(side);
+    turtle.right(2 * angle);
+  }
+}
+
+newPoly(30, 144);
+</div>
+
+<p>
+(The symbol ``*'' denotes multiplication.) You should have no difficulty
+inventing many variations along these lines, particularly if you use such
+procedures as <span class='textsc'>square</span> and <span class='textsc'>triangle</span> as subprocedures to 
+replace or supplement <span class='textsc'>forward</span> and <span class='textsc'>right</span>.
+</p>
+<div class='figure'>
+<img src='images/figures/fig1-8.png'/>
+<div class='caption'>Shapes drawn by <span class='textsc'>poly</span></div>
+</div>
+
+<div class='figure'>
+<img src='images/figures/fig1-9.png'/>
+<div class='caption'>Shapes drawn by <span class='textsc'>newpoly</span></div>
+</div>
+
+<h4>Recursion</h4>
+<p>
+One particularly important way to make new procedures and vary old
+ones is to employ a program control structure called <em>recursion</em>; that is,
+to have a procedure use itself as a subprocedure, as in
+</p>
+<div class='inline-editor turtle-code'>
+TO POLY SIDE ANGLE
+   FORWARD SIDE
+   RIGHT ANGLE
+   POLY SIDE ANGLE
+</div>
+<div class='inline-editor javascript-code' id='poly-recursion'>
+function poly(side, angle) {
+  turtle.forward(side);
+  turtle.right(angle);
+  poly(side, angle);
+}
+
+poly(50, 95);
+</div>
+
+<p>
+The final line keeps the process going over and over by including ``do <span class='textsc'>poly</span> again'' as part of the definition of <span class='textsc'>poly</span>.
+</p>
+
+<div class='figure'>
+<img src='images/figures/fig1-10.png'/>
+<div class='caption'>Shapes drawn by <span class='textsc'>polyspi</span></div>
+</div>
+
+<p>
+One advantage of this slightly different way of representing <span class='textsc'>poly</span> is
+that it suggests some further modifications to the basic program. For
+instance, when it comes time to do <span class='textsc'>poly</span> again, call it with different
+inputs: 
+</p>
+
+<div class='inline-editor turtle-code'>
+TO POLYSPI SIDE ANGLE
+   FORWARD SIDE
+   RIGHT ANGLE
+   POLYSPI (SIDE + 1, ANGLE)
+</div>
+<div class='inline-editor javascript-code' id='poly-recursion-spiral'>
+function polySpiral(side, angle) {
+  turtle.forward(side);
+  turtle.right(angle);
+  polySpiral(side + 5, angle);
+}
+
+polySpiral(10, 95);
+</div>
+
+<p>
+Figure 1.10 shows some sample <span class='textsc'>polyspi</span> figures. Look carefully at how
+the program generates these figures: Each time the turtle goes <span class='textsc'>forward</span>
+it goes one unit farther than the previous time.
+</p>
+
+<div class='figure'>
+<img src='images/figures/fig1-11.png'/>
+<div class='caption'>The vertices of a <span class='textsc'>polyspi</span></div>
+</div>
 
 
 

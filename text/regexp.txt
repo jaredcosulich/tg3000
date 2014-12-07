@@ -10,6 +10,8 @@
 
 \\subsection{([^}]+)}                   ->    <h3>$1</h3>
 
+\\subsubsection{([^}]+)}                   ->    <h4>$1</h4>
+
 
 
 \\begin{figure}\n\\begin{center}\n\\includegraphics\[scale=\d\]{([^}]+)}\n\\caption{([^}]+)}\n\\end{center}\n\\end{figure}
