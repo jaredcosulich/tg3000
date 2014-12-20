@@ -878,6 +878,127 @@ it goes one unit farther than the previous time.
 <div class='caption'>The vertices of a <span class='textsc'>polyspi</span></div>
 </div>
 
+A more general form of \textsc{polyspi} uses a third input (\textsc{inc}, for increment)
+to allow us to vary how quickly the sides grow:
+
+\begin{verbatim}
+TO POLYSPI (SIDE, ANGLE, INC)
+   FORWARD SIDE
+   RIGHT ANGLE
+   POLYSPI (SIDE + INC, ANGLE, INC)
+\end{verbatim}
+In addition to trying \textsc{polyspi} with various inputs, make up some of your
+own variations. For example, subtract a bit from the side each time,
+which will produce an inward spiral. Or double the side each time, or
+divide it by two. Figure 1.11 illustrates a pattern made drawing only the
+vertices of \textsc{polyspi}, shown at four scales of magnification (see 
+exercise 13).  
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1]{fig1-12}
+\caption{Examples of \textsc{inspi}}
+\end{center}
+\end{figure}
+
+Another way to produce an inward spiral (curve of increasing curvature) is to increment the angle each time:
+
+\begin{verbatim}
+TO INSPI (SIDE, ANGLE, INC)
+   FORWARD SIDE
+   RIGHT ANGLE
+   INSPI (SIDE, ANGLE + INC, INC)
+\end{verbatim}
+Run \textsc{inspi} and watch how it works. The turtle begins spiraling
+inward as expected. But eventually the path begins to unwind as the
+angle is incremented past $180^{\circ}$. Letting \textsc{inspi} continue, we 
+find that it eventually produces a symmetrical closed figure which the turtle 
+retraces over and over as shown in figure 1.12. You should find this surprising.
+Why should this succession of \textsc{forward}s and \textsc{right}s bring the 
+turtle back precisely to its starting point, so that it will then retrace its own path?
+We will see in the next section that this closing phenomenon reflects the
+elegant mathematics underlying turtle geometry.
+
+\subsubsection{Exercises for Section \thesection}
+
+\begin{enumerate}
+\item We said in the text that when the inputs to the \textsc{poly} 
+procedure are small, the resulting figure will be indistinguishable from a circle. Do
+some experiments to see how large you can make the inputs and still
+have the figure look like a circle. For example, is an angle of $20^{\circ}$ 
+small enough to draw acceptable circles?
+
+\item The sequence of figures \textsc{poly(2,2)}, \textsc{poly(1,1)}, \textsc{poly(.5, .5)}
+all with the same curvature (turning divided by distance traveled), approaches ``in the limit'' a true mathematical circle. What is the radius
+of the circle?  
+\item $[P]$ Write a procedure that draws circular arcs. Inputs should specify
+the number of degrees in the arc as well as the size of the circle. Can
+you use the result of exercise 2 so that the size input is the radius of the
+circle? [A]
+\item Although the radius of a circle is not ``locally observable'' to a turtle
+who is drawing the circle, that length is intimately related to a local
+quantity called the ``radius of curvature,'' defined to be equal to $1 \div$
+curvature, or equivalently, to distance divided by angle. What is the
+relation between radius and radius of curvature for a \textsc{poly} with small
+inputs as above? Do this when angle is measured in radians as well as
+in degrees. [A]
+\item $[P]$ Construct some drawings using squares, rectangles, triangles,
+circles, and circular arc programs.
+\item $[P]$ lnvent your own variations on the model of \textsc{polyspi} and \textsc{inspi}.
+\item How many different 9-sided figures can \textsc{poly} draw (not counting
+differences in size or orientation)? What angle inputs to \textsc{poly} produce
+these figures? How about 10-sided figures? [A]
+\item $[PD]$ A rectangle is a square with two different side lengths. More
+generally, what happens to a \textsc{poly} that uses two different side lengths
+as in the following program?
+
+\begin{verbatim}
+TO DOUBLEPOLY (SIDE1, SIDE2, ANGLE)
+   REPEAT FOREVER
+   POLYSTEP SIDE1 ANGLE
+   POLYSTEP SIDE2 ANGLE
+\end{verbatim}
+In particular, how does the symmetry of \textsc{doublepoly} relate to that of
+\textsc{poly} with the same \textsc{angle} input?  
+\item $[D]$ Which encloses the larger area --- \textsc{poly(5, 5)} or \textsc{poly(6,6)}?
+\item $[P]$ Find inputs to \textsc{inspi} that give a nonclosed figure. Can you give
+a convincing argument that the figure is really nonclosed rather than,
+say, a closed figure too big to fit on the display screen? [A]
+\item $[P]$ If the display system you are using allows ``wraparound,'' you
+can get some interesting effects by trying \textsc{poly}s with very large sides.
+Explore these figures.  
+\item There are three kinds of ``interchanges'' we can perform on turtle
+programs: interchanging \textsc{right} and \textsc{left}, interchanging \textsc{forward} and
+\textsc{back}, and (for programs that terminate) reversing the sequence of instructions. Describe in geometric terms the effect of each of these operations, both by itself and in combination with the others. Start with the
+class of programs that close (return the turtle to its initial position and
+heading). [HA]
+\item $[P]$ The pattern made by the vertices of \textsc{polyspi} can be an interesting object of study. The dots seem to group into various ``arms,'' either
+straight or curving left or right. To draw these patterns, you can use
+the procedures
+
+\begin{verbatim}
+TO SPIDOT ANGLE
+   SUBSPIDOT 0 ANGLE
+
+TO SUBSPIDOT SIDE ANGLE
+   FORWARD SIDE
+   DOT
+   RIGHT ANGLE
+   SUBSPIDOT (SIDE + 1, ANGLE)
+
+TO DOT
+   PENDOWN
+   FORWARD
+   BACK 1
+   PENUP
+\end{verbatim}
+For example, predict what you will see between \textsc{spidot 90}, which has
+four arms, and \textsc{spidot 120}, which has three. Can you explain the
+sequence of figures you actually do see? Figure 1.11 shows how the figure
+drawn by the same \textsc{spidot} program seems to have different numbers
+of spiral arms when viewed at different scales of magnification, which
+can be accomplished by changing the increment to \textsc{side} in \textsc{subspidot}.
+Study this phenomenon.  
 
 
 

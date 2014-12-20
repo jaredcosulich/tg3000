@@ -25,3 +25,20 @@
 
 \\end{center}\n\\end{figure}            ->    </div>
 
+
+
+perl -0777 -pe '
+s/{\\em\s([^}]+)}/\<em\>$1\<\/em\>/ig; 
+s/{\\textsc\s([^}]+)}/\<span class='\''textsc'\''\>$1\<\/span\>/ig;
+s/\\textsc{([^}]+)}/\<span class='\''textsc'\''\>$1\<\/span\>/ig;
+s/\\begin{verbatim}/\<div class='\''inline-editor turtle-code'\''\>/ig;
+s/\\end{verbatim}/\<\/div\>\\n\\n/ig;
+s/\\subsection{([^}]+)}/\<h3\>$1\<\/h3\>/ig;
+s/\\subsubsection{([^}]+)}/\<h4\>$1\<\/h4\>/ig;
+s/\\begin{figure}\n\\begin{center}\n\\includegraphics\[scale=\d\]{([^}]+)}\n\\caption{([^}]+)}\n\\end{center}\n\\end{figure}/\<div class='\''figure'\''\>\\n\<img src='\''images\/figures\/$1.png'\''\/\>\\n\<div class='\''caption'\''\>$2\<\/div\>\\n\<\/div\>/ig;
+s/\\begin{figure}\n\\begin{center}/\<div class='\''figure'\''\>/ig;
+s/\\includegraphics\[scale=\d\]{([^}]+)}/\<img src='\''images\/figures\/$1.png'\''\/\>/ig;
+s/\\caption{([^}]+)}/\<div class='\''caption'\''\>$1\<\/div\>/ig;
+s/\\end{center}\n\\end{figure}/\<\/div\>/ig;
+' text/chap1.html.js > text/chap1x.html.js 
+
