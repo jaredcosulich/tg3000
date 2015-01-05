@@ -25,6 +25,18 @@
 
 \\end{center}\n\\end{figure}            ->    </div>
 
+\n                                      ->    <br/>
+
+\begin{enumerate}                       ->    <ul>
+
+\\item(.*)(?=\\item)                    ->    <li>$1</li>
+
+\\item(.*)(?=\\end{enumerate})          ->    <li>$1</li>
+
+\end{enumerate}                       ->      </ul>
+
+
+
 
 
 perl -0777 -pe '
@@ -40,5 +52,14 @@ s/\\begin{figure}\n\\begin{center}/\<div class='\''figure'\''\>/ig;
 s/\\includegraphics\[scale=\d\]{([^}]+)}/\<img src='\''images\/figures\/$1.png'\''\/\>/ig;
 s/\\caption{([^}]+)}/\<div class='\''caption'\''\>$1\<\/div\>/ig;
 s/\\end{center}\n\\end{figure}/\<\/div\>/ig;
+s/\\n/\<br\\\>/ig;
+s/\\begin\{enumerate\}/\<ul\>/ig;
+s/\\item(.*?)(?=\\item)/\<li\>$1\<\/li\>/sig;
+s/\\item(.*?)(?=\\end\{enumerate\})/\<li\>$1\<\/li\>/sig;
+s/\\end\{enumerate\}/\<\/ul\>/ig;
 ' text/chap1.html.js > text/chap1x.html.js 
+
+
+
+
 
