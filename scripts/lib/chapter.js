@@ -31,9 +31,9 @@ define(function (require) {
         var codeNames = ['turtle', 'javascript'];
         for (j in codeNames) {
           if((' ' + chapterDiv.className + ' ').indexOf(' ' + codeNames[j] + '-code' + ' ') > -1) {
-            if (codeNames[j] == 'turtle') {
-              chapterDiv.style.display = 'none';              
-            } else {
+            if (codeNames[j] != 'turtle') {
+            //   chapterDiv.style.display = 'none';              
+            // } else {
               codeBlocks.push(chapterDiv);
             }        
           }          
@@ -101,7 +101,7 @@ define(function (require) {
     load: function(index) {
       // console.log(require('text/chap1.html.js').toString())
       _self = this;
-      var chapterPath = _textPath + 'chap' + index + '.html.js';
+      var chapterPath = _textPath + 'chap' + index + 'progress.html.js';
       require([chapterPath], function(chapterFunction) {
         var cleanHtml = _self.clean(chapterFunction);
         _container.innerHTML = cleanHtml;   

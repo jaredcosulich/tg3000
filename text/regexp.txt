@@ -33,7 +33,12 @@
 
 \\item(.*)(?=\\end{enumerate})          ->    <li>$1</li>
 
-\end{enumerate}                       ->      </ul>
+\end{enumerate}                         ->      </ul>
+
+\chapter{([^}])\}                       ->    <h2>$1</h2>
+
+\begin{quote}(.*)(?=\\end{quote})       ->  <div class='quote'>$1</div>
+
 
 
 
@@ -57,8 +62,24 @@ s/\\begin\{enumerate\}/\<ul\>/ig;
 s/\\item(.*?)(?=\\item)/\<li\>$1\<\/li\>/sig;
 s/\\item(.*?)(?=\\end\{enumerate\})/\<li\>$1\<\/li\>/sig;
 s/\\end\{enumerate\}/\<\/ul\>/ig;
-' text/chap1.html.js > text/chap1x.html.js 
+s/\\chapter\{([^}]*)\}/\<h2\>$1\<\/h2\>/sig;
+s/\\section\{([^}]*)\}/\<h3\>$1\<\/h3\>/sig;
+s/\\begin\{quote\}/\<div class='\''quote'\''\>/sig;
+s/\\end\{quote\}/\<\/div\>/sig;
+s/\n\n/\n\n\<\/br\>\<\/br\>\n\n/sig;
+' text/chap1.html.js > text/chap1progress.html.js 
 
+
+
+
+s/\n\n([^\n]+)\n\n/\n\n<p\>\n$1\n\<\/p\>\n\n/sig;
+
+
+
+
+perl -0777 -pe '
+s/\n([^\n]*)\n/\n<p\>\n$1\n\<\/p\>\n/sig;
+' text/test.html.js
 
 
 
