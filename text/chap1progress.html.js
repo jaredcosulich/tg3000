@@ -45,7 +45,7 @@ Turtle geometry would be rather dull if it did not allow us to teach the
 turtle new commands. But luckily all we have to do to teach the turtle a
 new trick is to give it a list of commands it already knows. For example,
 here's how to draw a square with sides 100 units long:
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SQUARE
    FORWARD 100
    RIGHT 90
@@ -54,17 +54,42 @@ TO SQUARE
    FORWARD 100
    RIGHT 90
    FORWARD 100
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='basic-square'>
+function square() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+}
+
+square();
+</div>
+<br\><br\>
 This is an example of a <em>procedure</em>. (Such definitions are also commonly referred to as programs or functions.) The first line of the procedure (the <em>title line</em>) specifies the procedure's name. We've chosen to name this procedure <span class='textsc'>square</span>, but we could have named it anything at all. The rest of the procedure (the body) specifies a list of instructions the turtle is to carry out in response to the <span class='textsc'>square</span> command. There are a few useful tricks for writing procedures. One of them is called <em>iteration</em>, meaning repetition --- doing something over and over. Here's a more concise way of telling the turtle to draw a square, using iteration:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SQUARE
    REPEAT 4
       FORWARD 100
       RIGHT 90
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='square-loop'>
+function square() {
+  for (var i=0; i<4; ++i) {
+    turtle.forward(100);
+    turtle.right(90);
+  }
+}
+square();
+</div>
+<br\><br\>
 This procedure will repeat the indented commands <span class='textsc'>forward</span> 100 and <span class='textsc'>right</span> 90 four times.
 
 </br></br>
@@ -73,12 +98,22 @@ Another trick is to create a <span class='textsc'>square</span> procedure that t
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SQUARE SIZE
    REPEAT 4
       FORWARD SIZE
       RIGHT 90
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='square-size'>
+function square(size) {
+  for (var i=0; i<4; ++i) {
+    turtle.forward(size);
+    turtle.right(90);
+  }
+}
+square(100);
+</div>
+<br\><br\>
 Now, when you use the command, you must specify the value to be used for the 
 input, so you say <span class='textsc'>square 100</span>, just like <span class='textsc'>forward 100</span>. 
 
@@ -90,20 +125,42 @@ contexts, which is a good reason to make it a procedure in its own right:
 </br></br>
 
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SQUAREPIECE SIZE
    FORWARD SIZE
    RIGHT 90
 </div><br\><br\>
+<div class='inline-editor javascript-code' id='square-piece'>
+function squarePiece(size) {
+  turtle.forward(size);
+  turtle.right(90);
+}
+squarePiece(100);
+</div>
+
 Now we can rewrite <span class='textsc'>square</span> using <span class='textsc'>squarepiece</span> as
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SQUARE SIZE
    REPEAT 4
    SQUAREPIECE SIZE
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='square-square-piece'>
+function squarePiece(size) {
+  turtle.forward(size);
+  turtle.right(90);
+}
+
+function square(size) {
+  for (var i=0; i<4; ++i) {
+    squarePiece(size);
+  }
+}
+square(100);
+</div>
+<br\><br\>
 Notice that the input to <span class='textsc'>square</span>, also called <span class='textsc'>size</span>, 
 is passed in turn as an input to <span class='textsc'>squarepiece</span>. <span class='textsc'>squarepiece</span> 
 can be used as a <em>subprocedure</em> in other places as well --- for example, in drawing 
@@ -111,17 +168,33 @@ a rectangle:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO RECTANGLE SIDE1 SIDE2
    REPEAT 2
       SQUAREPIECE SIDE1
       SQUAREPIECE SIDE2
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='rectangle'>
+function squarePiece(size) {
+  turtle.forward(size);
+  turtle.right(90);
+}
+
+function rectangle(side1, side2) {
+  for (var i=0; i<2; ++i) {
+    squarePiece(side1);
+    squarePiece(side2);
+  }
+}
+rectangle(100, 50);
+</div>
+<br\><br\>
 To use the <span class='textsc'>rectangle</span> procedure you must specify its two inputs, for
 example, <span class='textsc'>rectangle 100 50</span>.
 
 </br></br>
 
+<!-- UNNECESSARY WITH JS
 When programs become more complex this kind of input notation
 can be a bit hard to read, especially when there are procedures such as
 <span class='textsc'>rectangle</span> that take more than one input. Sometimes it helps to use
@@ -136,6 +209,7 @@ TO RECTANGLE (SIDE1, SIDE2)
        SQUAREPIECE (SIDE1)
        SQUAREPIECE (SIDE2)
 </div><br\><br\>
+-->
 If you like, you can regard this notation as a computer language that
 has been designed to make it easy to interact with turtles. Appendix
 A gives some of the details of this language. It should not be diflicult
@@ -156,24 +230,89 @@ translations of turtle procedures.
 </br></br>
 
 <h3>Drawing with the Turtle</h3>
-Let's draw a figure that doesn't use $90^{\circ}$ angles --- an equilateral triangle. Since the triangle has $60^{\circ}$ angles, a natural first guess at a triangle procedure is
+Let's draw a figure that doesn't use 90&deg; angles --- an equilateral triangle. Since the triangle has 60&deg; angles, a natural first guess at a triangle procedure is
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO TRY.ANGLE SIZE
    REPEAT 3
       FORWARD SIZE
       RIGHT 60
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='try-angle'>
+function tryAngle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(60);
+  }
+}
+tryAngle(100);
+</div>
+
+<div class='inline-editor javascript-code' id='triangle'>
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+triangle(100);
+</div>
+<br\><br\>
 But <span class='textsc'>try.angle</span> doesn't work, as shown in figure 1.2. In fact, running this ``triangle'' procedure draws half of a regular hexagon. The bug in the procedure is that, whereas we normally measure geometric figures by their interior angles, turtle turning corresponds to the exterior angle at the vertex. So if we want to draw a triangle we should have the turtle turn 120°. You might practice ``playing turtle'' on a few geometric figures until it becomes natural for you to think of measuring a vertex by how much the turtle must turn in drawing the vertex, rather than by the usual interior angle. Turtle angle has many advantages over interior angle, as you will see.
 
 </br></br>
 
 <div class='figure'><br\><img src='images/figures/fig1-3.png'/><br\><div class='caption'>(a) Initial attempt to draw house fails (b) Interface steps are needed</div><br\></div>
 
-</br></br>
+</br>
 
+<div class='inline-editor javascript-code' id='house-fail'>
+function square(size) {
+  for (var i=0; i<4; ++i) {
+  turtle.forward(size);
+  turtle.right(90);
+  }
+}
+
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+
+function house(side) {
+  square(side);
+  triangle(side);
+}
+
+house(100);
+</div>
+<div class='inline-editor javascript-code' id='house'>
+function square(size) {
+  for (var i=0; i<4; ++i) {
+    turtle.forward(size);
+    turtle.right(90);
+  }
+}
+
+function triangle(size) {
+  for (var i=0; i<3; ++i) {
+    turtle.forward(size);
+    turtle.right(120);
+  }
+}
+
+function house(side) {
+  square(side);
+  turtle.forward(side);
+  turtle.right(30);
+  triangle(side);
+}
+house(100);
+</div>
 
 Now that we have a triangle and a square, we can use them as building blocks in more complex drawings --- a house, for example. But Figure 1.3 shows that simply running <span class='textsc'>square</span> followed by <span class='textsc'>triangle</span> doesn't quite work. The reason is that after <span class='textsc'>square</span>, the turtle is at neither the correct position nor the correct heading to begin drawing the roof. To fix this bug, we must add steps to the procedure that will move and rotate the turtle before the <span class='textsc'>triangle</span> procedure is run. In terms of designing programs to draw things, these extra steps serve as an interface between the part of the program that draws the walls of the house (the <span class='textsc'>square</span> procedure) and the part that draws the roof (the <span class='textsc'>triangle</span> procedure).
 
@@ -181,8 +320,117 @@ Now that we have a triangle and a square, we can use them as building blocks in 
 
 <div class='figure'><br\><img src='images/figures/fig1-4.png'/><br\><div class='caption'>Designs made by rotating a simple doodle</div><br\></div>
 
-</br></br>
+<div class='inline-editor javascript-code' id='doodle'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
 
+thing();
+</div>
+
+
+<div class='inline-editor javascript-code' id='doodle1'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
+
+function thing1() {
+  for (var i=0; i<4; ++i) {
+    thing();
+  }
+}
+
+thing1();
+</div>
+
+<div class='inline-editor javascript-code' id='doodle2'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
+
+function thing2() {
+  for (var i=0; i<999; ++i) {
+    thing();
+    turtle.right(10);
+    turtle.forward(50);
+  }
+}
+
+thing2();
+</div>
+
+<div class='inline-editor javascript-code' id='doodle3'>
+function thing() {
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(50);
+  turtle.right(90);
+  turtle.forward(100);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(25);
+  turtle.right(90);
+  turtle.forward(50);
+}
+
+
+function thing3() {
+  for (var i=0; i<999; ++i) {
+    thing();
+    turtle.left(45);
+    turtle.forward(100);
+  }
+}
+
+thing3();
+</div>
 
 In general, thinking of procedures as a number of main steps separated by interfaces is a useful strategy for planning complex drawings. Using procedures and subprocedures is also a good way to create abstract designs. Figure 1.4 shows how to create elaborate patterns by rotating a simple ``doodle''.
 
@@ -192,12 +440,22 @@ After all these straight line drawings, it is natural to ask whether the turtle 
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO CIRCLE
    REPEAT FOREVER
       FORWARD 1
       RIGHT 1
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='circle'>
+function circle() {
+  for (var i=0; i<999; ++i) {
+    turtle.forward(1);
+    turtle.right(1);
+  }
+}
+circle();
+</div>
+<br\><br\>
 <div class='figure'><br\><img src='images/figures/fig1-5.png'/><br\><div class='caption'><span class='textsc'>forward</span> 1, <span class='textsc'>right</span> 1, repeated draws a circle</div><br\></div>
 
 </br></br>
@@ -208,26 +466,37 @@ is not very useful as a subprocedure in creating more complex iigures.
 More useful would be a version of the <span class='textsc'>circle</span> procedure that would
 draw the figure once and then stop. When we study the mathematics of
 turtle geometry, we'll see that the turtle circle closes precisely when the
-turtle has turned through $360^{\circ}$. So if we generate the circle in chunks
+turtle has turned through 360&deg;. So if we generate the circle in chunks
 of <span class='textsc'>forward</span> 1, <span class='textsc'>right</span> 1, the circle will close after 
 precisely 360 chunks:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated' >
 TO CIRCLE
    REPEAT 360
       FORWARD 1
       RIGHT 1
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='circle-360'>
+function circle() {
+  for (var i=0; i<360; ++i) {
+    turtle.forward(1);
+    turtle.right(1);
+  }
+}
+circle();
+</div>
+
+<br\><br\>
 If we repeat the basic chunk fewer than 360 times, we get circular arcs.
 For instance, 180 repetitions give a semicircle, and 60 repetitions give a
-$60^{\circ}$ arc. The following procedures draw left and right arcs of <span class='textsc'>deg</span> degrees
+60&deg; arc. The following procedures draw left and right arcs of <span class='textsc'>deg</span> degrees
 on a circle of size <span class='textsc'>r</span>:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 T0 ARCR R DEG
    REPEAT DEG
    FORWARD R
@@ -239,7 +508,26 @@ TO ARCL R DEG
    REPEAT DEG
       FORWARD R
       LEFT 1
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='arc'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function arcl(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.left(1);
+  }
+}
+
+arcr(1, 60);
+arcl(1, 60);
+</div>
+<br\><br\>
 (See figure 1.6 and exercise 3 for more on making drawings with arcs.)
 
 </br></br>
@@ -526,7 +814,7 @@ TO INSPI (SIDE, ANGLE, INC)
 </div><br\><br\>
 Run <span class='textsc'>inspi</span> and watch how it works. The turtle begins spiraling
 inward as expected. But eventually the path begins to unwind as the
-angle is incremented past $180^{\circ}$. Letting <span class='textsc'>inspi</span> continue, we 
+angle is incremented past 180&deg;. Letting <span class='textsc'>inspi</span> continue, we 
 find that it eventually produces a symmetrical closed figure which the turtle 
 retraces over and over as shown in figure 1.12. You should find this surprising.
 Why should this succession of <span class='textsc'>forward</span>s and <span class='textsc'>right</span>s bring the 
@@ -544,7 +832,7 @@ elegant mathematics underlying turtle geometry.
 <li> We said in the text that when the inputs to the <span class='textsc'>poly</span> 
 procedure are small, the resulting figure will be indistinguishable from a circle. Do
 some experiments to see how large you can make the inputs and still
-have the figure look like a circle. For example, is an angle of $20^{\circ}$ 
+have the figure look like a circle. For example, is an angle of 20&deg; 
 small enough to draw acceptable circles?
 
 </br></br>

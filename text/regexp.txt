@@ -39,6 +39,8 @@
 
 \begin{quote}(.*)(?=\\end{quote})       ->  <div class='quote'>$1</div>
 
+\$(\d+)\^\{\\circ\}\$                   ->    $1&deg;
+
 
 
 
@@ -67,6 +69,7 @@ s/\\section\{([^}]*)\}/\<h3\>$1\<\/h3\>/sig;
 s/\\begin\{quote\}/\<div class='\''quote'\''\>/sig;
 s/\\end\{quote\}/\<\/div\>/sig;
 s/\n\n/\n\n\<\/br\>\<\/br\>\n\n/sig;
+s/\$(\d+)\^\{\\circ\}\$/$1\&deg\;/sig;
 ' text/chap1.html.js > text/chap1progress.html.js 
 
 
@@ -78,7 +81,7 @@ s/\n\n([^\n]+)\n\n/\n\n<p\>\n$1\n\<\/p\>\n\n/sig;
 
 
 perl -0777 -pe '
-s/\n([^\n]*)\n/\n<p\>\n$1\n\<\/p\>\n/sig;
+s/\$(\d+)\^\{\\circ\}\$/$1\&deg\;/sig;
 ' text/test.html.js
 
 
