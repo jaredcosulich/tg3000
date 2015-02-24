@@ -1,14 +1,16 @@
 define(function (require) {
+  var _codeExamplesList;
   var _textPath;
   var _container;
   var _turtle;
   var _editorFactory;
   
   return {
-    init: function(container, textPath, turtle) {
+    init: function(container, codeExamplesList, textPath, turtle) {
       _container = container;
       _textPath = textPath;
       _turtle = turtle;
+      _codeExamplesList = codeExamplesList;
 
       require(['editor_factory'], function(editorFactory) {
         _editorFactory = editorFactory;
@@ -59,15 +61,19 @@ define(function (require) {
       codeBlock.innerHTML = code.replace(/\s+/, '') + '\n';      
       _editorFactory.createEditor(codeBlock, codeBlock.id);
       
-      
-      //   
-      // var runButton = document.createElement('BUTTON');
-      // runButton.innerHTML = 'Run This Code';
-      // runButton.onclick = function() {
-      //   _editor.execute(code)
-      // };
-      // codeBlock.appendChild(runButton);      
+      this.linkCodeExample(codeBlock);
     },
+    
+    linkCodeExample: function(codeBlock) {
+      var example = document.createElement('DIV')
+      example.id = codeBlock.id + '-link';
+      example.className = 'code_example';
+      example.innerHTML = codeBlock.id.replace(/-/ig, '&nbsp;');
+      example.onclick = function() {
+        location.hash = codeBlock.id;
+      }
+      _codeExamplesList.appendChild(example);
+    }, 
     
     sizeImages: function() {
       var images = _container.getElementsByTagName('IMG');

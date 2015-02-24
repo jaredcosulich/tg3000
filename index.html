@@ -20,6 +20,7 @@
           float: left; 
           border: 1px solid black; 
           overflow: auto;
+          clear: left;
         }
         
         #canvas-container {
@@ -103,12 +104,37 @@
           font-size: smaller;
         }
         
+        #code-examples {
+          padding-bottom: 24px;
+        }
+        
+        #code-examples h3 {
+          text-align: left;
+          padding: 12px 0;
+        }
+        
+        #code-examples .code_example {
+          cursor: pointer;
+          float: left;
+          padding: 6px 12px;
+          text-decoration: underline;
+          background-color: #eee;
+          margin: 0 12px 12px 0;
+        }
+        
+        
+        #code-examples .code_example::hover, #code-examples .code_example.selected {
+          background-color: #ccc;
+        }
     </style>
     
   </head>
   <body>
     <h1>TG3000 (Turtle Geometry)</h1>
-    
+    <div id='code-examples'>
+      <h3>Code Examples</h3>
+      <div id='code-examples-list'></div>
+    </div>
     <div id='chapter-container'>
       <h2 style='text-align: center;'>BOOK TEXT</h2>
     </div>

@@ -546,7 +546,7 @@ We can think of turtle commands as a way to draw geometric figures on
 a computer display. But we can also regard them as a way to describe
 figures. Let's compare turtle descriptions with a more familiar system
 for representing geometric figures --- the Cartesian coordinate system, in
-which points are specified by two numbers, the $x$ and $y$ coordinates relative to a pair of axes drawn in the plane. To put Cartesian coordinates
+which points are specified by two numbers, the <b>x</b> and <b>y</b> coordinates relative to a pair of axes drawn in the plane. To put Cartesian coordinates
 into our computer framework, imagine a ``Cartesian turtle'' whose moves
 are directed by a command called <span class='textsc'>setxy</span>. <span class='textsc'>setxy</span> takes two numbers as
 inputs. These numbers are interpreted as at and y coordinates, and the
@@ -555,17 +555,101 @@ turtle moves to the corresponding point. We could draw a rectangle with
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO CARTESIAN.RECTANGLE (WIDTH, HEIGHT)
    SETXY (WIDTH, 0)
    SETXY (WIDTH, HEIGHT)
    SETXY (O, HEIGHT)
    SETXY (O, O)
+</div>
+<div class='inline-editor javascript-code' id='cartesian-rectangle'>
+function cartesianRectangle(width, height) {
+  turtle.setXY(width, 0);
+  turtle.setXY(width, height);
+  turtle.setXY(0, height);
+  turtle.setXY(0, 0);
+}
+cartesianRectangle(100, 200);
 </div><br\><br\>
 
 </br></br>
 
 <div class='figure'><br\><img src='images/figures/fig1-6.png'/><br\><div class='caption'>Some shapes that can be made using arcs</div><br\></div>
+
+<div class='inline-editor javascript-code' id='circles'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function circles() {
+  for (var i=0; i<9; ++i) {
+    arcr(1, 360);
+    turtle.right(40);
+  }
+}
+circles();
+</div>
+
+<div class='inline-editor javascript-code' id='sun'>
+function arcl(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.left(1);
+  }
+}
+
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function ray(length) {
+  for (var i=0; i<2; ++i) {
+    arcl(length, 90);
+    arcr(length, 90);
+  }
+}
+
+function sun(size) {
+  for (var i=0; i<9; ++i) {
+    ray(size);
+    turtle.right(160);
+  }
+}
+
+sun(1);
+</div>
+
+<div class='inline-editor javascript-code' id='flower'>
+function arcr(length, degrees) {
+  for (var i=0; i< degrees; ++i) {
+    turtle.forward(length);
+    turtle.right(1);
+  }
+}
+
+function petal(size) {
+  arcr(size, 60);
+  turtle.right(120);
+  arcr(size, 60);
+  turtle.right(120);
+}
+
+function flower(size) {
+  for (var i=0; i<6; ++i) {
+    petal(size);
+    turtle.right(60);
+  }
+}
+
+flower(3);
+</div>
+
 
 </br></br>
 
@@ -612,7 +696,7 @@ axes, or one vertex at (0,0).
 Another intrinsic property is illustrated by the turtle program for
 drawing a circle: Go <span class='textsc'>forward</span> a little bit, turn <span class='textsc'>right</span> a little bit, and
 repeat this over and over. Contrast this with the Cartesian coordinate
-representation for a circle, $x^2 + y^2 = r^2$. The turtle representation
+representation for a circle, <b>x^2 + y^2 = r^2</b>. The turtle representation
 makes it evident that the curve is everywhere the same, since the process
 that draws it does the same thing over and over. This property of the
 circle, however, is not at all evident from the Cartesian representation.
@@ -622,7 +706,7 @@ TO CIRCLE
    REPEAT FOREVER
       FORWARD 2
       RIGHT 1
-</div><br\><br\>with the modified equation $x^2 + 2y^2 = r^2$. (See figure 1.7.) The drawing
+</div><br\><br\>with the modified equation <b>x^2 + 2y^2 = r^2</b>. (See figure 1.7.) The drawing
 produced by the modified program is still everywhere the same, that is, a
 circle. In fact, it doesn't matter what inputs we use to <span class='textsc'>forward</span> or <span class='textsc'>right</span>
 (as long as they are small). We still get a circle. The modified equation,
@@ -644,9 +728,9 @@ The turtle representation of a circle is not only more intrinsic than the
 Cartesian coordinate description. It is also more local; that is, it deals
 with geometry a little piece at a time. The turtle can forget about the
 rest of the plane when drawing a circle and deal only with the small part
-of the plane that surrounds its current position. By contrast, $ x^2 + y^2 = r^2 $ relies on a large-scale, global coordinate system to deline its properties.
+of the plane that surrounds its current position. By contrast, <b> x^2 + y^2 = r^2 </b> relies on a large-scale, global coordinate system to deline its properties.
 And defining a circle to be the set of points equidistant from some fixed
-point is just as global as using $ x^2 + y^2 = r^2$. The turtle representation
+point is just as global as using <b> x^2 + y^2 = r^2</b>. The turtle representation
 does not need to make reference to that ``faraway'' special point, the
 center. In later chapters we will see how the fact that the turtle does its
 geometry by feeling a little locality of the world at a time allows turtle
@@ -840,24 +924,24 @@ small enough to draw acceptable circles?
 </li><li> The sequence of figures <span class='textsc'>poly(2,2)</span>, <span class='textsc'>poly(1,1)</span>, <span class='textsc'>poly(.5, .5)</span>
 all with the same curvature (turning divided by distance traveled), approaches ``in the limit'' a true mathematical circle. What is the radius
 of the circle?  
-</li><li> $[P]$ Write a procedure that draws circular arcs. Inputs should specify
+</li><li> <b>[P]</b> Write a procedure that draws circular arcs. Inputs should specify
 the number of degrees in the arc as well as the size of the circle. Can
 you use the result of exercise 2 so that the size input is the radius of the
 circle? [A]
 </li><li> Although the radius of a circle is not ``locally observable'' to a turtle
 who is drawing the circle, that length is intimately related to a local
-quantity called the ``radius of curvature,'' defined to be equal to $1 \div$
+quantity called the ``radius of curvature,'' defined to be equal to <b>1 \div</b>
 curvature, or equivalently, to distance divided by angle. What is the
 relation between radius and radius of curvature for a <span class='textsc'>poly</span> with small
 inputs as above? Do this when angle is measured in radians as well as
 in degrees. [A]
-</li><li> $[P]$ Construct some drawings using squares, rectangles, triangles,
+</li><li> <b>[P]</b> Construct some drawings using squares, rectangles, triangles,
 circles, and circular arc programs.
-</li><li> $[P]$ lnvent your own variations on the model of <span class='textsc'>polyspi</span> and <span class='textsc'>inspi</span>.
+</li><li> <b>[P]</b> lnvent your own variations on the model of <span class='textsc'>polyspi</span> and <span class='textsc'>inspi</span>.
 </li><li> How many different 9-sided figures can <span class='textsc'>poly</span> draw (not counting
 differences in size or orientation)? What angle inputs to <span class='textsc'>poly</span> produce
 these figures? How about 10-sided figures? [A]
-</li><li> $[PD]$ A rectangle is a square with two different side lengths. More
+</li><li> <b>[PD]</b> A rectangle is a square with two different side lengths. More
 generally, what happens to a <span class='textsc'>poly</span> that uses two different side lengths
 as in the following program?
 
@@ -871,11 +955,11 @@ TO DOUBLEPOLY (SIDE1, SIDE2, ANGLE)
 </div><br\><br\>
 In particular, how does the symmetry of <span class='textsc'>doublepoly</span> relate to that of
 <span class='textsc'>poly</span> with the same <span class='textsc'>angle</span> input?  
-</li><li> $[D]$ Which encloses the larger area --- <span class='textsc'>poly(5, 5)</span> or <span class='textsc'>poly(6,6)</span>?
-</li><li> $[P]$ Find inputs to <span class='textsc'>inspi</span> that give a nonclosed figure. Can you give
+</li><li> <b>[D]</b> Which encloses the larger area --- <span class='textsc'>poly(5, 5)</span> or <span class='textsc'>poly(6,6)</span>?
+</li><li> <b>[P]</b> Find inputs to <span class='textsc'>inspi</span> that give a nonclosed figure. Can you give
 a convincing argument that the figure is really nonclosed rather than,
 say, a closed figure too big to fit on the display screen? [A]
-</li><li> $[P]$ If the display system you are using allows ``wraparound,'' you
+</li><li> <b>[P]</b> If the display system you are using allows ``wraparound,'' you
 can get some interesting effects by trying <span class='textsc'>poly</span>s with very large sides.
 Explore these figures.  
 </li><li> There are three kinds of ``interchanges'' we can perform on turtle
@@ -883,7 +967,7 @@ programs: interchanging <span class='textsc'>right</span> and <span class='texts
 <span class='textsc'>back</span>, and (for programs that terminate) reversing the sequence of instructions. Describe in geometric terms the effect of each of these operations, both by itself and in combination with the others. Start with the
 class of programs that close (return the turtle to its initial position and
 heading). [HA]
-</li><li> $[P]$ The pattern made by the vertices of <span class='textsc'>polyspi</span> can be an interesting object of study. The dots seem to group into various ``arms,'' either
+</li><li> <b>[P]</b> The pattern made by the vertices of <span class='textsc'>polyspi</span> can be an interesting object of study. The dots seem to group into various ``arms,'' either
 straight or curving left or right. To draw these patterns, you can use
 the procedures
 
@@ -919,7 +1003,7 @@ Study this phenomenon.
 
 </br></br>
 
-</li><li> $[P]$ Suppose we have a function called <span class='textsc'>random</span> that outputs a random
+</li><li> <b>[P]</b> Suppose we have a function called <span class='textsc'>random</span> that outputs a random
 digit (0 through 9). Play around with the procedure
 
 </br></br>
@@ -935,7 +1019,7 @@ TO RANDPOLY SIDE ANGLE
 Use this program as the basis for some psychology experiments. For
 instance, what is the average number of sides that must be drawn before
 people can recognize which <span class='textsc'>poly</span> it is?
-</li><li> $[D]$ Find some local and intrinsic way to describe an ellipse. Write
+</li><li> <b>[D]</b> Find some local and intrinsic way to describe an ellipse. Write
 a program that makes the turtle draw ellipses, where the inputs specify
 the size and eccentricity of the ellipse. [A]
 </li></ul>

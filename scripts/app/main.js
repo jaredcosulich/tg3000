@@ -10,7 +10,8 @@ define(function (require) {
   // editor.init(document.getElementById('code-container'), 'editor', turtle);
   
   var chapterContainer = document.getElementById('chapter-container');
+  var codeExamplesList = document.getElementById('code-examples-list')
   var chapter = require('chapter');
-  chapter.init(chapterContainer, 'text/', turtle);
+  chapter.init(chapterContainer, codeExamplesList, 'text/', turtle);
   chapter.load(1);
 });
