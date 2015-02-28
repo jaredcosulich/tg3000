@@ -701,12 +701,24 @@ makes it evident that the curve is everywhere the same, since the process
 that draws it does the same thing over and over. This property of the
 circle, however, is not at all evident from the Cartesian representation.
 Compare the modified program
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO CIRCLE
    REPEAT FOREVER
       FORWARD 2
       RIGHT 1
-</div><br\><br\>with the modified equation <b>x^2 + 2y^2 = r^2</b>. (See figure 1.7.) The drawing
+</div>
+<div class='inline-editor javascript-code' id='2x-circle'>
+function circle() {
+  for (var i=0; i<9999; ++i) {
+    turtle.forward(2);
+    turtle.right(1);
+  }
+}
+
+circle();
+</div>
+
+<br\><br\>with the modified equation <b>x^2 + 2y^2 = r^2</b>. (See figure 1.7.) The drawing
 produced by the modified program is still everywhere the same, that is, a
 circle. In fact, it doesn't matter what inputs we use to <span class='textsc'>forward</span> or <span class='textsc'>right</span>
 (as long as they are small). We still get a circle. The modified equation,
@@ -766,12 +778,24 @@ and repeat this sequence over and over. This procedure is called <span class='te
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO POLY SIDE ANGLE
    REPEAT FOREVER
       FORWARD SIDE
       RIGHT ANGLE
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='poly'>
+function poly(side, angle) {
+  for (var i=0; i<9999; ++i) {
+    turtle.forward(side);
+    turtle.right(angle);
+  }
+}
+
+poly(30, 30);
+</div>
+
+<br\><br\>
 It draws shapes like those in figure 1.8.
 
 </br></br>
@@ -792,14 +816,29 @@ but also the program; for example (see figure 1.9),
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO NEWPOLY SIDE ANGLE
    REPEAT FOREVER
       FORWARD SIDE
       RIGHT ANGLE
       FORWARD SIDE
       RIGHT (2 * ANGLE)
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='new-poly'>
+function newPoly(side, angle) {
+  for (var i=0; i<9999; ++i) {
+    turtle.forward(side);
+    turtle.right(angle);
+    turtle.forward(side);
+    turtle.right(angle * 2);
+  }
+}
+
+newPoly(30, 30);
+</div>
+
+
+<br\><br\>
 (The symbol ``*'' denotes multiplication.) You should have no difficulty
 inventing many variations along these lines, particularly if you use such
 procedures as <span class='textsc'>square</span> and <span class='textsc'>triangle</span> as subprocedures to 
@@ -825,11 +864,20 @@ to have a procedure use itself as a subprocedure, as in
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO POLY SIDE ANGLE
    FORWARD SIDE
    RIGHT ANGLE
    POLY SIDE ANGLE
+</div>
+<div class='inline-editor javascript-code' id='recursive-poly'>
+function poly(side, angle) {
+  turtle.forward(side);
+  turtle.right(angle);
+  poly(side, angle);
+}
+
+poly(120, 95);
 </div><br\><br\>
 The final line keeps the process going over and over by including ``do <span class='textsc'>poly</span> again'' as part of the definition of <span class='textsc'>poly</span>.
 
@@ -846,11 +894,20 @@ inputs:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO POLYSPI SIDE ANGLE
    FORWARD SIDE
    RIGHT ANGLE
    POLYSPI (SIDE + 1, ANGLE)
+</div>
+<div class='inline-editor javascript-code' id='poly-spiral'>
+function polyspi(side, angle) {
+  turtle.forward(side);
+  turtle.right(angle);
+  polyspi(side + 1, angle);
+}
+
+polyspi(30, 95);
 </div><br\><br\>
 Figure 1.10 shows some sample <span class='textsc'>polyspi</span> figures. Look carefully at how
 the program generates these figures: Each time the turtle goes <span class='textsc'>forward</span>
@@ -867,12 +924,22 @@ to allow us to vary how quickly the sides grow:
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO POLYSPI (SIDE, ANGLE, INC)
    FORWARD SIDE
    RIGHT ANGLE
    POLYSPI (SIDE + INC, ANGLE, INC)
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='incrementing-poly-spiral'>
+function polyspi(side, angle, increment) {
+  turtle.forward(side);
+  turtle.right(angle);
+  polyspi(side + increment, angle, increment);
+}
+
+polyspi(5, 15, 5);
+</div>
+<br\><br\>
 In addition to trying <span class='textsc'>polyspi</span> with various inputs, make up some of your
 own variations. For example, subtract a bit from the side each time,
 which will produce an inward spiral. Or double the side each time, or
@@ -890,12 +957,24 @@ Another way to produce an inward spiral (curve of increasing curvature) is to in
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO INSPI (SIDE, ANGLE, INC)
    FORWARD SIDE
    RIGHT ANGLE
    INSPI (SIDE, ANGLE + INC, INC)
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='incremental-spiral'>
+function inspi(side, angle, increment) {
+  turtle.forward(side);
+  turtle.right(angle);
+  inspi(side, angle + increment, increment);
+}
+
+inspi(15, 40, 15);
+</div>
+
+
+<br\><br\>
 Run <span class='textsc'>inspi</span> and watch how it works. The turtle begins spiraling
 inward as expected. But eventually the path begins to unwind as the
 angle is incremented past 180&deg;. Letting <span class='textsc'>inspi</span> continue, we 
