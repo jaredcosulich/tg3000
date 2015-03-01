@@ -1026,12 +1026,30 @@ as in the following program?
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO DOUBLEPOLY (SIDE1, SIDE2, ANGLE)
    REPEAT FOREVER
    POLYSTEP SIDE1 ANGLE
    POLYSTEP SIDE2 ANGLE
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='double-poly'>
+function polystep(side, angle) {
+  turtle.forward(side);
+  turtle.right(angle);
+}
+
+function doublepoly(side1, side2, angle) {
+  for (var i=0; i<999; ++i) {
+    polystep(side1, angle);
+    polystep(side2, angle);
+  }
+}
+
+doublepoly(30, 60, 45);
+</div>
+
+
+<br\><br\>
 In particular, how does the symmetry of <span class='textsc'>doublepoly</span> relate to that of
 <span class='textsc'>poly</span> with the same <span class='textsc'>angle</span> input?  
 </li><li> <b>[D]</b> Which encloses the larger area --- <span class='textsc'>poly(5, 5)</span> or <span class='textsc'>poly(6,6)</span>?
@@ -1052,7 +1070,7 @@ the procedures
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO SPIDOT ANGLE
    SUBSPIDOT 0 ANGLE
 
@@ -1071,7 +1089,31 @@ TO DOT
    FORWARD
    BACK 1
    PENUP
-</div><br\><br\>
+</div>
+
+<div class='inline-editor javascript-code' id='spiral-dot'>
+function spidot(angle) {
+  subspidot(0, angle)
+}
+
+function subspidot(side, angle) {
+  turtle.forward(side);
+  dot();
+  turtle.right(angle);
+  subspidot(side + 1, angle);
+}
+
+function dot() {
+  turtle.penDown();
+  turtle.forward(1);
+  turtle.back(1);
+  turtle.penUp();
+}
+
+spidot(15);
+</div>
+
+<br\><br\>
 For example, predict what you will see between <span class='textsc'>spidot 90</span>, which has
 four arms, and <span class='textsc'>spidot 120</span>, which has three. Can you explain the
 sequence of figures you actually do see? Figure 1.11 shows how the figure

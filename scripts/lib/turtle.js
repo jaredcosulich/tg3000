@@ -93,7 +93,23 @@ define(function () {
     },
     
     setPen: function(down) {
-      _penDown = down
+      this._penDown = down
+    },
+    
+    penDown: function() {
+      var _self = this;
+      var command = function() { 
+        _self.setPen(true);     
+      };
+      this.addCommand(command)
+    },
+    
+    penUp: function() {
+      var _self = this;
+      var command = function() { 
+        _self.setPen(false);     
+      };
+      this.addCommand(command)
     },
     
     setXY: function (x, y) {
@@ -105,7 +121,7 @@ define(function () {
       _turtle.style.left = xAdjusted - (_width / 2) + 'px';
       _turtle.style.top = yAdjusted - (_height / 2) + 'px';
 
-      if (_penDown) {
+      if (this._penDown) {
         _canvas.line(_xPosition + widthAdjustment, _yPosition + heightAdjustment, xAdjusted, yAdjusted);        
       }
 
@@ -150,7 +166,7 @@ define(function () {
       this.move(length);
     },
     
-    backward: function (length) {
+    back: function (length) {
       this.move(length * -1);
     },
     
