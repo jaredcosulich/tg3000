@@ -1129,14 +1129,30 @@ digit (0 through 9). Play around with the procedure
 
 </br></br>
 
-<div class='inline-editor turtle-code'>
+<div class='inline-editor turtle-code translated'>
 TO RANDPOLY SIDE ANGLE
    REPEAT FOREVER
       IF RANDOM = 0 THEN PENDOWN
          ELSE PENUP
       FORWARD SIDE
       RIGHT ANGLE
-</div><br\><br\>
+</div>
+<div class='inline-editor javascript-code' id='rand-poly'>
+function randPoly(side, angle) {
+  for (var i=0; i<999; ++i) {
+    if (Math.random() < 0.1) {
+      turtle.penDown();
+    } else {
+      turtle.penUp();
+    }
+    turtle.forward(side);
+    turtle.right(angle);
+  }
+}
+
+randPoly(60, 60);
+</div>
+<br\><br\>
 Use this program as the basis for some psychology experiments. For
 instance, what is the average number of sides that must be drawn before
 people can recognize which <span class='textsc'>poly</span> it is?
