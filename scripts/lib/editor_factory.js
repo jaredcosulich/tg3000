@@ -86,7 +86,8 @@ define(['ace'], function (require) {
     process: function(code) {
       return code.
         replace(/^\s*/ig, '').
-        replace(/&lt;/ig, '<');
+        replace(/&lt;/ig, '<').
+        replace(/^\s+([^\n]+;)\s*$/igm, 'turtle.addCommand(function() { $1 }, true);');
     }
     
   }

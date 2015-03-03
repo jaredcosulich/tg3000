@@ -15,6 +15,7 @@ define(function () {
   var _executionDelay = 0;
   var _executionTimeout;
   var _commands = [];
+  var _running = false;
   
   var _dimensions;
   var _scale = 0.75;
@@ -37,22 +38,32 @@ define(function () {
     },
     
     start: function() {
-      if (_executionTimeout ) {
+      if (this._running) {
         return;
       }
+      this._running = true;
       this.run();
     },
     
     run: function () {
       if (!_commands.length) {
+        this._running = false;
         return;
       }
       
       var command = _commands.shift();
-      command();
-      
-      var _self = this;
-      _executionTimeout = setTimeout(function() { _self.run(); }, _executionDelay);        
+      if (command.now) {
+        command.action();
+        this.run();         
+      } else {
+        var _self = this;
+        _executionTimeout = setTimeout(
+          function() {
+            command.action();
+            _self.run();
+          }, _executionDelay
+        );        
+      }
     },
     
     reset: function() {
@@ -61,13 +72,14 @@ define(function () {
       this.setXY(0, 0);
       this.setPen(true);
       _angle = -90;
-      _commands = [];
       this.stop();
     },
     
     stop: function() {
+      _commands = [];
       clearTimeout(_executionTimeout);
-      _executionTimeout = undefined;      
+      _executionTimeout = undefined;  
+      this._running = false;    
     },
     
     setSpeed: function(speed) {
@@ -87,8 +99,8 @@ define(function () {
       _scale = scale;
     },
     
-    addCommand: function(command) {
-      _commands.push(command);
+    addCommand: function(action, now) {
+      _commands.push({action: action, now: now});
       this.start();
     },
     
@@ -98,18 +110,18 @@ define(function () {
     
     penDown: function() {
       var _self = this;
-      var command = function() { 
+      var action = function() { 
         _self.setPen(true);     
       };
-      this.addCommand(command)
+      this.addCommand(action)
     },
     
     penUp: function() {
       var _self = this;
-      var command = function() { 
+      var action = function() { 
         _self.setPen(false);     
       };
-      this.addCommand(command)
+      this.addCommand(action)
     },
     
     setXY: function (x, y) {
@@ -131,10 +143,10 @@ define(function () {
     
     changeAngle: function (angleDiff) {
       var _self = this;
-      var command = function() { 
+      var action = function() { 
         _self.setAngle(_angle + angleDiff);       
       };
-      this.addCommand(command)      
+      this.addCommand(action)      
     },
     
     setAngle: function(angle) {
@@ -153,13 +165,13 @@ define(function () {
     move: function (length) {
       var scaledLength = length * _scale;
       var _self = this;
-      var command = function() {
+      var action = function() {
         _self.setXY(
           _xPosition + (scaledLength * Math.cos(_self.angleInRadians())), 
           _yPosition + (scaledLength * (Math.sin(_self.angleInRadians())))
         );                
       }
-      this.addCommand(command);
+      this.addCommand(action);
     },
     
     forward: function (length) {

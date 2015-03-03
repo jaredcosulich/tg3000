@@ -1093,7 +1093,7 @@ TO DOT
 
 <div class='inline-editor javascript-code' id='spiral-dot'>
 function spidot(angle) {
-  subspidot(0, angle)
+  subspidot(0, angle);
 }
 
 function subspidot(side, angle) {
@@ -1110,7 +1110,7 @@ function dot() {
   turtle.penUp();
 }
 
-spidot(15);
+spidot(65);
 </div>
 
 <br\><br\>
