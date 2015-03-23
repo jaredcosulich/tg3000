@@ -59,7 +59,7 @@ define(function (require) {
       var code = codeBlock.innerHTML;
       
       codeBlock.innerHTML = code.replace(/\s+/, '') + '\n';      
-      _editorFactory.createEditor(codeBlock, codeBlock.id);
+      _editorFactory.createEditor(codeBlock, codeBlock.id, true);
       
       this.linkCodeExample(codeBlock);
     },

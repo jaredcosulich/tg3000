@@ -14,4 +14,13 @@ define(function (require) {
   var chapter = require('chapter');
   chapter.init(chapterContainer, codeExamplesList, 'text/', turtle);
   chapter.load(1);
+  
+  require(['editor_factory'], function(editorFactory) {
+    var editorFactory = editorFactory;
+    editorFactory.init(turtle);
+    var codeBlock = document.getElementById('default-editor');
+    editorFactory.createEditor(codeBlock, codeBlock.id)
+  });
+  
+  
 });

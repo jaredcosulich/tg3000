@@ -21,20 +21,20 @@
           border: 1px solid black; 
           overflow: auto;
           clear: left;
+          margin-bottom: 120px;
         }
         
         #canvas-container {
           width: 450px; 
-          height: 540px; 
+          height: 360px; 
           float: left; 
           border: 1px solid black;
           position: relative;
         }
         
         #code-container {
-          display: none;
-          width: 0px; 
-          height: 400px; 
+          width: 450px; 
+          height: 178px; 
           float: left; 
           border: 1px solid black; 
           position: relative;
@@ -79,7 +79,7 @@
           display: none;
         }
         
-        .inline-editor .run-buttons {
+        .run-buttons {
           position: absolute;
           bottom: 0;
           left: 48px;
@@ -140,8 +140,17 @@
     </div>
     <div id='canvas-container'></div>
     <div id='code-container'>
-      <h3>Code Editor</h3>
-      <div id='editor'></div>
+      <div id='default-editor'>for (var i=0; i<4; ++i) {
+  turtle.right(90);
+  turtle.forward(100);
+}
+<br/>
+turtle.right(45);
+turtle.forward(100);
+turtle.right(135);
+turtle.forward(100);
+<br/>
+      </div>
     </div>  
   </body>
 </html>

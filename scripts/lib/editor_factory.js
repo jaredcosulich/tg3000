@@ -1,14 +1,14 @@
 define(['ace'], function (require) {
   var _editors = {};
   var _containers = {};
-  var _turtle;
+  var turtle;
   
   return {
     init: function(turtle) {
       this.turtle = turtle;            
     },
     
-    createEditor: function(container, editorId) {
+    createEditor: function(container, editorId, autoClear) {
       var editor = ace.edit(editorId);
       editor.setTheme("ace/theme/chrome");
       editor.getSession().setMode("ace/mode/javascript");
@@ -19,11 +19,11 @@ define(['ace'], function (require) {
       _editors[editorId] = editor;
       _containers[editorId] = container;
 
-      this.initRunButtons(editorId);
+      this.initRunButtons(editorId, autoClear);
       return 
     },
     
-    initRunButtons: function(editorId) {
+    initRunButtons: function(editorId, autoClear) {
       var table = document.createElement('TABLE');
       table.className = 'run-buttons';
       var tbody = document.createElement('TBODY');
@@ -35,20 +35,26 @@ define(['ace'], function (require) {
       var _self = this;
 
       this.createRunButton(row, 'Run', function() { 
-        _self.execute(_self.getCode(editorId)); 
+        _self.execute(_self.getCode(editorId), 'normal', autoClear); 
       });
 
       this.createRunButton(row, 'Run Slow', function() { 
-        _self.execute(_self.getCode(editorId), 'slow'); 
+        _self.execute(_self.getCode(editorId), 'slow', autoClear); 
       });
       
       this.createRunButton(row, 'Run Fast', function() { 
-        _self.execute(_self.getCode(editorId), 'fast'); 
+        _self.execute(_self.getCode(editorId), 'fast', autoClear); 
       });
       
       this.createRunButton(row, 'Stop', function() { 
         _self.stopExecution(); 
       });
+      
+      if (!autoClear) {
+        this.createRunButton(row, 'Clear', function() { 
+          _self.turtle.reset(); 
+        });        
+      }
     },
     
     createRunButton: function (container, html, clickFunction) {
@@ -71,8 +77,8 @@ define(['ace'], function (require) {
       return _editors[editorId];
     },
     
-    execute: function (javascript, speed) {
-      this.turtle.reset()
+    execute: function (javascript, speed, clear) {
+      if (clear) this.turtle.reset()
       this.turtle.setSpeed(speed);
       var code = this.process(javascript);
       // this.setCode(code);
@@ -87,7 +93,7 @@ define(['ace'], function (require) {
       return code.
         replace(/^\s*/ig, '').
         replace(/&lt;/ig, '<').
-        replace(/^\s+([^\n]+;)\s*$/igm, 'turtle.addCommand(function() { $1 }, true);');
+        replace(/^\s*([^\n]+;)\s*$/igm, 'turtle.addCommand(function() { $1 }, true);');
     }
     
   }

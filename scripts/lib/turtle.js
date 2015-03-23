@@ -71,7 +71,7 @@ define(function () {
       this.setPen(false);
       this.setXY(0, 0);
       this.setPen(true);
-      _angle = -90;
+      this.setAngle(-90);
       this.stop();
     },
     
