@@ -21,7 +21,6 @@
           border: 1px solid black; 
           overflow: auto;
           clear: left;
-          margin-bottom: 120px;
         }
         
         #canvas-container {
@@ -105,7 +104,10 @@
         }
         
         #code-examples {
-          padding-bottom: 24px;
+          clear: both;
+          padding: 24px 0;
+          overflow: hidden;
+          margin-bottom: 60px;
         }
         
         #code-examples h3 {
@@ -131,10 +133,6 @@
   </head>
   <body>
     <h1>TG3000 (Turtle Geometry)</h1>
-    <div id='code-examples'>
-      <h3>Code Examples</h3>
-      <div id='code-examples-list'></div>
-    </div>
     <div id='chapter-container'>
       <h2 style='text-align: center;'>BOOK TEXT</h2>
     </div>
@@ -152,5 +150,9 @@ turtle.forward(70);
 <br/>
       </div>
     </div>  
+    <div id='code-examples'>
+      <h3>Code Examples</h3>
+      <div id='code-examples-list'></div>
+    </div>
   </body>
 </html>

@@ -50,6 +50,7 @@ perl -0777 -pe '
 s/{\\em\s([^}]+)}/\<em\>$1\<\/em\>/ig; 
 s/{\\textsc\s([^}]+)}/\<span class='\''textsc'\''\>$1\<\/span\>/ig;
 s/\\textsc{([^}]+)}/\<span class='\''textsc'\''\>$1\<\/span\>/ig;
+s/\\text{([^}]+)}/\<span class='\''textsc'\''\>$1\<\/span\>/ig;
 s/\\begin{verbatim}/\<div class='\''inline-editor turtle-code'\''\>/ig;
 s/\\end{verbatim}/\<\/div\>\\n\\n/ig;
 s/\\subsection{([^}]+)}/\<h3\>$1\<\/h3\>/ig;
@@ -70,8 +71,12 @@ s/\\begin\{quote\}/\<div class='\''quote'\''\>/sig;
 s/\\end\{quote\}/\<\/div\>/sig;
 s/\n\n/\n\n\<\/br\>\<\/br\>\n\n/sig;
 s/\$(\d+)\^\{\\circ\}\$/$1\&deg\;/sig;
+s/\\times/x/sig;
+s/\$\$([^\$]+)\$\$/\<p\>\<br\>$1\<\/p\>/sig;
 s/\$([^\$]+)\$/\<b\>$1\<\/b\>/sig;
-' text/chap1.html.js > text/chap1progress.html.js 
+s/\\vspace\{0\.5cm\}/\<br\>/sig; 
+s/oindent\s\\textbf\{([^}]+)\}/\<b\>$1\<\/b\>/sig;
+' text/chap1araw.html.js > text/chap1a.html.js 
 
 
 

@@ -13,7 +13,7 @@ define(function (require) {
   var codeExamplesList = document.getElementById('code-examples-list')
   var chapter = require('chapter');
   chapter.init(chapterContainer, codeExamplesList, 'text/', turtle);
-  chapter.load(1);
+  chapter.load('1a');
   
   require(['editor_factory'], function(editorFactory) {
     var editorFactory = editorFactory;
