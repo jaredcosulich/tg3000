@@ -107,7 +107,7 @@ define(function (require) {
     load: function(index) {
       // console.log(require('text/chap1.html.js').toString())
       _self = this;
-      var chapterPath = _textPath + 'chap' + index + '.html.js';
+      var chapterPath = _textPath + 'chapter' + index + '.html.js';
       require([chapterPath], function(chapterFunction) {
         var cleanHtml = _self.clean(chapterFunction);
         _container.innerHTML = cleanHtml;   

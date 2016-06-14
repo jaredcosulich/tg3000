@@ -1,3 +1,19 @@
+http://latexml.mathweb.org/editor
+
+
+
+
+src="" id="Ch(\d+).F(\d+).g(\d+)"
+src='images/figures/fig$1-$2.png' id='Ch$1.D$2.g$3'
+
+
+
+
+
+
+
+
+
 {\\em\s([^}]+)}                         ->    <em>$1</em>
 
 {\\textsc\s([^}]+)}                     ->    <span class='textsc'>$1</span> 
@@ -75,7 +91,10 @@ s/\\times/x/sig;
 s/\$\$([^\$]+)\$\$/\<p\>\<br\>$1\<\/p\>/sig;
 s/\$([^\$]+)\$/\<b\>$1\<\/b\>/sig;
 s/\\vspace\{0\.5cm\}/\<br\>/sig; 
-s/oindent\s\\textbf\{([^}]+)\}/\<b\>$1\<\/b\>/sig;
+s/\\textbf\{([^}]+)\}/\<b\>$1\<\/b\>/sig;
+s/\\pm/&plusmn;/sig;
+s/oindent/&nbsp;/sig;
+s/\\indent/&nbsp;/sig;
 ' text/chap1araw.html.js > text/chap1a.html.js 
 
 

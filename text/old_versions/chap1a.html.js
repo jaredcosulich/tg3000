@@ -51,7 +51,7 @@ multiple of 360&deg;. This gives us our first turtle-geometric theorem:
 
 </br></br>
 
-<br\><b>Closed-Path Theorem</b> The total turning along any closed path is an
+<br\>&nbsp; <b>Closed-Path Theorem</b> The total turning along any closed path is an
 integer multiple of 360&deg;.
 
 </br></br>
@@ -76,7 +76,7 @@ as squares, triangles, and hexagons); and star polygons (such as five-pointed st
 themselves. The simple polygons always appear to have total turning
 equal to <b>+360^{\circ}</b> or <b>-360^{\circ}</b>, depending upon the direction in which the
 turtle traverses the path. The star polygons, however, always have total
-turning different from <b>\pm 360^{\circ}</b>.
+turning different from <b>&plusmn; 360^{\circ}</b>.
 
 </br></br>
 
@@ -91,9 +91,9 @@ the more important conjecture involves generalizing from <span class='textsc'>po
 
 </br></br>
 
-<br\><b>Simple-Closed-Path Theorem</b> The total turning in a simple closed path
+<br\>&nbsp; <b>Simple-Closed-Path Theorem</b> The total turning in a simple closed path
 is 360&deg; (to the right or to the left). That is to say, the rotation number
-of any simple closed path is <b>\pm 1</b>.
+of any simple closed path is <b>&plusmn; 1</b>.
 
 </br></br>
 
@@ -120,7 +120,7 @@ The simple-closed-path theorem says that the sum of the exterior
 angles of any simple polygon is 360&deg;. For triangles, we can rewrite this
 in terms of the three interior angles <b>A</b>, <b>B</b>, and <b>C</b> to get
 <p><br>(180 - A) + (180 - B) + (180 - C) = 360</p>
-<br\>oindent and thus
+<br\>&nbsp; and thus
 <p><br>(A + B + C) = <span class='textsc'>the sum of interior angles</span> = 3 x 180 - 360 = 180.</p>
 
 </br></br>
@@ -178,7 +178,7 @@ turtle paths in general, but it is true for <span class='textsc'>poly</span>:
 
 </br></br>
 
-<br\><b>POLY Closing Theorem</b> A path drawn by the <span class='textsc'>poly</span> procedure will close
+<br\>&nbsp; <b>POLY Closing Theorem</b> A path drawn by the <span class='textsc'>poly</span> procedure will close
 precisely when the total turning reaches a multiple of 360&deg;.
 
 </br></br>
@@ -205,7 +205,7 @@ We'll outline two different proofs of the <span class='textsc'>poly</span> closi
 
 </br></br>
 
-\textbf{Sketch of Proof 1} Have you noticed the important fact that the vertices
+<b>Sketch of Proof 1</b> Have you noticed the important fact that the vertices
 of <span class='textsc'>poly</span> lie on a circle? (Everything about <span class='textsc'>poly</span> seems to be circular!) We leave the proof of this geometric fact to you in exercise 2. Using this fact, one can redescribe <span class='textsc'>poly</span> as the sequential laying down of fixed-length chords on a fixed circle as shown in figure 1.14. The point is that
 there is only one chord of the required length that can be produced by
 the turtle starting at any given heading. (Actually there are two, but
@@ -224,7 +224,7 @@ from the theory of computation. It proceeds as follows.
 
 </br></br>
 
-\textbf{Sketch of Proof 2} Assume that we have a turtle following a <span class='textsc'>poly</span> procedure, and that at some time the turtle returns to its initial heading
+<b>Sketch of Proof 2</b> Assume that we have a turtle following a <span class='textsc'>poly</span> procedure, and that at some time the turtle returns to its initial heading
 (heading change = a multiple of 360&deg;) but not to its initial position. We
 will show that this assumption leads to a contradiction. (The trick of
 the proof is to show that the turtle must walk off to infinity in some
@@ -240,7 +240,7 @@ that the turtle runs off to iniinity in a different direction.)
 
 </br></br>
 
-\indent
+&nbsp;
 By assumption, the turtle returns to its initial heading after some
 number (say, <b>n</b>) repetitions of the <span class='textsc'>poly</span> step. (Notice that <b>n</b> cannot
 be 1 if we neglect the exceptional case <span class='textsc'>angle</span> = 0.) Draw a dotted
@@ -499,7 +499,7 @@ properties. We can state this result more formally:
 
 </br></br>
 
-<br\><b>Looping Lemma</b> Any program that is just a repetition of some basic
+<br\>&nbsp; <b>Looping Lemma</b> Any program that is just a repetition of some basic
 loop of turtle instructions has precisely the structure of <span class='textsc'>poly</span> with an
 angle input equal to <b>T</b>, the total turning in the loop.
 
@@ -536,7 +536,7 @@ with <span class='textsc'>angle</span> 144.)
 
 </br></br>
 
-\indent
+&nbsp;
 Let's take a look at <span class='textsc'>inspi</span> --- in particular <span class='textsc'>inspi</span> with <span class='textsc'>angle</span> equal to
 2 and <span class='textsc'>increment</span> equal to 20, which draws the decorated five-pointed
 star shown in figure 1.12. The program simply alternates <span class='textsc'>forward side</span>
@@ -698,7 +698,7 @@ turning in the basic loop):
 
 </br></br>
 
-<br\><b>Boundedness</b> If <b>T <br\>ot= 0</b> then the figure drawn by the program will lie
+<br\>&nbsp; <b>Boundedness</b> If <b>T <br\>ot= 0</b> then the figure drawn by the program will lie
 within a fixed distance from some circle, and hence will be bounded. In
 the exceptional case, <b>T = 0</b>, the figure will lie within a fixed distance
 from some line (figure 1.24).
@@ -709,7 +709,7 @@ from some line (figure 1.24).
 
 </br></br>
 
-<br\><b>Closing</b> If <b>T</b> is a rational multiple of 360&deg;, the program will always
+<br\>&nbsp; <b>Closing</b> If <b>T</b> is a rational multiple of 360&deg;, the program will always
 draw a closed path, with the usual exception, <b>T = 0</b>, which causes the
 program to walk off to infinity. The exception to the exception is when
 <b>D</b> is also zero, the equivalent of <span class='textsc'>poly 0 0</span>, in which case the program is
@@ -717,7 +717,7 @@ program to walk off to infinity. The exception to the exception is when
 
 </br></br>
 
-<br\><b>Symmetry</b> The program must have the same rotational symmetry as
+<br\>&nbsp; <b>Symmetry</b> The program must have the same rotational symmetry as
 <span class='textsc'>poly d t</span>. In particular, if <b>T = 360s/r</b> where <b>s/r</b> is a fraction in lowest
 terms, then the program will have <b>r</b>-fold symmetry. (We have not yet
 discussed symmetry in detail. This topic will form the basis of section 1.4.)
@@ -802,7 +802,7 @@ Describe the paths corresponding to these operators. [A]
 </li><li> conditional statements of the form <span class='textsc'>if</span> <b>X = n</b> . . .
 \end{itemize}
 </ul>
-\indent
+&nbsp;
 For each kind of structure, say whether a program that repeats a block
 of instructions consisting of basic turtle commands together with that
 particular structure must necessarily be equivalent to a program which
@@ -870,7 +870,7 @@ view of the factorization of LCM(A, 360). For example, if <b>A</b> = 144 then
 we have <b>A</b> = <b>2^4 x  3^2</b>, 360 = <b>2^3 x 3^2 x 5</b>. Using this decomposition, we
 can deduce that
 <p><br>\operatorname{LCM}(144,360) = n x 2^4 x 3^2 = R x 22 x 32 x 5 = 2^4 x 3^2 x 5 = 720</p>
-<br\>oindent for it is easy to see that the LCM must contain at least four factors
+<br\>&nbsp; for it is easy to see that the LCM must contain at least four factors
 of 2 (from <b>A</b>), one factor of 5 (from 360), and two factors of 3 (from
 either <b>A</b> or 360), and from this we derive that <b>n</b> = 5 and <b>R</b> = 2.
 So <span class='textsc'>poly 100 144</span> has fivefold symmetry (it consists of <b>n</b> = 5 identical
@@ -1074,7 +1074,7 @@ to finding the GCD of <b>n</b> - <b>R</b> and <b>R</b>:
 
 </br></br>
 
-<br\><b>Euclid's Algorithm</b> Start with two numbers. (1) If the two numbers are equal, then stop; the GCD is their common value. (2) Subtract the
+<br\>&nbsp; <b>Euclid's Algorithm</b> Start with two numbers. (1) If the two numbers are equal, then stop; the GCD is their common value. (2) Subtract the
 smaller number from the larger and throw away the larger. (3) Repeat
 the entire process using, as the two numbers, the smaller number and the difference computed in step 2.
 
@@ -1179,7 +1179,7 @@ for <b>\phi</b>(<b>n</b>), which works as follows: Suppose that <em><b>p_1</b></
 prime factors of <b>n</b>, that is <b>n</b> = <b>p_1^ap_2^b</b> .... (For example, 3960 = <b>2^3 x
 3^2 x 5 x 11</b>.) Then
 <p><br>\phi(n) = n(1 - \frac{1}{p_1})(1 - \frac{1}{p_2})</p>
-<br\>oindent Use this formula to compute <b>\phi</b>(1,000, 000). [A]
+<br\>&nbsp; Use this formula to compute <b>\phi</b>(1,000, 000). [A]
 </li><li> <b>[D]</b> Use the fact that, for <b>R</b> relatively prime to <b>n</b>, the multiples of <b>R</b>
 include all the integers 1, 2, . . . , <b>n</b> - 1 (mod <b>n</b>) to prove Fermat's Little
 Theorem: If <b>p</b> is a prime and <b>R</b> is any positive integer less than <b>p</b>, then
@@ -1248,10 +1248,10 @@ by the <span class='textsc'>euclid</span> program. Show that the transformation 
 <b>T(S(a,b)) = S(T(a,b)) = (a, b)</b>. If we start with the pair (1,0) and
 repeatedly apply <b>S</b> we obtain
 <p><br>(1,0) \rightarrow (1, 1) \rightarrow (2,1) \rightarrow (3,2) \rightarrow (5,3) \rightarrow (3,5) \rightarrow (13,3) \rightarrow \cdot \cdot \cdot </p>
-<br\>oindent The sequence of numbers formed by this operation is called the Fibonacci
+<br\>&nbsp; The sequence of numbers formed by this operation is called the Fibonacci
 numbers; that is,
 <p><br>F(0)=0,F(1)=1,F(2)=1,F(3)=2,F(4)=3,F(5)=5,F(6)=8</p>
-<br\>oindent and so on. Use the fact that <b>S</b> and <b>T</b> are inverse to show that for any
+<br\>&nbsp; and so on. Use the fact that <b>S</b> and <b>T</b> are inverse to show that for any
 integer <b>n</b>, <em>F</em>(n) and <em>F(n - 1)</em> are relatively prime. [A]
 </li><li> <b>[P]</b> Show that <b>F(n) = F(n - 1) + F(n - 2)</b> and hence that the
 Fibonacci numbers can be generated by the procedure
@@ -1703,7 +1703,7 @@ TO LEFT.EYE.SEES POINT
    IF BEARING (POINT) < 60 THEN RETURN "TRUE"
    RETURN "FALSE"
 </div><br\><br\>
-<br\>oindent (These procedures use a subprocedure called <span class='textsc'>bearing</span> that outputs the
+<br\>&nbsp; (These procedures use a subprocedure called <span class='textsc'>bearing</span> that outputs the
 angle that the turtle would need to turn left in order to face a given
 point. Exercise 10 outlines how <span class='textsc'>bearing</span> can be implemented.)
 
@@ -1831,7 +1831,7 @@ TO INTENSITY.LEFT SOURCE
    ANGLE + BEARING (SOURCE) - 45
    RETURN (FACTOR * COS(ANGLE) 
 </div><br\><br\>
-<br\>oindent <span class='textsc'>strength</span> here is a parameter you supply to indicate the intensity of
+<br\>&nbsp; <span class='textsc'>strength</span> here is a parameter you supply to indicate the intensity of
 the source. Note the computation of <span class='textsc'>angle</span>, which reflects the fact that
 the left eye is offset 45&deg; from the turtle's heading. <span class='textsc'>intensity.right</span> is
 implemented in a similar fashion.
@@ -1907,7 +1907,7 @@ REPEAT FOREVER
    FORWARD SIDE
    LEFT FACTOR
 </div><br\><br\>
-<br\>oindent Prove that this can never draw a simple closed figure. [HA]
+<br\>&nbsp; Prove that this can never draw a simple closed figure. [HA]
 
 </br></br>
 
@@ -2247,7 +2247,7 @@ TO POLY SIDE ANGLE
    LEFT ANGLE
    POLY SIDE ANGLE
 </div><br\><br\>
-<br\>oindent into a program for drawing spirals:
+<br\>&nbsp; into a program for drawing spirals:
 
 </br></br>
 
@@ -2388,7 +2388,7 @@ TO S.FORWARD DISTANCE
 TO GROW FACTOR
    SCALE <- (SCALE * FACTOR)
 </div><br\><br\>
-<br\>oindent <span class='textsc'>scale</span> should now be considered a part of the turtle state --- it's a kind
+<br\>&nbsp; <span class='textsc'>scale</span> should now be considered a part of the turtle state --- it's a kind
 of ``size'' of the turtle that determines the size of the next step just as
 heading determines the direction of the next step. (<span class='textsc'>scale</span> should start
 equal to 1.)
@@ -3195,7 +3195,7 @@ Motions that are absolute in direction but relative in position --- called
 displacements --- are readily described by <em>vectors</em>. We can think of a
 vector as an arrow of definite length and direction but arbitrary position,
 pointing from beginning to end of the displacement. (Throughout the
-book we denote vectors by boldface symbols such as \textbf{v} and \textbf{w}.) ln order
+book we denote vectors by boldface symbols such as <b>v</b> and <b>w</b>.) ln order
 to make a turtle produce squares and diamonds, imagine handing it
 a collection of vectors. A program to draw a figure tells the turtle
 when to make the displacement described by each vector. The following
@@ -3228,47 +3228,47 @@ TO DIAMOND
 
 There are a number of relations between vectors that can be useful
 to a vector-following turtle. If the turtle knows how to walk along a
-particular vector <b>-</b>\textbf{v}, then it should be able to walk along a vector of
+particular vector <b>-</b><b>v</b>, then it should be able to walk along a vector of
 the same length pointing in exactly the opposite direction. Naturally
-enough, we denote this displacement by <b>-</b>\textbf{v}. Similarly, a displacement
-in the direction of \textbf{v}, but 5 times as far, can be denoted by <b>5 x \textbf{v}</b> (or simply
-<b>5\textbf{v}</b>). In general, <b>a\textbf{v}</b> (where <b>a</b> is a number) is a vector in the direction of \textbf{v},
-but <em>a</em> times as long. (If <em>a</em> is negative, <b>a\textbf{v}</b> is opposite in direction.) This
+enough, we denote this displacement by <b>-</b><b>v</b>. Similarly, a displacement
+in the direction of <b>v</b>, but 5 times as far, can be denoted by <b>5 x <b>v</b></b> (or simply
+<b>5<b>v</b></b>). In general, <b>a<b>v</b></b> (where <b>a</b> is a number) is a vector in the direction of <b>v</b>,
+but <em>a</em> times as long. (If <em>a</em> is negative, <b>a<b>v</b></b> is opposite in direction.) This
 operation is called scalar multiplication of numbers and vectors. It is
 essentially just changing the scale used to measure displacement. Scalar
-division can be defined by the formula <b>\textbf{v}/a = (1 / a) x \mathbf{v}</b>.
+division can be defined by the formula <b><b>v</b>/a = (1 / a) x \mathbf{v}</b>.
 
 </br></br>
 
-Besides scalar multiplication (and the special case <b>-1 x \textbf{v} = -\textbf{v}</b>)
+Besides scalar multiplication (and the special case <b>-1 x <b>v</b> = -<b>v</b></b>)
 there is one other fundamental method of producing new vectors from
 old ones. Observe that performing two displacements in sequence defines
-a net displacement, a net change in position. A displacement \textbf{v} followed
-by a displacement \textbf{w} yields a net displacement called the vector sum,
-denoted \textbf{v}+\textbf{w}. Having defined addition of vectors, we can define vector
+a net displacement, a net change in position. A displacement <b>v</b> followed
+by a displacement <b>w</b> yields a net displacement called the vector sum,
+denoted <b>v</b>+<b>w</b>. Having defined addition of vectors, we can define vector
 subtraction as adding the negative:
-<p><br>\textbf{v} - \textbf{w} = \textbf{v} + (-\textbf{w}) (<span class='textsc'>by definition</span>).</p>
+<p><br><b>v</b> - <b>w</b> = <b>v</b> + (-<b>w</b>) (<span class='textsc'>by definition</span>).</p>
 
 </br></br>
 
 Vector addition satisfies the commutative property
-<p><br>\textbf{v} + \textbf{w} = \textbf{w} + \textbf{v}</p>
-<br\>oindent for any vectors \textbf{v} and \textbf{w}. This is illustrated in figure 3.2a, which shows
-how following along \textbf{v} and then along \textbf{w}, or alternatively \textbf{w} and then \textbf{v},
+<p><br><b>v</b> + <b>w</b> = <b>w</b> + <b>v</b></p>
+<br\>&nbsp; for any vectors <b>v</b> and <b>w</b>. This is illustrated in figure 3.2a, which shows
+how following along <b>v</b> and then along <b>w</b>, or alternatively <b>w</b> and then <b>v</b>,
 forms a parallelogram whose diagonal is the vector sum.
 
 </br></br>
 
 Figures 3.2b and c illustrate two more simple but important formulas
 that relate scalar multiplication to addition of vectors:
-<p><br>(a+b)\textbf{v}=a\textbf{v}+b\textbf{v}</p>
-<p><br>a(\textbf{v} + \textbf{w}) = a\textbf{v} + a\textbf{w}</p>
-<br\>oindent The special vector \textbf{0} represents no displacement at all; its length is
+<p><br>(a+b)<b>v</b>=a<b>v</b>+b<b>v</b></p>
+<p><br>a(<b>v</b> + <b>w</b>) = a<b>v</b> + a<b>w</b></p>
+<br\>&nbsp; The special vector <b>0</b> represents no displacement at all; its length is
 zero. This zero vector is analogous to the number zero, and it has many
 of the same properties:
-<p><br>\textbf{v} - \textbf{v} = \textbf{0}</p>
-<p><br>\textbf{0} + \textbf{v} = \textbf{v}</p>
-<p><br>\textbf{0} x \textbf{v} = \textbf{0}</p>
+<p><br><b>v</b> - <b>v</b> = <b>0</b></p>
+<p><br><b>0</b> + <b>v</b> = <b>v</b></p>
+<p><br><b>0</b> x <b>v</b> = <b>0</b></p>
 <div class='figure'><br\><img src='images/figures/fig3-2.png'/><br\><div class='caption'>Properties of vector addition</div><br\></div>
 
 </br></br>
@@ -3282,8 +3282,8 @@ familiar turtle-geometric programs and look at some new phenomena.
 We will be using the following fundamental correspondence between vectors and turtle programs: Each <span class='textsc'>forward</span> step by the turtle is a displacement and can be described by a vector; successive displacements can
 be described by vector addition. Notice that the <span class='textsc'>right</span> and <span class='textsc'>left</span> commands are not directly represented by vectors; rather, they determine
 the direction of the vectors generated by <span class='textsc'>forward</span> commands.
-Suppose the turtle makes its first move according to some initial vector \textbf{<b>\mathbf{v_0}</b>}. If the second move is along \textbf{<b>\mathbf{v_1}</b>}, then the net displacement is just
-\textbf{<b>\mathbf{v_o}</b>} + \textbf{<b>\mathbf{v_l}</b>}. The turtle's net displacement after n steps, as shown in figure
+Suppose the turtle makes its first move according to some initial vector <b><b>\mathbf{v_0</b></b>}. If the second move is along <b><b>\mathbf{v_1</b></b>}, then the net displacement is just
+<b><b>\mathbf{v_o</b></b>} + <b><b>\mathbf{v_l</b></b>}. The turtle's net displacement after n steps, as shown in figure
 3.3, will be
 <p><br>\mathbf{v_0} + \mathbf{v_1} + \cdot \cdot \cdot + \mathbf{v_{n-1}}</p>
 
@@ -3319,13 +3319,13 @@ theorem says closure will be achieved in n steps. Reinterpreting the
 closure in terms of vectors, we see that proving the theorem boils down
 to verifying the equation
 <p><br>\mathbf{v_0}+\mathbf{v_1}+ \cdot \cdot \cdot +\mathbf{v_{n-1}} = \mathbf{0}</p>
-<br\>oindent In order to do this we need some way of capturing in vector terms the
-simple relationship among the vs: They are all just \textbf{<b>v_0</b>} rotated by various
+<br\>&nbsp; In order to do this we need some way of capturing in vector terms the
+simple relationship among the vs: They are all just <b><b>v_0</b></b> rotated by various
 multiples of the <span class='textsc'>poly</span> angle. To express this relation we define, for any
-vector \textbf{v} and angle <b>A</b>, a new vector Rotate(\textbf{v},<b>A</b>), also written <b>R_A</b>(\textbf{v}),
-to be the vector obtained by rotating \textbf{v} through <b>A</b>. Using this rotation
+vector <b>v</b> and angle <b>A</b>, a new vector Rotate(<b>v</b>,<b>A</b>), also written <b>R_A</b>(<b>v</b>),
+to be the vector obtained by rotating <b>v</b> through <b>A</b>. Using this rotation
 operation allows us to express the special property of the <span class='textsc'>poly</span> segments:
-\textbf{<b>v_k</b>} = <b>R_{kA}</b>(\textbf{<b>v_0</b>}) <b>(A = 360/n)</b>
+<b><b>v_k</b></b> = <b>R_{kA}</b>(<b><b>v_0</b></b>) <b>(A = 360/n)</b>
 
 </br></br>
 
@@ -3337,7 +3337,8 @@ Now we can restate the <span class='textsc'>poly</span> closing theorem as follo
 
 </br></br>
 
-<br\><b><span class='textsc'>POLY</span> Closing Theorem (Vector Form)</b> Given any vector <b>\mathbf{v_0}</b> and positive
+<br\>&nbsp;
+<b><span class='textsc'>POLY</span> Closing Theorem (Vector Form)</b> Given any vector <b>\mathbf{v_0}</b> and positive
 integer <b>n</b>, let <b>A = 360/ n</b> and let <b>\mathbf{v_k} = R_{kA}(\mathbf{v_0})</b>. Then
 <p><br>\mathbf{v_0}+\mathbf{v_1}+\cdot \cdot \cdot+\mathbf{v_{n-1}} = \mathbf{0}</p>
 
@@ -3348,12 +3349,12 @@ of the rotation operation <b>R_A</b> for any angle <b>A</b>. As figure 3.4a illu
 the rotation of any scalar multiple of a vector v can be obtained simply
 by scaling <b>R_A(\mathbf{v})</b>:
 <p><br>R_A(a\mathbf{v}) = aR_A(\mathbf{v})</p>
-<br\>oindent This is called the scaling property of rotation. Rotation has another
-property called additivity, which means that for any vectors \textbf{v} and \textbf{w}
+<br\>&nbsp; This is called the scaling property of rotation. Rotation has another
+property called additivity, which means that for any vectors <b>v</b> and <b>w</b>
 <p><br>R_A(\mathbf{v} + \mathbf{w}) = R_A(\mathbf{v}) + R_A(\mathbf{w})</p>
-<br\>oindent Figure 3.4b demonstrates that rotation satisfies additivity; just rotate
-the whole picture for vector addition and note that each of the parts \textbf{v}
-and \textbf{w} and the sum \textbf{v} + \textbf{w} get rotated while preserving their configuration
+<br\>&nbsp; Figure 3.4b demonstrates that rotation satisfies additivity; just rotate
+the whole picture for vector addition and note that each of the parts <b>v</b>
+and <b>w</b> and the sum <b>v</b> + <b>w</b> get rotated while preserving their configuration
 as a sum. lf an operation has both the scaling and additivity properties,
 then it is said to be linear. Linearity will soon take its place beside local
 vs. global and intrinsic vs. extrinsic as one of the recurring mathematical
@@ -3363,23 +3364,23 @@ themes of this book.
 
 Returning to the <span class='textsc'>poly</span> theorem, we wish to demonstrate that the sum
 <p><br>\mathbf{V} = \mathbf{v_0} + \cdot \cdot \cdot + \mathbf{v_{n-1}}</p>
-<br\>oindent satisfies \textbf{V} = \textbf{0}. The insight that proves this is that the collection of \textbf{v}s
-that make up \textbf{V} is perfectly symmetrical. The sum of them could hardly
-point in any direction favoring one \textbf{v} over another, and so must point in
-no direction at all: \textbf{V} = \textbf{0}.
+<br\>&nbsp; satisfies <b>V</b> = <b>0</b>. The insight that proves this is that the collection of <b>v</b>s
+that make up <b>V</b> is perfectly symmetrical. The sum of them could hardly
+point in any direction favoring one <b>v</b> over another, and so must point in
+no direction at all: <b>V</b> = <b>0</b>.
 
 </br></br>
 
-To turn this observation into a proof, let us rotate \textbf{V} through angle <b>A</b>
+To turn this observation into a proof, let us rotate <b>V</b> through angle <b>A</b>
 and use linearity:
 <p><br>R_A(\mathbf{V}) = R_A(\mathbf{v_0} + \mathbf{v_1} + \cdot \cdot \cdot + \mathbf{V_{n-1}}) = R_A(\mathbf{v_0}) + R_A(\mathbf{v_1}) + \cdot \cdot \cdot + R_A(\mathbf{v_{n-1}})</p>
-<br\>oindent But <b>R_A(\mathbf{v_0}) = \mathbf{v_1}</b> (by the definition of <b>\mathbf{v_k}</b>), and in general each <b>\mathbf{v_k}</b> is
+<br\>&nbsp; But <b>R_A(\mathbf{v_0}) = \mathbf{v_1}</b> (by the definition of <b>\mathbf{v_k}</b>), and in general each <b>\mathbf{v_k}</b> is
 transformed into <b>\mathbf{v_{k+1}}</b> all the way until <b>\mathbf{v_{n_1}}</b>, which gets transformed
 into <b>\mathbf{v_0}</b> (since <b>nA = 360</b>). Therefore,
 <p><br>R_A(\mathbf{V}) = \mathbf{v_1} + \mathbf{v_2} + \cdot \cdot \cdot +\mathbf{v_{n-1}} + \mathbf{v_0} = \mathbf{V} </p>
 Note that the last equality follows from commutativity of vector addition
 (the fact that order doesn't matter in a sum).
-Having demonstrated that \textbf{V} doesn't change when rotated by <b>A</b>, we
+Having demonstrated that <b>V</b> doesn't change when rotated by <b>A</b>, we
 complete the proof by observing that the only vector that can remain
 unchanged by a rotation is the zero vector. (This statement is geometrically obvious, although later on we'll develop the machinery to prove
 this using algebra rather than geometry; see exercise 2 of section 3.2.)
@@ -3388,7 +3389,7 @@ this using algebra rather than geometry; see exercise 2 of section 3.2.)
 
 In summary,
 <p><br>R_A(\mathbf{V}) = \mathbf{V} <span class='textsc'> implies that </span> \mathbf{V} = \mathbf{0}</p>
-<br\>oindent and this completes the proof of the theorem.
+<br\>&nbsp; and this completes the proof of the theorem.
 
 </br></br>
 
@@ -3409,8 +3410,8 @@ fact means that, instead of following along <span class='textsc'>poly</span> seg
 particular vertex, we can obtain the same displacement by walking first
 to the center of the circle and then along a radius. This gives
 <p><br>\mathbf{v_0} + \mathbf{v_1} + \cdot \cdot \cdot + \mathbf{v_k} = \mathbf{c} + \mathbf{r_k}</p>
-<br\>oindent where \textbf{c} is a constant vector pointing to the center of the circle, and the
-various \textbf{<b>r_k</b>} are all radii pointing to the <span class='textsc'>poly</span>'s vertices and hence equal
+<br\>&nbsp; where <b>c</b> is a constant vector pointing to the center of the circle, and the
+various <b><b>r_k</b></b> are all radii pointing to the <span class='textsc'>poly</span>'s vertices and hence equal
 in length. Using the correlation between the amount of arc between
 vertices on the circle and <span class='textsc'>poly</span> angle, <b>A</b>, we can rewrite this as
 <p><br>\mathbf{v_0} + \mathbf{v_1} + \cdot \cdot \cdot + \mathbf{v_k} = \mathbf{c} + R_{kA}(\mathbf{r_0})</p>
@@ -3493,7 +3494,7 @@ sample.
 The tirst thing to notice about these figures is that they are all closed.
 By using vector methods, it is easy to see why this is true. Think of the
 <span class='textsc'>duopoly</span> as a sum of vectors, and separate the vectors into two groups
-corresponding to the sides of <span class='textsc'>poly1</span>(\textbf{v}) and <span class='textsc'>poly2</span>(\textbf{u}). Then the net
+corresponding to the sides of <span class='textsc'>poly1</span>(<b>v</b>) and <span class='textsc'>poly2</span>(<b>u</b>). Then the net
 displacement is
 <p><br>\mathbf{v_0}+\mathbf{u_0}+\mathbf{v_1}+\mathbf{u_1}+\cdot \cdot \cdot+\mathbf{v_k}+\mathbf{u_k}=(\mathbf{v_0}+\mathbf{v_1}+\cdot \cdot \cdot + \mathbf{v_k})+(\mathbf{u_0}+\mathbf{u_1}+\cdot \cdot \cdot+\mathbf{u_k})</p>
 
@@ -3539,7 +3540,7 @@ and us, that is, the displacement at every other vertex of the <span class='text
 figure.) If we use <b>A</b> and <b>B</b> as the angles of the two <span class='textsc'>poly</span>s, we have
 <p><br>\mathbf{v_0}+\mathbf{v_1}+\cdot \cdot \cdot +\mathbf{v_k} = \mathbf{c_v}+R_{kA}(\mathbf{r_v})</p>
 <p><br>\mathbf{u_0}+\mathbf{u_1}+\cdot \cdot \cdot +\mathbf{u_k} = \mathbf{c_u}+R_{kB}(\mathbf{r_u})</p>
-<br\>oindent where \textbf{<b>c_v</b>} and \textbf{<b>c_u</b>} are the centers of the two <span class='textsc'>poly</span> circles, and \textbf{<b>r_v</b>} and \textbf{<b>r_u</b>} are the initial radii. Thus, the vertices of the <span class='textsc'>duopoly</span> are given by
+<br\>&nbsp; where <b><b>c_v</b></b> and <b><b>c_u</b></b> are the centers of the two <span class='textsc'>poly</span> circles, and <b><b>r_v</b></b> and <b><b>r_u</b></b> are the initial radii. Thus, the vertices of the <span class='textsc'>duopoly</span> are given by
 <p><br>\mathbf{c_v} + R_{kA}(\mathbf{r_v}) + \mathbf{c_u} + R_{kB}(\mathbf{r_u}) = \mathbf{c} + R_{kA}(\mathbf{r_v}) + R_{kB}(\mathbf{r_u})</p>
 
 </br></br>
@@ -3909,9 +3910,9 @@ theorem of subsection 3.1.4: Suppose that <span class='textsc'>angle</span> = 36
 deiine vectors <b>\mathbf{v_k}</b> to be the initial vector <b>\mathbf{v_0}</b> rotated through (<b>k x </b> <span class='textsc'>angle</span>)
 and set
 <p><br>\mathbf{V}=\mathbf{v_0}+\mathbf{v_1}+\cdot \cdot \cdot+\mathbf{v_{n-1}}</p>
- We know that \textbf{V} = \textbf{0}. The converse result (which we do not prove) says
+ We know that <b>V</b> = <b>0</b>. The converse result (which we do not prove) says
 that if <b>n</b> is a prime number, then any collection of the <b>\mathbf{v_k}</b> that sums to
-zero must do so by being a multiple of \textbf{V}. (Give an example to show
+zero must do so by being a multiple of <b>V</b>. (Give an example to show
 that this is false for nonprime <b>n</b>.) Using this converse to the theorem,
 prove that any unexpectedly closed spirolateral with <span class='textsc'>angle</span> = 360 / <b>n</b> (<b>n</b>
 prime) must be regular. [A]
@@ -4000,25 +4001,25 @@ a pair of reference vectors, say <b>\mathbf{e_1}</b> and <b>\mathbf{e_2}</b>, we
 <b>\mathbf{v}</b> as a sum <b>v = a\mathbf{e_l} + b\mathbf{e_2}</b> for some appropriate numbers <b>a</b> and <b>b</b>. The
 reference pair <b>\mathbf{e_1}</b>,<b>\mathbf{e_2}</b> is called a <em>basis</em>, and the parts of the decomposition
 <b>c\mathbf{e_1}</b> and <b>b\mathbf{e_2}</b> are called the components of <b>\mathbf{v}</b>. The numbers <b>a</b> and <b>b</b> are
-called the coordinates of \textbf{v}. (Sometimes <b>a</b> and <b>b</b> are themselves referred
+called the coordinates of <b>v</b>. (Sometimes <b>a</b> and <b>b</b> are themselves referred
 to as components.) We can create a correspondence between vectors and
 pairs of numbers as follows:
 
 </br></br>
 
-\textbf{v} corresponds to the pair (<b>a</b>, <b>b</b>) precisely when <b>\mathbf{v} = a\mathbf{e_l} + b\mathbf{e_2}</b>.
+<b>v</b> corresponds to the pair (<b>a</b>, <b>b</b>) precisely when <b>\mathbf{v} = a\mathbf{e_l} + b\mathbf{e_2}</b>.
 
 </br></br>
 
-It is important that this correspondence is one-to-one. That is, if \textbf{v}
-corresponds to (<b>a</b>, <b>b</b>) and \textbf{w} corresponds to (<b>c</b>, <b>d</b>) and if <b>\mathbf{v} = \mathbf{w}</b>, then
+It is important that this correspondence is one-to-one. That is, if <b>v</b>
+corresponds to (<b>a</b>, <b>b</b>) and <b>w</b> corresponds to (<b>c</b>, <b>d</b>) and if <b>\mathbf{v} = \mathbf{w}</b>, then
 we are justified in concluding that <b>a = c</b> and <b>b = d</b> (see exercise
 5). This simple realization allows us to translate vector equations into
 numerical equations at will. It is also important to realize that the
 correspondence between vectors and number pairs is defined only relative
 to a basis. Each basis gives rise to a different system of coordinates.
 Notice, however, a few basis-invariant relations; (0,0) is always the zero
-vector \textbf{0}; (1,0) is always <b>\mathbf{e_l}</b>; (0,1) is always <b>\mathbf{e_2}</b>.
+vector <b>0</b>; (1,0) is always <b>\mathbf{e_l}</b>; (0,1) is always <b>\mathbf{e_2}</b>.
 
 </br></br>
 
@@ -4026,8 +4027,8 @@ vector \textbf{0}; (1,0) is always <b>\mathbf{e_l}</b>; (0,1) is always <b>\math
 
 </br></br>
 
-Now let's add vectors and see how the coordinates behave. Suppose \textbf{v}
-corresponds to (<b>a</b>,<b>b</b>) --- that is, <b>\mathbf{v} = a\mathbf{e_l} + b\mathbf{e_2}</b> --- and \textbf{w} corresponds to
+Now let's add vectors and see how the coordinates behave. Suppose <b>v</b>
+corresponds to (<b>a</b>,<b>b</b>) --- that is, <b>\mathbf{v} = a\mathbf{e_l} + b\mathbf{e_2}</b> --- and <b>w</b> corresponds to
 (<b>c</b>, <b>d</b>). Then <p><br>\mathbf{v} + \mathbf{w} = a\mathbf{e_1} + b\mathbf{e_2} + c\mathbf{e_1} + d\mathbf{e_2} = (a+c)\mathbf{e_1}+(b+d)\mathbf{e_2}</p> Thus, <b>\mathbf{v}+\mathbf{w}</b> corresponds to (<b>a+c</b>, <b>b+d</b>). What could be simpler! Adding
 vectors is equivalent to adding corresponding coordinates. Furthermore,
 scalar multiplication by a number <b>K</b> is equivalent to multiplying both
@@ -4075,13 +4076,13 @@ out a bit more.)
 
 Although we can use any basis for our vector coordinates, it is convenient to specify 
 a pair of reference vectors whose lengths are 1 (unit length) and whose directions are 
-perpendicular to each other. The standard choice is to use a horizontal vector \textbf{x} and a vertical vector \textbf{y}, and
-to name the coordinates of a vector \textbf{v} by (<b>v_x</b>,<b>v_y</b>). In that way the 
+perpendicular to each other. The standard choice is to use a horizontal vector <b>x</b> and a vertical vector <b>y</b>, and
+to name the coordinates of a vector <b>v</b> by (<b>v_x</b>,<b>v_y</b>). In that way the 
 vector coordinates are precisely the same as the Cartesian coordinates of
 the tip of the vector, provided the tail is put at the Cartesian point
-(0,0) (see figure 3.14a). Another advantage of the \textbf{x}, \textbf{y} basis is that the
-length of a vector \textbf{v} is easily expressed in terms of the coordinates: If
-\textbf{v} : (<b>v_x</b>,<b>v_y</b>), then the length of \textbf{v}, denoted <b>|\mathbf{v}|</b>, is equal to the square
+(0,0) (see figure 3.14a). Another advantage of the <b>x</b>, <b>y</b> basis is that the
+length of a vector <b>v</b> is easily expressed in terms of the coordinates: If
+<b>v</b> : (<b>v_x</b>,<b>v_y</b>), then the length of <b>v</b>, denoted <b>|\mathbf{v}|</b>, is equal to the square
 root of <b>v_x^2 + v_y^2</b>. The proof of this formula, illustrated in figure 3.14b, is
 a simple application of the Pythagorean theorem for right triangles.
 
@@ -4097,8 +4098,8 @@ be useful; you just have to keep track of the separate vector components.
 
 </br></br>
 
-For example, instead of writing expressions like <b>\mathbf{Z} \leftarrow \mathbf{V} + \mathbf{W}</b> (where \textbf{Z},
-\textbf{V}, and \textbf{W} are pairs of numbers) or <b>[ZX ZY] \leftarrow [VX VY] + [WX WY]</b>, you
+For example, instead of writing expressions like <b>\mathbf{Z} \leftarrow \mathbf{V} + \mathbf{W}</b> (where <b>Z</b>,
+<b>V</b>, and <b>W</b> are pairs of numbers) or <b>[ZX ZY] \leftarrow [VX VY] + [WX WY]</b>, you
 could use a pair of instructions:
 
 </br></br>
@@ -4137,8 +4138,8 @@ coordinates still works nicely.
 
 </br></br>
 
-In solving the rotation problem, we take an indirect but instructive approach. Rather than computing the coordinates of Rotate(\textbf{v}, <b>A</b>) directly
-in terms of the coordinates of \textbf{v}, we will instead look for an intrinsic intermediate representation that makes no reference to a particular choice
+In solving the rotation problem, we take an indirect but instructive approach. Rather than computing the coordinates of Rotate(<b>v</b>, <b>A</b>) directly
+in terms of the coordinates of <b>v</b>, we will instead look for an intrinsic intermediate representation that makes no reference to a particular choice
 of coordinates. Phrasing things in such terms will be simpler and more
 general; it will be the key to computing rotations in three dimensions,
 as we shall see in section 3.4.
@@ -4155,11 +4156,11 @@ as we shall see in section 3.4.
 One trick that often helps in solving vector problems is to construct
 a basis from vectors that have some intrinsic relation to the quantities
 involved in the problem and to decompose the vector we wish to compute
-in terms of this basis. In this case \textbf{v}, the vector to be rotated, is
+in terms of this basis. In this case <b>v</b>, the vector to be rotated, is
 an obvious choice for one of the basis vectors. As a mate we can take
-Perp(\textbf{v}), which we define to be equal to \textbf{v} rotated 90&deg; (in the direction
+Perp(<b>v</b>), which we define to be equal to <b>v</b> rotated 90&deg; (in the direction
 of Rotate). Thus, we propose the decomposition
-Rotate(\textbf{v}, <b>A</b>) = <b>a\mathbf{v}</b> + <b>b</b>Perp(\textbf{v})
+Rotate(<b>v</b>, <b>A</b>) = <b>a\mathbf{v}</b> + <b>b</b>Perp(<b>v</b>)
 and try to solve for the quantities <b>a</b> and <b>b</b>. But these quantities are the
 proportions of the rotated vector which project, respectively, parallel
 and perpendicular to the original vector. As shown in figure 3.15, these
@@ -4177,13 +4178,13 @@ TO ROTATE (V, A)
 This rotation computation requires only the operations of vector addition and scalar multiplication, which we already know how to perform
 using coordinates, and the new operation Perp. So the rotation problem
 will be completely solved if we discover how to compute the coordinates
-of Perp(\textbf{v}). We'll do this by using another important concept from section 3.1.3: linearity. Since Perp is a special case of rotation, it has the
+of Perp(<b>v</b>). We'll do this by using another important concept from section 3.1.3: linearity. Since Perp is a special case of rotation, it has the
 two properties which define linearity-scaling and additivity-and we
 can use those properties in computing with it:
-<p><br>\operatorname{Perp}(\mathbf{v}) = \operatorname{Perp}(v_x\mathbf{x} + v_y\mathbf{y}) = v_x\operatorname{Perp}(\mathbf{x}) + v_y\operatorname{Perp}(\mathbf{y})</p> So we can express Perp(\textbf{v}) in terms of Perp applied to the basis vectors
-\textbf{x} and \textbf{y}. And it is easy to see that Perp(\textbf{x}) and Perp(\textbf{y}) are just
-\textbf{y} and -\textbf{x}, respectively. In net we have
-<p><br>\operatorname{Perp}(\mathbf{v}) = v_z\operatorname{Perp}(\mathbf{x}) + v_y\operatorname{Perp}(\mathbf{y})= v_x\mathbf{y} + v_y(-\mathbf{x})= (-v_y)\mathbf{x} + v_x\textbf{y}</p>
+<p><br>\operatorname{Perp}(\mathbf{v}) = \operatorname{Perp}(v_x\mathbf{x} + v_y\mathbf{y}) = v_x\operatorname{Perp}(\mathbf{x}) + v_y\operatorname{Perp}(\mathbf{y})</p> So we can express Perp(<b>v</b>) in terms of Perp applied to the basis vectors
+<b>x</b> and <b>y</b>. And it is easy to see that Perp(<b>x</b>) and Perp(<b>y</b>) are just
+<b>y</b> and -<b>x</b>, respectively. In net we have
+<p><br>\operatorname{Perp}(\mathbf{v}) = v_z\operatorname{Perp}(\mathbf{x}) + v_y\operatorname{Perp}(\mathbf{y})= v_x\mathbf{y} + v_y(-\mathbf{x})= (-v_y)\mathbf{x} + v_x<b>y</b></p>
  which in coordinates means <p><br>\operatorname{Perp}(v_x, v_y) = (-v_y, v_x)</p>
 
 </br></br>
@@ -4204,16 +4205,16 @@ can perform.
 It's worth a moment to reflect on the particular use of linearity here, as
 it expresses the important general compatibility of linear operations with
 basis coordinatization. By taking advantage of scaling and additivity, we
-reduced the problem of computing Perp(\textbf{v}) to the much simpler problem
-of computing Perp for the basis vectors \textbf{x} and \textbf{y}. This reduction to
+reduced the problem of computing Perp(<b>v</b>) to the much simpler problem
+of computing Perp for the basis vectors <b>x</b> and <b>y</b>. This reduction to
 special cases is important enough to warrant a special name: the linearity
 principle.
 
 </br></br>
 
-<br\><b>Linearity Principle</b> If L is a linear vector operation and we know how L
-acts on some basis <b>\mathbf{e_l}</b> and <b>\mathbf{e_2}</b>, then we can compute L(\textbf{v}) for any vector
-\textbf{v} by expressing \textbf{v} in terms of the basis. More precisely,
+<br\>&nbsp; <b>Linearity Principle</b> If L is a linear vector operation and we know how L
+acts on some basis <b>\mathbf{e_l}</b> and <b>\mathbf{e_2}</b>, then we can compute L(<b>v</b>) for any vector
+<b>v</b> by expressing <b>v</b> in terms of the basis. More precisely,
 <p><br>\operatorname{If} \mathbf{v} = a\mathbf{e_l} + b\mathbf{e_2} \operatorname{then} \operatorname{L}(v) = a\operatorname{L}(\mathbf{e_1}) + b\operatorname{L}(\mathbf{e_2})</p>
 
 </br></br>
@@ -4237,7 +4238,7 @@ can be worked on independently.
 <ul>
 </li><li> Using the coordinate equations we derived, verify that Perp and
 Rotate are linear. Suppose we define the operation L by <b>\operatorname{L}(\mathbf{v}) = |\mathbf{v}|</b> (the
-length of \textbf{v}). Show that L satisfies scaling but not additivity.
+length of <b>v</b>). Show that L satisfies scaling but not additivity.
 </li><li> Using the rotation formula in coordinates, give an algebraic proof of
 the ``obvious'' final step to the proof of the vector <span class='textsc'>poly</span> closing theorem
 of subsection 3.1.3. That is, show that if <b>R_A(\mathbf{V}) = \mathbf{V}</b> for some <b>A</b> which
@@ -4256,7 +4257,7 @@ the standard <b>\mathbf{x}</b>, <b>\mathbf{y}</b> basis), what are the algebraic
 numbers <b>v_{1x}</b>, <b>v_{1y}</b>, <b>v_{2x}</b>, <b>v_{2y}</b>, which correspond to the geometric condition
 ``<b>\mathbf{v1}</b> and <b>\mathbf{v2}</b> do not point along the same line.'' Show that if <b>v_{1x}</b>, <b>v_{1y}</b>, <b>v_{2x}</b>,
 and <b>v_{2y}</b> satisfy this condition, then <b>\mathbf{v_1}</b> and <b>\mathbf{v_2}</b> actually are a basis. That
-is, show that for every vector \textbf{v} there is exactly one pair of numbers <b>(a, b)</b>
+is, show that for every vector <b>v</b> there is exactly one pair of numbers <b>(a, b)</b>
 with  <b>\mathbf{v} = a\mathbf{v_1} + b\mathbf{v_2}</b>. [HA]
 </li><li> As a particular example of the previous exercise, show how to express
 the standard basis vectors x and y in the form
@@ -4303,8 +4304,8 @@ This is like telling someone where something is by saying how to get
 there from some agreed reference point. Since what we're interested in
 is getting lines to appear on a computer display, it's only natural to
 choose the origin to be the (0,0) point on the display. We'll call the
-position vector \textbf{P}. Furthermore, we can choose the size and orientation
-of the basis vectors \textbf{x} and \textbf{y} so that the coordinates (<b>v_x, v_y</b>) of any vector
+position vector <b>P</b>. Furthermore, we can choose the size and orientation
+of the basis vectors <b>x</b> and <b>y</b> so that the coordinates (<b>v_x, v_y</b>) of any vector
 v are precisely the Cartesian <b>x</b> and <b>y</b> coordinates of the corresponding
 point on the display screen.
 
@@ -4326,13 +4327,13 @@ Now how about heading? You've probably been thinking of turtle
 heading as an angle, but there is a very direct way to specify heading as
 a vector: Simply take any vector that points in the direction the turtle
 is pointing. To standardize matters we'll use the vector of length 1, and
-we'll call this \textbf{H}.
+we'll call this <b>H</b>.
 
 </br></br>
 
-So there we have it: Turtle state is specified by \textbf{P}, which can be an
-arbitrary vector, and \textbf{H}, which can be an arbitrary vector of length 1.
-Next we must specify how the state-change operators change \textbf{P} and \textbf{H}.
+So there we have it: Turtle state is specified by <b>P</b>, which can be an
+arbitrary vector, and <b>H</b>, which can be an arbitrary vector of length 1.
+Next we must specify how the state-change operators change <b>P</b> and <b>H</b>.
 
 </br></br>
 
@@ -4343,7 +4344,7 @@ Next we must specify how the state-change operators change \textbf{P} and \textb
 As shown in figure 3.16, going forward some distance d displaces the
 turtle's position along a vector of length d which points in the heading
 direction. That is, the displacement vector is <b>d x \mathbf{H}</b>. The new position is
-<b>\mathbf{P} + d\mathbf{H}</b>. Of course, <span class='textsc'>forward</span> doesn't change \textbf{H} at all. Besides changing
+<b>\mathbf{P} + d\mathbf{H}</b>. Of course, <span class='textsc'>forward</span> doesn't change <b>H</b> at all. Besides changing
 the turtle's state, <span class='textsc'>forward</span> must also draw a line on the display screen,
 if the pen is down. We haven't mentioned details about how to keep
 track of the pen. We'll leave it to you to outline a more complete
@@ -4368,8 +4369,8 @@ in actually implementing a turtle.
 </br></br>
 
 <h4>Turtle State</h4>
-The turtle's state is represented by two vectors, \textbf{P} and \textbf{H}. By convention,
-\textbf{H} is always a vector of length 1.
+The turtle's state is represented by two vectors, <b>P</b> and <b>H</b>. By convention,
+<b>H</b> is always a vector of length 1.
 
 </br></br>
 
@@ -4473,10 +4474,10 @@ section 3.5. Vectors play a central role in both parts of the project.
 First of all, we will need three-dimensional vectors to represent threedimensional space. Conceptually this is no problem at all; a vector is still
 an arrow with a certain length and with a certain direction representing
 a displacement. In terms of coordinates we simply need to add a third
-vector to the \textbf{x}, \textbf{y} basis. Call it \textbf{z}, and for convenience make it of length
-1 (unit length) and perpendicular to both \textbf{x} and \textbf{y}. The correspondence
+vector to the <b>x</b>, <b>y</b> basis. Call it <b>z</b>, and for convenience make it of length
+1 (unit length) and perpendicular to both <b>x</b> and <b>y</b>. The correspondence
 between vectors and coordinates is now
- \textbf{v} corresponds to (<b>v_x</b>, <b>v_y</b>, <b>v_z</b>) provided <b>\mathbf{v} = v_x\mathbf{x} + v_y\mathbf{y} + v_z\mathbf{z}</b>.
+ <b>v</b> corresponds to (<b>v_x</b>, <b>v_y</b>, <b>v_z</b>) provided <b>\mathbf{v} = v_x\mathbf{x} + v_y\mathbf{y} + v_z\mathbf{z}</b>.
 
 </br></br>
 
@@ -4486,8 +4487,8 @@ addition and multiplication of each component, respectively.
 </br></br>
 
 As in two dimensions, position can still be specified by a vector which
-we will call \textbf{P}, running from the origin (0,0,0) to the turtle's position.
-Heading can still be a vector with length 1 which we'll call \textbf{H}, and
+we will call <b>P</b>, running from the origin (0,0,0) to the turtle's position.
+Heading can still be a vector with length 1 which we'll call <b>H</b>, and
 <span class='textsc'>forward</span> is still
 <p><br>P \leftarrow P + DISTANCE x H</p> Now we are done with <span class='textsc'>forward</span>.
 
@@ -4504,7 +4505,7 @@ technical issue of computing rotations in three dimensions: We must
 decide which three-dimensional rotation we wish to represent, which is
 to say, though ``left'' has an unambiguous meaning in the plane there
 are many different possibilities in three-dimensional space.
-The real problem is that \textbf{H} by itself is insufficient to specify the
+The real problem is that <b>H</b> by itself is insufficient to specify the
 orientation of the turtle, as it only tells which way the turtle's nose is
 pointing.
 
@@ -4512,17 +4513,17 @@ pointing.
 
 <div class='figure'>
 <img src='images/figures/fig3-18.png'/>
-<div class='caption'>Turtles in three dimensions need an extra vector, \textbf{L</div>, to specify the plane in which to rotate}
+<div class='caption'>Turtles in three dimensions need an extra vector, <b>L</div>, to specify the plane in which to rotate</b>
 </div>
 
 </br></br>
 
 
-Two turtles with the same \textbf{H} can rotate ``<span class='textsc'>left</span>'' in different directions (see
+Two turtles with the same <b>H</b> can rotate ``<span class='textsc'>left</span>'' in different directions (see
 figure 3.18). To solve the ambiguity we can add to the turtle's state a new
-unit-length vector \textbf{L} which is perpendicular to \textbf{H}. We can interpret \textbf{L} as
+unit-length vector <b>L</b> which is perpendicular to <b>H</b>. We can interpret <b>L</b> as
 pointing to the turtle's left. Now <span class='textsc'>left</span> can be geometrically specified as
-a rotation of both \textbf{H} and \textbf{L} in the plane containing them (see figure 3.18).
+a rotation of both <b>H</b> and <b>L</b> in the plane containing them (see figure 3.18).
 Here we are rotating three-dimensional vectors through an arbitrary
 angle in some arbitrary plane. Surely that seems like a terribly difficult
 computation. But no, it is simple! The reason is this: When we discussed
@@ -4532,9 +4533,9 @@ two-dimensional rotations, we wrote down the answer in intrinsic terms.
 
 Recall the rotation formula of subsection 3.2.2:
 <p><br>\operatorname{Rotate}(v,A) = (cos A)v + (sin A)\operatorname{Perp}(v)</p>
- Now, Perp(\textbf{H}) is \textbf{L}. Therefore we have
+ Now, Perp(<b>H</b>) is <b>L</b>. Therefore we have
 <p><br>\operatorname{Rotate}(\mathbf{H}, A) = (cos A)\mathbf{H} + (sin A)\mathbf{L}</p>
- And Perp(\textbf{L}) is <b>-\mathbf{H}</b>, so
+ And Perp(<b>L</b>) is <b>-\mathbf{H}</b>, so
 <p><br>\operatorname{Rotate}(\mathbf{L},A) : (cos A)\mathbf{L} - (sin A)\mathbf{H}</p>
  Does that seem too simple? By writing down the rotation of a twodimensional vector in intrinsic form, we automatically have a completely
 general formula for rotating any vector through any angle about any axis
@@ -4545,8 +4546,8 @@ argument again, slowly.
 
 </br></br>
 
-Consider the plane that contains both \textbf{H} and \textbf{L}. We must rotate \textbf{H} and
-\textbf{L} inside that plane by some angle <b>A</b>. But forget about the rest of the
+Consider the plane that contains both <b>H</b> and <b>L</b>. We must rotate <b>H</b> and
+<b>L</b> inside that plane by some angle <b>A</b>. But forget about the rest of the
 three-dimensional world outside the plane --- it is entirely irrelevant to the
 rotation operation. In a plane, however, we have solved the problem of
 rotating a pair of perpendicular vectors. All that remains to be done is
@@ -4573,7 +4574,7 @@ TO ROTATE (VECTOR, PERPVECTOR, ANGLE)
 Notice that the perpendicular to the vector must be supplied as an
 input, since the rotation is not well defined without it. In fact, the only
 differences between this program and the planar rotation program of
-section 3.3 is that Perp(\textbf{V}) is accessed as a variable rather than computed,
+section 3.3 is that Perp(<b>V</b>) is accessed as a variable rather than computed,
 and the additions and scalar multiplications are performed on vectors
 with three components rather than two.
 
@@ -4581,7 +4582,7 @@ with three components rather than two.
 
 In terms of coordinates, the rotation equation translates into three
 component equations, which give the components of the rotated vector
-(\textbf{rv}) in terms of the components of \textbf{v} and its perpendicular (\textbf{pv}):
+(<b>rv</b>) in terms of the components of <b>v</b> and its perpendicular (<b>pv</b>):
 <p><br>\mathbf{rv_x} = \mathbf{v_x} \cos A + \mathbf{pv_x} \sin A</p>
 <p><br>\mathbf{rv_y} = \mathbf{v_y} \cos A + \mathbf{pv_y} \sin A</p>
 <p><br>\mathbf{rv_z} = \mathbf{v_z} \cos A + \mathbf{pv_z} \sin A</p>
@@ -4594,40 +4595,40 @@ component equations, which give the components of the rotated vector
 
 <div class='figure'>
 <img src='images/figures/fig3-19.png'/>
-<div class='caption'>The pitch operation rotates \textbf{H</div> about the axis determined by \textbf{L}. Adding \textbf{U} to the turtle's state makes the rotation easy to compute}
+<div class='caption'>The pitch operation rotates <b>H</div> about the axis determined by \textbf{L</b>. Adding <b>U</b> to the turtle's state makes the rotation easy to compute}
 </div>
 
 </br></br>
 
 Are we done with state-change operators? If we stop here the turtle will
 certainly walk around in three-dimensional space, but only in one plane:
-that specified by the initial pair \textbf{H} and \textbf{L}. To gain full motion in three
+that specified by the initial pair <b>H</b> and <b>L</b>. To gain full motion in three
 dimensions we also need to be able to pitch the turtle out of that plane
-by rotating about the \textbf{L} axis, and to roll it by rotating around the \textbf{H}
+by rotating about the <b>L</b> axis, and to roll it by rotating around the <b>H</b>
 axis.
 
 </br></br>
 
-The pitch operation is illustrated in figure 3.19. \textbf{L} remains invariant,
-but we must rotate \textbf{H} out of the plane of \textbf{L} and \textbf{H}. To compute this we
-need have in hand a vector that is perpendicular to \textbf{H} and perpendicular
-to \textbf{L} (the axis of rotation). If you are clever you should be able to
+The pitch operation is illustrated in figure 3.19. <b>L</b> remains invariant,
+but we must rotate <b>H</b> out of the plane of <b>L</b> and <b>H</b>. To compute this we
+need have in hand a vector that is perpendicular to <b>H</b> and perpendicular
+to <b>L</b> (the axis of rotation). If you are clever you should be able to
 construct this vector out of H and L, but let's be even more clever: Let
 us always carry along, as part of the turtle's state, a third unit-length
-vector, \textbf{U} (for ``up''), perpendicular to both \textbf{H} and \textbf{L}. This will be a
-slight extra burden, since we will need to rotate \textbf{U} as well as \textbf{H} when
-the turtle pitches. However, such rotation will be easy because -\textbf{H} is
-Perp(\textbf{U}) for that rotation.
+vector, <b>U</b> (for ``up''), perpendicular to both <b>H</b> and <b>L</b>. This will be a
+slight extra burden, since we will need to rotate <b>U</b> as well as <b>H</b> when
+the turtle pitches. However, such rotation will be easy because -<b>H</b> is
+Perp(<b>U</b>) for that rotation.
 
 </br></br>
 
 So now we have a neat and symmetrical set of rotation operators to
-change the turtle's orientation, represented as three mutually perpendicular vectors \textbf{H}, \textbf{L}, and \textbf{U}. In fact, we can use the parallel term <span class='textsc'>yaw</span>
+change the turtle's orientation, represented as three mutually perpendicular vectors <b>H</b>, <b>L</b>, and <b>U</b>. In fact, we can use the parallel term <span class='textsc'>yaw</span>
 instead of <span class='textsc'>left</span> so that in controlling our ``spaceship turtle'' we can
 employ the standard three-dimensional navigational terms roll, pitch,
 and yaw. In making any of these rotations, two of these vectors change
 and the third remains fixed. For rotating one vector v of the changing
-pair, the other changing vector (or its negative) serves as Perp(\textbf{v}).
+pair, the other changing vector (or its negative) serves as Perp(<b>v</b>).
 
 </br></br>
 
@@ -4637,8 +4638,8 @@ pair, the other changing vector (or its negative) serves as Perp(\textbf{v}).
 
 The position of the three-dimensional turtle is represented as a three-component vector P. The orientation (the three-dimensional equivalent
 of the heading part of the state) is represented by a trio of mutually
-perpendicular unit-length vectors, \textbf{H}, \textbf{L}, and \textbf{U}. These can be initialized
-to be the basis vectors \textbf{x}, \textbf{y}, and \textbf{z}, which in coordinates are (1,0,0),
+perpendicular unit-length vectors, <b>H</b>, <b>L</b>, and <b>U</b>. These can be initialized
+to be the basis vectors <b>x</b>, <b>y</b>, and <b>z</b>, which in coordinates are (1,0,0),
 (0, 1,0), and (0,0,1). The state-change operators are
 
 </br></br>
@@ -4673,8 +4674,8 @@ TO ROLL ANGLE
 TO ROTATE (VECTOR, PERPVECTOR, ANGLE)
    RETURN (COS ANGLE) * VECTOR + (SIN ANGLE) * PERPVECTOR
 </div><br\><br\>
-Note the use of the variable <span class='textsc'>temp</span> to avoid deleting the old values of \textbf{H}
-and \textbf{L} before we are done using them. If you use the rotation equation
+Note the use of the variable <span class='textsc'>temp</span> to avoid deleting the old values of <b>H</b>
+and <b>L</b> before we are done using them. If you use the rotation equation
 in coordinate form you will have to be even more careful not to delete
 old variables by assigning new values before you're done using the old
 ones.
@@ -4731,25 +4732,25 @@ For many purposes this trivial projection is quite sufficient. But
 suppose we want to move the eye around to look at the turtle's drawing
 from other perspectives. Consider first a window, still centered at the
 origin of our coordinate system, but pitched, rolled, and yawed with
-respect to the standard \textbf{x}, \textbf{y}, \textbf{z} basis as shown in figure 3.21a. This is
+respect to the standard <b>x</b>, <b>y</b>, <b>z</b> basis as shown in figure 3.21a. This is
 equivalent to having three new (but still mutually perpendicular and
 unit-length) basis elements, which we call <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, and <b>\mathbf{e_z}</b> (e for ``eye'').
 In fact, we could produce these vectors by pitching, rolling, and yawing
-\textbf{x}, \textbf{y}, and \textbf{z} in exactly the same way we operated on the turtle's \textbf{H}, \textbf{L},
-and \textbf{U}.
+<b>x</b>, <b>y</b>, and <b>z</b> in exactly the same way we operated on the turtle's <b>H</b>, <b>L</b>,
+and <b>U</b>.
 
 </br></br>
 
 <div class='figure'>
 <img src='images/figures/fig3-20.png'/>
-<div class='caption'>Simple parallel projection amounts to ``losing'' the \textbf{z</div> component at each point}
+<div class='caption'>Simple parallel projection amounts to ``losing'' the <b>z</div> component at each point</b>
 </div>
 
 </br></br>
 
 <div class='figure'>
 <img src='images/figures/fig3-21.png'/>
-<div class='caption'>(a) Projection onto an arbitrary plane involves finding components with respect to a new basis. (b) The <b>\mathbf{e_x</div></b> component of \textbf{v} is found by projecting \textbf{v} onto the line determined by <b>\mathbf{e_x}</b>.}
+<div class='caption'>(a) Projection onto an arbitrary plane involves finding components with respect to a new basis. (b) The <b>\mathbf{e_x</div></b> component of <b>v</b> is found by projecting <b>v</b> onto the line determined by <b>\mathbf{e_x}</b>.}
 </div>
 
 </br></br>
@@ -4762,21 +4763,21 @@ and is worth a little time and energy.
 
 </br></br>
 
-Suppose we have <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> and a vector \textbf{v}, and we want to compute
-as the components of \textbf{v} with respect to <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b>. Focus on <b>\mathbf{e_x}</b>. First draw
+Suppose we have <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> and a vector <b>v</b>, and we want to compute
+as the components of <b>v</b> with respect to <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b>. Focus on <b>\mathbf{e_x}</b>. First draw
 the line continuing <b>\mathbf{e_x}</b>. Next draw a perpendicular through the line that
-intersects the point of interest (the tip of \textbf{v}). The component we want is
+intersects the point of interest (the tip of <b>v</b>). The component we want is
 precisely the length of the segment s from the origin to the base of the
 perpendicular (iigure 3.21b). This is because the construction effects a
-decomposition \textbf{v} = \textbf{s} + \textbf{p}, where \textbf{s} is a scalar multiple of <b>\mathbf{e_x}</b> and \textbf{p} is in
+decomposition <b>v</b> = <b>s</b> + <b>p</b>, where <b>s</b> is a scalar multiple of <b>\mathbf{e_x}</b> and <b>p</b> is in
 a plane perpendicular to ex and can thus be subsequently decomposed
 into a sum of multiples of <b>\mathbf{e_y}</b> and <b>\mathbf{e_z}</b>. In other words:
 
 </br></br>
 
-The <b>\mathbf{e_x}</b> component of a vector \textbf{v}, that is, the value <b>a</b> in the decomposition
+The <b>\mathbf{e_x}</b> component of a vector <b>v</b>, that is, the value <b>a</b> in the decomposition
 <p><br>v = a\mathbf{e_x} + b\mathbf{e_y} + c\mathbf{e_z}</p>
- \textbf{F} is precisely the perpendicular projection of \textbf{v} onto the line of <b>\mathbf{e_x}</b>.
+ <b>F</b> is precisely the perpendicular projection of <b>v</b> onto the line of <b>\mathbf{e_x}</b>.
 
 </br></br>
 
@@ -4794,12 +4795,12 @@ projecting a vector onto a line.
 
 </br></br>
 
-Given two vectors \textbf{v} and \textbf{w}, we wish to compute the length of the
-perpendicular projection of \textbf{v} onto the line determined by \textbf{w}. We denote
+Given two vectors <b>v</b> and <b>w</b>, we wish to compute the length of the
+perpendicular projection of <b>v</b> onto the line determined by <b>w</b>. We denote
 this length by Proj(v,w). It is natural to think of Proj(v, w) as an
-operation on \textbf{v}, but one that, of course, depends on \textbf{w}. We can suppress \textbf{w}
-in our notation and just write Proj(\textbf{v}) to emphasize this way of thinking
-about Proj(\textbf{v}, \textbf{w}).
+operation on <b>v</b>, but one that, of course, depends on <b>w</b>. We can suppress <b>w</b>
+in our notation and just write Proj(<b>v</b>) to emphasize this way of thinking
+about Proj(<b>v</b>, <b>w</b>).
 
 </br></br>
 
@@ -4813,23 +4814,23 @@ fact in itself is sufficient to allow us to compute projections in terms of
 coordinates. But rather than grinding out the answer, let's try a more
 insightful approach. We begin by indulging in some wishful thinking
 (a much-underrated method of doing mathematics). Remember that
-Proj(\textbf{v}, \textbf{w}) is an operation with two arguments, \textbf{v} and \textbf{w}. Wouldn't it be
-nice if the order of the arguments didn't matter, that is, if Proj(\textbf{v}, \textbf{w})
-were always equal to Proj(\textbf{w}, \textbf{v})? We now make two observations:
+Proj(<b>v</b>, <b>w</b>) is an operation with two arguments, <b>v</b> and <b>w</b>. Wouldn't it be
+nice if the order of the arguments didn't matter, that is, if Proj(<b>v</b>, <b>w</b>)
+were always equal to Proj(<b>w</b>, <b>v</b>)? We now make two observations:
 
 </br></br>
 
 <ul>
-</li><li> This relation could not be true in general, because Proj(\textbf{v}, \textbf{w}) doesn't
-depend on the length of \textbf{w} yet scales as \textbf{v} is enlarged.
-</li><li> If \textbf{v} and \textbf{w} happen to have the same length, then Proj (\textbf{w}, \textbf{v}) is equal to
-Proj(\textbf{v}, \textbf{w}), since the diagrams for projecting \textbf{v} onto \textbf{w} and for projecting
-\textbf{w} onto \textbf{v} will be symmetric.
+</li><li> This relation could not be true in general, because Proj(<b>v</b>, <b>w</b>) doesn't
+depend on the length of <b>w</b> yet scales as <b>v</b> is enlarged.
+</li><li> If <b>v</b> and <b>w</b> happen to have the same length, then Proj (<b>w</b>, <b>v</b>) is equal to
+Proj(<b>v</b>, <b>w</b>), since the diagrams for projecting <b>v</b> onto <b>w</b> and for projecting
+<b>w</b> onto <b>v</b> will be symmetric.
 </ul>
 
 </br></br>
 
-Let's go farther by causing the accident in 2. Force \textbf{v} and \textbf{w} to
+Let's go farther by causing the accident in 2. Force <b>v</b> and <b>w</b> to
 have the same length by multiplying each by the length of the other to
 produce <b>|\mathbf{w}|\mathbf{v}</b> and <b>|\mathbf{v}|\mathbf{w}</b>. That is, forget for the moment about Proj and
 concentrate on a a new operation called Sproj, for ``scaled projection,''
@@ -4853,7 +4854,7 @@ Compare the properties of dot product,
 <p><br>(ax + bz)y = axy + bzy</p>
  Notice that because dot product is just mutually scaled projection, it
 is exactly projection for unit-length vectors. For example, taking the
-standard \textbf{x}, \textbf{y}, and \textbf{z} basis vectors, we have
+standard <b>x</b>, <b>y</b>, and <b>z</b> basis vectors, we have
 <p><br>\mathbf{x} \cdot \mathbf{x}=1</p>
 <p><br>\mathbf{x} \cdot \mathbf{y}=0</p>
 <p><br>\mathbf{x} \cdot \mathbf{z}=0</p>
@@ -4873,8 +4874,8 @@ we wrote down immediately above. If you carry out the details (exercise
  Our shift in attention from Proj to dot product has led us to an operation that can be simply described in terms of coordinates. In making
 the transformation we lost very little, since for unit-length vectors dot
 product is absolutely identical to projection. Even if only one of the
-vectors (say, \textbf{w}) has unit length, we can still interpret <b>\mathbf{v} \cdot  \mathbf{w}</b> as a projection, the projection of \textbf{v} onto \textbf{w}, because in scaling \textbf{v} by <b>|\mathbf{w}|</b> no change
-is made. For arbitrary \textbf{v} and \textbf{w}, the projection can be computed as
+vectors (say, <b>w</b>) has unit length, we can still interpret <b>\mathbf{v} \cdot  \mathbf{w}</b> as a projection, the projection of <b>v</b> onto <b>w</b>, because in scaling <b>v</b> by <b>|\mathbf{w}|</b> no change
+is made. For arbitrary <b>v</b> and <b>w</b>, the projection can be computed as
 <p><br>\operatorname{Proj}(\mathbf{v}, \mathbf{w}) = \frac{\operatorname{Sproj}(\mathbf{v}, \mathbf{w})}{|\mathbf{w}|} = \frac{\mathbf{v} \cdot \mathbf{w}}{|\mathbf{w}|} </p>
 
 </br></br>
@@ -4883,15 +4884,15 @@ is made. For arbitrary \textbf{v} and \textbf{w}, the projection can be computed
 
 </br></br>
 
-In subsection 3.5.1 we saw that the projection problem reduces to computing the components of a vector \textbf{v} with respect to an arbitrary basis
+In subsection 3.5.1 we saw that the projection problem reduces to computing the components of a vector <b>v</b> with respect to an arbitrary basis
 <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b>. Dot product enables us to do the computation. For example,
-suppose we want the projection of \textbf{v} onto <b>\mathbf{e_x}</b>. Since <b>\mathbf{e_x}</b> is of length 1,
-that projection is exactly <b>\mathbf{e_x} \cdot \mathbf{v}</b>. In other words, the coordinates of \textbf{v} are
-just the dot products of \textbf{v} with the corresponding basis vectors.
+suppose we want the projection of <b>v</b> onto <b>\mathbf{e_x}</b>. Since <b>\mathbf{e_x}</b> is of length 1,
+that projection is exactly <b>\mathbf{e_x} \cdot \mathbf{v}</b>. In other words, the coordinates of <b>v</b> are
+just the dot products of <b>v</b> with the corresponding basis vectors.
 Notice how important it is that dot product is defined intrinsically in
 terms of vectors. That means it is independent of the coordinate system 
 used to compute it. Thus, in computing <b>\mathbf{e_x} \cdot \mathbf{v}</b>, we can use the standard
-\textbf{x}, \textbf{y}, \textbf{z} basis. In a computer program, that's the only basis that would be
+<b>x</b>, <b>y</b>, <b>z</b> basis. In a computer program, that's the only basis that would be
 actually used for computation. In summary:
 
 </br></br>
@@ -4900,31 +4901,31 @@ To find the projection of a point with respect to an eye whose orientation
 is described by the triple <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b>, what we use for coordinates on the
 display screen are the first and second coordinates of the point in the
 <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> basis; that is,
-<p><br>(\operatorname{display}_x, \operatorname{display}_y) = <span class='textsc'> Projection of \textbf{v</span> onto }\mathbf{e_x}, \mathbf{e_y} <span class='textsc'> plane </span> = (\mathbf{e_x} \cdot \mathbf{v}, \mathbf{e_y} \cdot \mathbf{v})</p>
+<p><br>(\operatorname{display}_x, \operatorname{display}_y) = <span class='textsc'> Projection of <b>v</span> onto </b>\mathbf{e_x}, \mathbf{e_y} <span class='textsc'> plane </span> = (\mathbf{e_x} \cdot \mathbf{v}, \mathbf{e_y} \cdot \mathbf{v})</p>
 
 </br></br>
 
 <div class='figure'>
 <img src='images/figures/fig3-23.png'/>
-<div class='caption'>Projecting with respect to plane centered at some arbitrary position, \textbf{e</div>}
+<div class='caption'>Projecting with respect to plane centered at some arbitrary position, <b>e</div></b>
 </div>
 
 </br></br>
 
 A simple modification of this formula allows even more general projections. Suppose the center of the window is located at some point other
 than the origin --- 
-say, \textbf{e} (figure 3.23). Then we want to have <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> sit
-at their own origin, the tip of \textbf{e}. With respect to that origin the position
+say, <b>e</b> (figure 3.23). Then we want to have <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> sit
+at their own origin, the tip of <b>e</b>. With respect to that origin the position
 vector is
-<p><br>\mathbf{r} = \mathbf{v} - \mathbf{e} <span class='textsc'> (\textbf{r</span> for relative position)}</p>
- so the projection is still computed in the same way, only using \textbf{r} instead
-of \textbf{v}:
-<p><br>(\operatorname{display}_x, \operatorname{display}_y) = \operatorname{Project}(\textbf{v}) = (\mathbf{e_x} \cdot \mathbf{r}, \mathbf{e_y} \cdot \mathbf{r}) \operatorname{where} \mathbf{r} = \mathbf{v} - \mathbf{e}</p>
+<p><br>\mathbf{r} = \mathbf{v} - \mathbf{e} <span class='textsc'> (<b>r</span> for relative position)</b></p>
+ so the projection is still computed in the same way, only using <b>r</b> instead
+of <b>v</b>:
+<p><br>(\operatorname{display}_x, \operatorname{display}_y) = \operatorname{Project}(<b>v</b>) = (\mathbf{e_x} \cdot \mathbf{r}, \mathbf{e_y} \cdot \mathbf{r}) \operatorname{where} \mathbf{r} = \mathbf{v} - \mathbf{e}</p>
 Notice in passing that we have solved the general problem of finding
 coordinates of vectors with respect to a new basis and a new origin: Set
-<b>\mathbf{r} = \mathbf{v} - \mathbf{e}</b> (where \textbf{e} points to the new origin from the old one), and then
-just pick off the coordinates of \textbf{r} in the new basis using dot product:
-(\textbf{x}, \textbf{y}, \textbf{z}) coordinates in new coordinate system = (<b>\mathbf{e_x} \cdot \mathbf{r}</b>, <b>\mathbf{e_y} \cdot \mathbf{r}</b>, <b>\mathbf{e_z} \cdot \mathbf{r}</b>).
+<b>\mathbf{r} = \mathbf{v} - \mathbf{e}</b> (where <b>e</b> points to the new origin from the old one), and then
+just pick off the coordinates of <b>r</b> in the new basis using dot product:
+(<b>x</b>, <b>y</b>, <b>z</b>) coordinates in new coordinate system = (<b>\mathbf{e_x} \cdot \mathbf{r}</b>, <b>\mathbf{e_y} \cdot \mathbf{r}</b>, <b>\mathbf{e_z} \cdot \mathbf{r}</b>).
 
 </br></br>
 
@@ -4941,7 +4942,7 @@ window and the object.) We'll now see how to be more realistic.
 
 <div class='figure'>
 <img src='images/figures/fig3-24.png'/>
-<div class='caption'>Perspective projection of \textbf{v</div> onto the display plane}
+<div class='caption'>Perspective projection of <b>v</div> onto the display plane</b>
 </div>
 
 </br></br>
@@ -4950,18 +4951,18 @@ Start with the eye located at the origin facing directly along the <b>z</b> axis
 Now imagine our display window located some distance <b>L</b> down the <b>z</b>
 axis and perpendicular to it (figure 3.24). In order to find the projection
 of the endpoint of <b>v</b> onto the window, we need to compute (in <b>x</b> and <b>y</b>
-coordinates) the vector marked \textbf{t} in the diagram. To do this, introduce
-the vector \textbf{p} in the plane perpendicular to \textbf{z} going through the point to
+coordinates) the vector marked <b>t</b> in the diagram. To do this, introduce
+the vector <b>p</b> in the plane perpendicular to <b>z</b> going through the point to
 be projected. This is just the familiar decomposition of a vector into a
-\textbf{z} component and a component perpendicular to \textbf{z}, which is to say,
+<b>z</b> component and a component perpendicular to <b>z</b>, which is to say,
 <p><br>\mathbf{v}=v_x\mathbf{x}+v_y\mathbf{y}+v_z\mathbf{z} = \mathbf{s} + \mathbf{p}</p>
  where
 <p><br>\mathbf{s} = v_z\mathbf{z} \operatorname{and} \mathbf{p} = v_z\mathbf{x} + v_y\mathbf{y}</p>
- But note that our desired vector \textbf{t} is parallel to \textbf{p}; in fact it is just \textbf{p}
+ But note that our desired vector <b>t</b> is parallel to <b>p</b>; in fact it is just <b>p</b>
 scaled by the ratio of size of similar triangles <b>L/v_z</b>:
 <p><br>t = \frac{L}{v_z} x p</p>
- (The similar triangles have common vertex at \textbf{0} and sides opposite that
-vertex of \textbf{t} and \textbf{p} respectively.) So, in terms of coordinates,
+ (The similar triangles have common vertex at <b>0</b> and sides opposite that
+vertex of <b>t</b> and <b>p</b> respectively.) So, in terms of coordinates,
 <p><br><span class='textsc'>Projection of </span> \mathbf{v} = (t_x, t_y) = \frac{L}{v_z} x (v_x, v_y)</p>
  That's all there is. Perspective projection in this special case is just
 A picking off the <b>x</b> and <b>y</b> components of position (like parallel projection)
@@ -4971,7 +4972,7 @@ and then scaling by the ratio of L to the <b>z</b> component.
 
 In the completely general case, let an eye be located at e with orientation given by basis <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> (looking along <b>\mathbf{e_z}</b> with <b>\mathbf{e_y}</b> being ``up'' and
 <b>\mathbf{e_x}</b> ``to the right''). Then, with the above answer transformed to the new
-origin (at \textbf{e}) and to the new basis, the display coordinates are just
+origin (at <b>e</b>) and to the new basis, the display coordinates are just
 <p><br>(\operatorname{display}_x, \operatorname{display}_y) = <span class='textsc'>Projection of</span> \mathbf{v} = \frac{L}{\mathbf{e_z} \cdot \mathbf{r}} x (\mathbf{e_x} \cdot \mathbf{r}, \mathbf{e_y} \cdot \mathbf{r})</p>
  where <b>\mathbf{r} = \mathbf{v} - \mathbf{e}</b>.
 
@@ -5103,12 +5104,12 @@ formula for dot product in terms of coordinates.
 vector onto another in terms of coordinates.  
 </li><li> Prove the following special cases of dot product: <b>\mathbf{v} \cdot \mathbf{w} = \mathbf{0}</b> for any
 pair of perpendicular vectors; <b>\mathbf{v} \cdot \mathbf{v} = |\mathbf{v}|^2</b>.  
-</li><li> Show that <b>\mathbf{v} \cdot \mathbf{w} = |\mathbf{v}||\mathbf{w}| \cos A</b> where <b>A</b> is the angle between \textbf{v} and \textbf{w}.
+</li><li> Show that <b>\mathbf{v} \cdot \mathbf{w} = |\mathbf{v}||\mathbf{w}| \cos A</b> where <b>A</b> is the angle between <b>v</b> and <b>w</b>.
 Notice that this formula shows how to evaluate dot product in coordinate-independent terms.  
-</li><li> Represent a triangle's sides as vectors \textbf{v}, \textbf{w}, and \textbf{t}, and, using the
+</li><li> Represent a triangle's sides as vectors <b>v</b>, <b>w</b>, and <b>t</b>, and, using the
 above formula, derive the law of cosines:
 <b>|\mathbf{t}|^2 = |\mathbf{v}|^2 + |\mathbf{w}|^2 - 2|\mathbf{v}||\mathbf{w}| \cos A</b>
-where <b>A</b> is the angle opposite \textbf{t}.  
+where <b>A</b> is the angle opposite <b>t</b>.  
 
 </br></br>
 
@@ -5154,7 +5155,7 @@ To start, restrict each <span class='textsc'>poly</span> to a simple closed plan
 There are lots of options for how to do this. You may want to generate A
 the set of vectors for each <span class='textsc'>poly</span> first and then just circle your way
 through each set. Or keep two orientation bases around, <span class='textsc'>yaw</span>ing each in
-turn and alternating \textbf{H} vectors for the increment to position in <span class='textsc'>forward</span>.
+turn and alternating <b>H</b> vectors for the increment to position in <span class='textsc'>forward</span>.
 Compare figures using the same <span class='textsc'>yaw</span> angle but many different initial
 orientations. Look particularly at figures where the planes of the <span class='textsc'>poly</span>s
 are perpendicular. Look at figures where each <span class='textsc'>poly</span> is a circle, but where
@@ -5168,14 +5169,14 @@ toward some specified point <b>p</b>. The <b>\mathbf{e_z}</b> vector should now 
 <b>p</b>. But where should <b>\mathbf{e_x}</b> and <b>\mathbf{e_y}</b> be pointing? One way to settle this is
 to make the ``minimal'' rotation of the <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> basis which moves <b>\mathbf{e_z}</b>
 from its old direction to the new; that is, rotate <b>\mathbf{e_z}</b> in the plane of <b>\mathbf{e_z}</b>
-and \textbf{p} toward \textbf{p}. This is a rotation about an axis perpendicular to the
-<b>\mathbf{e_z}</b>, \textbf{p} plane, and we can imagine <b>\mathbf{e_x}</b> and <b>\mathbf{e_y}</b> just carried along. (Think of
+and <b>p</b> toward <b>p</b>. This is a rotation about an axis perpendicular to the
+<b>\mathbf{e_z}</b>, <b>p</b> plane, and we can imagine <b>\mathbf{e_x}</b> and <b>\mathbf{e_y}</b> just carried along. (Think of
 the trio <b>\mathbf{e_x}</b>, <b>\mathbf{e_y}</b>, <b>\mathbf{e_z}</b> as a rigid body. Skewer it through their origin with a
-line perpendicular to the plane <b>\mathbf{e_z}</b>, \textbf{p} and rotate.) Can you invent a way
+line perpendicular to the plane <b>\mathbf{e_z}</b>, <b>p</b> and rotate.) Can you invent a way
 to carry out this rotation with <span class='textsc'>roll</span>, <span class='textsc'>pitch</span>, and <span class='textsc'>yaw</span>, or by any other
 means? Use this to implement a <span class='textsc'>lookat</span> command that turns the eye
 toward a specified point. [H]
-</li><li> For each view of the standard \textbf{x}, \textbf{y}, \textbf{z} basis shown in figure 3.25a, say
+</li><li> For each view of the standard <b>x</b>, <b>y</b>, <b>z</b> basis shown in figure 3.25a, say
 where the eye is located to produce that view. If this is hard for you,
 practice with your three-dimensional simulator. Imagine looking down
 at a square-tiled floor. Which angles appear greater than 90&deg;; which
@@ -5188,7 +5189,7 @@ distance) from the view of the pilot.
 of the airplane in exercise 11. Spaceship controls are different, however:
 A rocket burst increments (vector) velocity by adding on a vector in
 the direction the ship is pointing, a roll burst starts continuous rotation
-around the ship's \textbf{H}, etc.
+around the ship's <b>H</b>, etc.
 
 </br></br>
 
@@ -5252,7 +5253,7 @@ Any path is only a path ...
 
 </br></br>
 
-\textbf{Carlos Castaneda}
+<b>Carlos Castaneda</b>
 </div>
 
 </br></br>
@@ -5489,7 +5490,7 @@ Whitney and W. C. Graustein.
 
 </br></br>
 
-<br\><b>Whitney-Graustein Theorem</b> Two closed paths in the plane can be deformed
+<br\>&nbsp; <b>Whitney-Graustein Theorem</b> Two closed paths in the plane can be deformed
 into one another if and only if they have the same total turning.
 We won't give a proof of the Whitney-Graustein theorem, but you
 should note that it is another example of a classification theorem, like the
@@ -5787,8 +5788,8 @@ but did not provide a proof.
 
 </br></br>
 
-\textbf{Simple-Closed-Path Theorem} The total turning in any simple closed
-path is equal to <b>\pm 360^{\circ}</b> (or <b>\pm 2\pi</b> if we measure angles in radians).
+<b>Simple-Closed-Path Theorem</b> The total turning in any simple closed
+path is equal to <b>&plusmn; 360^{\circ}</b> (or <b>&plusmn; 2\pi</b> if we measure angles in radians).
 This theorem is deeper than the closed-path theorem, and its proof is
 considerably more complicated. The reason that we say the theorem is
 deep is because it forms a link between local and global information. In
@@ -5800,7 +5801,7 @@ the theorem relates total turning to the existence of crossing points.
 The following is an example of the link between local and global
 contained in the theorem: Suppose that the turtle walks around a closed
 path accumulating total turning, and that when it completes the path it
-finds that the total turning is not equal to <b>\pm 360^{\circ}</b>. Then the turtle can
+finds that the total turning is not equal to <b>&plusmn; 360^{\circ}</b>. Then the turtle can
 assert that somewhere the path must have at least one crossing point.
 The turtle doesn't know where the crossing point is, and was unable
 to observe it while traversing the path. Nevertheless, by applying the
@@ -5813,7 +5814,7 @@ powerful principle:
 
 </br></br>
 
-\textbf{The Local-Global Principle} One can often determine global properties
+<b>The Local-Global Principle</b> One can often determine global properties
 by accumulating local information.
 
 </br></br>
@@ -5986,12 +5987,12 @@ The purpose of this section is to provide proofs of the simple-closed-path
 theorem and some related theorems about the topology of simple closed
 curves. Recall that we want to show that, if we have a simple closed
 path (a path with no crossing points), then the total turning around the
-path is equal to <b>\pm 360^{\circ}</b>. There are many paths for which this result
+path is equal to <b>&plusmn; 360^{\circ}</b>. There are many paths for which this result
 is obvious; perhaps the simplest is a square. This suggests a strategy
 for proving the theorem: Try to show that any simple closed path can
 be deformed to a square. Since we know that total turning is invariant
 under deformations, we will therefore have shown that any simple closed
-path has the same total turning as a square: <b>\pm 360^{\circ}</b>, depending on which
+path has the same total turning as a square: <b>&plusmn; 360^{\circ}</b>, depending on which
 direction the turtle goes around the square. This reduces the problem
 of proving the simple-closed-path theorem to showing that any simple
 closed curve can be deformed to a square. In fact, we're going to prove
@@ -6054,7 +6055,7 @@ a ``gentle'' deformation, that is, a plane deformation.
 
 </br></br>
 
-<br\><b>Deformation Theorem for Simple Closed Curves</b> For any simple closed
+<br\>&nbsp; <b>Deformation Theorem for Simple Closed Curves</b> For any simple closed
 curve in the plane, there is a ``rubber sheet'' deformation of the plane
 that reduces the curve to a square.
 
@@ -6072,7 +6073,7 @@ theorem:
 
 </br></br>
 
-<br\><b>Jordan Curve Theorem</b> Any simple closed curve in the plane divides the
+<br\>&nbsp; <b>Jordan Curve Theorem</b> Any simple closed curve in the plane divides the
 plane into exactly two regions (an ``inside'' and an ``outside'').
 This result may seem intuitively obvious, but simple closed curves can
 be rather convoluted (see figure 4.11a), so we should be prepared to
@@ -6765,12 +6766,12 @@ the turtle know how to walk straight?
 
 </br></br>
 
-\textbf{Suggestion 1:} Turtle cannot possibly walk straight on a curved surface,
+<b>Suggestion 1:</b> Turtle cannot possibly walk straight on a curved surface,
 and we shouldn't waste time trying to make sense of such a notion.
 
 </br></br>
 
-\textbf{Suggestion 2:} Indeed the turtle can't really walk straight if it's restricted
+<b>Suggestion 2:</b> Indeed the turtle can't really walk straight if it's restricted
 to the sphere's surface. In order to really walk straight the turtle has
 to walk in a plane. But the next best thing may be good enough: The
 turtle can walk along the intersection of the sphere with a plane. We
@@ -6781,7 +6782,7 @@ agree that these should all count as turtle lines?)
 
 </br></br>
 
-\textbf{Suggestion 3:} One thing we expect about a straight line segment is that it
+<b>Suggestion 3:</b> One thing we expect about a straight line segment is that it
 should be the shortest distance between its two endpoints. Sowe should
 admit as turtle lines only those paths that give the shortest distance
 between their endpoints. By this definition it is not hard to see (although
@@ -7133,14 +7134,14 @@ This is beginning to look like a theorem.
 
 </br></br>
 
-<br\><b>Theorem</b> If a triangle is subdivided into two subtriangles, then the excess
+<br\>&nbsp; <b>Theorem</b> If a triangle is subdivided into two subtriangles, then the excess
 of the triangle is the sum of the excesses of the pieces.
 Notice that the theorem doesn't mention anything about spheres in
 particular. Neither will the proof; it is true for triangles on any surface.
 
 </br></br>
 
-<br\><b>Proof</b> Look at a record of a turtle using a pointer to measure the excess
+<br\>&nbsp; <b>Proof</b> Look at a record of a turtle using a pointer to measure the excess
 in triangle ABC (figure 5.7). The pointer starts out with heading <b>x</b> and
 ends up with heading <b>y</b>. Now measure the excess of triangle ACD. To
 make things simple imagine a second turtle that starts from A with the
@@ -7163,7 +7164,7 @@ This is a pretty good theorem. It is the core of a really great one:
 
 </br></br>
 
-<br\><b>Excess Additivity Theorem</b> The excess of any polygon is the sum of the
+<br\>&nbsp; <b>Excess Additivity Theorem</b> The excess of any polygon is the sum of the
 excesses of the pieces in any polygonal subdivision.
 
 </br></br>
@@ -7187,7 +7188,7 @@ familiar theorem:
 
 </br></br>
 
-<br\><b>Theorem</b> The area of any polygon is the sum of the areas of the pieces
+<br\>&nbsp; <b>Theorem</b> The area of any polygon is the sum of the areas of the pieces
 in any polygonal subdivision.
 
 </br></br>
@@ -7208,7 +7209,7 @@ Theorem For any polygon on a sphere of radius <b>r</b>, <b>E = kA</b> where <b>k
 
 </br></br>
 
-<br\><b>Proof</b> First we'll show that the ratio <b>E / A</b> is the same for all polygons on
+<br\>&nbsp; <b>Proof</b> First we'll show that the ratio <b>E / A</b> is the same for all polygons on
 the sphere. (Then, denoting this constant ratio by <b>k</b>, it will be simple
 to find out what <b>k</b> is.) The idea is to measure both excess and area
 by subdividing a large polygon into a lot of tiny identical pieces and
@@ -7975,7 +7976,7 @@ The followingtheorem summarizes the preceding observations:
 
 </br></br>
 
-<br\><b>Theorem</b> Total curvature <b>K</b> is a topological invariant for closed surfaces.
+<br\>&nbsp; <b>Theorem</b> Total curvature <b>K</b> is a topological invariant for closed surfaces.
 For surfaces with boundary, the total curvature is unchanged by deformations that do not affect the vicinity of the boundary of the surface.
 
 </br></br>
@@ -8063,7 +8064,7 @@ Therefore, the whole torus does also.
 
 </br></br>
 
-\textbf{Theorem} Any torus has zero total curvature.
+<b>Theorem</b> Any torus has zero total curvature.
 
 </br></br>
 
@@ -8589,14 +8590,14 @@ compute the point of intersection?
 </br></br>
 
 As you might guess from our experience in chapter 3, vectors are a
-useful tool for solving this problem. Let \textbf{a} and \textbf{b} be vectors running from
-the origin to the endpoints of a given line segment. Then \textbf{e} = \textbf{b} - \textbf{a}
-is the vector running from \textbf{a} to \textbf{b}, and the line segment itself is the
+useful tool for solving this problem. Let <b>a</b> and <b>b</b> be vectors running from
+the origin to the endpoints of a given line segment. Then <b>e</b> = <b>b</b> - <b>a</b>
+is the vector running from <b>a</b> to <b>b</b>, and the line segment itself is the
 set of points represented by <b>\mathbf{a} + \lambda \mathbf{e}</b> where <b>\lambda</b> (a number between 0 and
 1) specifies the fraction of the way from a along e the particular point
-is. In our application, \textbf{a} and \textbf{b} will be the endpoints of an edge of the
-window, and \textbf{e} the edge vector itself. Similarly, if the turtle's path is
-the vector \textbf{t} running from \textbf{p} to \textbf{q} (that is, if <b>\mathbf{t} = \mathbf{p} - \mathbf{q}</b>) then the points
+is. In our application, <b>a</b> and <b>b</b> will be the endpoints of an edge of the
+window, and <b>e</b> the edge vector itself. Similarly, if the turtle's path is
+the vector <b>t</b> running from <b>p</b> to <b>q</b> (that is, if <b>\mathbf{t} = \mathbf{p} - \mathbf{q}</b>) then the points
 on the path are given by <b>\mathbf{p} + \mu \mathbf{t}</b> where <b>\mu</b> is between 0 and 1 (figure 6.6).
 
 </br></br>
@@ -8739,24 +8740,24 @@ More explicitly, here's what to do when there is an intersection:
 
 </br></br>
 
-\textbf{Step 1} Move the turtle from the current window position p to the
+<b>Step 1</b> Move the turtle from the current window position p to the
 intersection point <b>p + \mu t</b>. (If we're drawing the turtle's path on the
 display, we should also draw a line between the corresponding points on
 the display screen. We'll discuss how to do this in subsection 6.1.5.)
 
 </br></br>
 
-\textbf{Step 2} Wrap the turtle across the window to the opposite edge. Algebraically, this entails adding or subtracting the length of the window
+<b>Step 2</b> Wrap the turtle across the window to the opposite edge. Algebraically, this entails adding or subtracting the length of the window
 edge from the turtle's <b>x</b> or <b>y</b> coordinate. (This part of the path doesn't
 get drawn, of course.)
 
 </br></br>
 
-\textbf{Step 3} ``Rotate'' the cube by shuffling vertices according to the permutation associated with <span class='textsc'>edge</span><span class='textsc'>.hit</span>, the window edge that the turtle crossed.
+<b>Step 3</b> ``Rotate'' the cube by shuffling vertices according to the permutation associated with <span class='textsc'>edge</span><span class='textsc'>.hit</span>, the window edge that the turtle crossed.
 
 </br></br>
 
-\textbf{Step 4} Now go back and repeat the entire <span class='textsc'>forward</span> process with the
+<b>Step 4</b> Now go back and repeat the entire <span class='textsc'>forward</span> process with the
 turtle starting out from the window position computed in step 2, and
 going forward a distance <b>(1 - \mu)D</b>.
 
@@ -8794,7 +8795,7 @@ Certainly vertices get mapped into vertices (figure 6.7c). And if you're
 <b>\alpha</b> percent of the way from one vertex to another in the window, it is
 reasonable (and true) that you should be <b>\alpha</b> percent of the way on the
 display cube as well. In vectors, if you are at <b>\mathbf{s} + \alpha \mathbf{e}</b>, where <b>\mathbf{s}</b> points to
-the start of the window edge and \textbf{e} is the window edge vector, and if
+the start of the window edge and <b>e</b> is the window edge vector, and if
 <b>\operatorname{M}(\mathbf{s})</b> and <b>\operatorname{M}(\mathbf{e})</b> stand for the ``mapped'' vectors on the display screen
 (figure 6.7d), then <b>\mathbf{s} + \alpha \mathbf{e}</b> is mapped into <b>\operatorname{M}(\mathbf{s}) + \alpha \operatorname{M}(\mathbf{e})</b>, or
 <b>\operatorname{M}(\mathbf{s} + \alpha \mathbf{e}) = \operatorname{M}(\mathbf{s}) + \alpha \operatorname{M}(\mathbf{e})</b>.
@@ -8853,20 +8854,20 @@ TO DISPLAY.COORDS [X Y]
 
 </br></br>
 
-<br\><b>Step 1</b> Draw your display representation of a cube, making sure to keep
+<br\>&nbsp; <b>Step 1</b> Draw your display representation of a cube, making sure to keep
 parallel cube edges parallel on the display. Store the display <b>x</b> and <b>y</b>
 coordinates of each vertex in the appropriate variable slot <span class='textsc'>frontl</span>, ...,
 <span class='textsc'>front4</span>, <span class='textsc'>back1</span>, ...,<span class='textsc'>back1</span>.
 
 </br></br>
 
-<br\><b>Step 2</b> Use equations 2 and 3 and the procedure given in subsection
+<br\>&nbsp; <b>Step 2</b> Use equations 2 and 3 and the procedure given in subsection
 6.1.4 to walk a turtle around on the cube, making all computations with
 respect to the internal representation.
 
 </br></br>
 
-<br\><b>Step 3</b> Use formula 5 to find the position of the turtle on the display
+<br\>&nbsp; <b>Step 3</b> Use formula 5 to find the position of the turtle on the display
 screen.
 We can combine steps 2 and 3 into a single <span class='textsc'>forward</span> procedure. (We
 assume below that heading is kept as a vector.)
@@ -8934,7 +8935,7 @@ mathematics and about programing.
 
 </br></br>
 
-\textbf{Representations}
+<b>Representations</b>
 
 </br></br>
 
@@ -8969,7 +8970,7 @@ parts of the state often change independently.
 </br></br>
 
 
-\textbf{Linearity}
+<b>Linearity</b>
 
 </br></br>
 
@@ -8983,7 +8984,7 @@ of the linear case.
 
 </br></br>
 
-\textbf{Intrinsic or Invariant Methods}
+<b>Intrinsic or Invariant Methods</b>
 
 </br></br>
 
@@ -8991,7 +8992,7 @@ Vectors provide an improvement over bare-bones analytic geometry by
 eliminating the need for coordinate systems, or at least leaving the choice
 of a coordinate system until near the end of the solution, when coordinates can be chosen in a more appropriate way than might be evident
 at the onset. Furthermore, vectors carry along meaningful entities, such
-as \textbf{e} = edge vector and <b>\lambda</b> = proportion of distance along edge, rather
+as <b>e</b> = edge vector and <b>\lambda</b> = proportion of distance along edge, rather
 than just coordinate numbers, which depend as much on how you select
 coordinates as on the meaning of the quantities involved. Also, vectors
 have operations, such as dot product, that support algebraic manipulations while retaining geometric meaning. Linking geometric with algebraic operations gives alternate and often helpful views. Finally, and
@@ -9117,7 +9118,7 @@ the permutations corresponding to the three edges of the window?
 
 </br></br>
 
-\textbf{DO NOT READ THIS SECTION} until you have played around a bit
+<b>DO NOT READ THIS SECTION</b> until you have played around a bit
 with geometry on the cube.
 
 </br></br>
@@ -9329,9 +9330,9 @@ versa).
 
 </br></br>
 
-\textbf{DANGER}: The next section contains ``premade'' (already discovered)
+<b>DANGER</b>: The next section contains ``premade'' (already discovered)
 mathematics. It may be harmful to your imagination and should be used
-only as a last resort. \textbf{TURN}\textbf{ THE}\textbf{ PAGE}\textbf{ AT}\textbf{ YOUR}\textbf{ OWN}\textbf{ PERIL}.
+only as a last resort. <b>TURN</b><b> THE</b><b> PAGE</b><b> AT</b><b> YOUR</b><b> OWN</b><b> PERIL</b>.
 
 </br></br>
 
@@ -9352,7 +9353,7 @@ Figure 6.12 gives some pictorial results. We invite you to study it.
 
 </br></br>
 
-\textbf{Theorem} A turtle line can intersect itself only at right angles. Segments
+<b>Theorem</b> A turtle line can intersect itself only at right angles. Segments
 of the same line that appear on a given face can have (window) heading
 only <b>\theta</b>, <b>\theta + 90^{\circ}</b>, <b>\theta + 180^{\circ}</b>, or <b>\theta + 270^{\circ}</b>.
 
@@ -9363,7 +9364,7 @@ We give three different proofs of the first statement. The second statement foll
 
 </br></br>
 
-\textbf{Excess method} The cube's curvature is concentrated at its vertices; <b>4 \pi</b>
+<b>Excess method</b> The cube's curvature is concentrated at its vertices; <b>4 \pi</b>
 total curvature (remember, the cube is topologically a sphere) distributed
 among eight identical vertices makes <b>\pi / 2 = 90^{\circ}</b> at each vertex, Hence:
 Observe the part of a turtle path between times when turtle is at the
@@ -9381,7 +9382,7 @@ so the difference in heading must be a multiple of 90&deg;
 
 </br></br>
 
-\textbf{Window method} Recall the window method of imagining a turtle walk
+<b>Window method</b> Recall the window method of imagining a turtle walk
 on a cube, which was the basis for the computer's internal representation
 of the cube in section 6.1. One always sees the turtle walking in a single
 window with the rest of the cube behind. When the turtle reaches the
@@ -9396,7 +9397,7 @@ to finish must be some multiple of 90&deg;
 
 </br></br>
 
-\textbf{Card method} This variant of the window view of cube walking adds its
+<b>Card method</b> This variant of the window view of cube walking adds its
 own insight to many cube problems. Imagine the faces of a cube as cards
 cut apart, but with edges labeled to show how they fit together. Lay
 down the starting face and start the turtle walking. Draw the turtle line
@@ -9435,12 +9436,12 @@ than nothing.
 
 </br></br>
 
-\textbf{Theorem} Any regular monogon must have a heading with a rational
+<b>Theorem</b> Any regular monogon must have a heading with a rational
 tangent.
 
 </br></br>
 
-\textbf{Proof} Look at the ``card'' picture of walking along a regular monogon
+<b>Proof</b> Look at the ``card'' picture of walking along a regular monogon
 from the starting point to the return to the starting point (figure 6.15a).
 If the path is to close regularly (that is, wind up with the same heading
 it started with), then the final card must be the same as the initial card
@@ -9451,7 +9452,7 @@ turtle's path will never close.
 
 </br></br>
 
-\textbf{A converse theorem} If the tangent of the heading is rational, then the
+<b>A converse theorem</b> If the tangent of the heading is rational, then the
 turtle line will close to form a regular monogon.
 
 </br></br>
@@ -9461,7 +9462,7 @@ turtle line will close to form a regular monogon.
 
 </br></br>
 
-\textbf{Partial proof} If <b>\tan \theta = p / q</b>, the above card picture shows what happens
+<b>Partial proof</b> If <b>\tan \theta = p / q</b>, the above card picture shows what happens
 in the first <b>\sqrt{p^2 + q^2}</b> cardlengths of walking. But there is no guarantee
 that the card at the end of such a trek is the first card. To make progress
 we must change our view from the card method to the window method.
@@ -9495,12 +9496,12 @@ initial rotation state is given in the next subsection.
 
 </br></br>
 
-<br\><b>Theorem</b> Any turtle program that closes in the plane will close on a cube
+<br\>&nbsp; <b>Theorem</b> Any turtle program that closes in the plane will close on a cube
 (if repeated enough).
 
 </br></br>
 
-<br\><b>Proof</b> Run any turtle program on a cube. Notice that the path drawn
+<br\>&nbsp; <b>Proof</b> Run any turtle program on a cube. Notice that the path drawn
 on the table in the card view is just the path the program would draw
 when run on a plane (figure 6.15b). So we see that a planar closing
 program will draw a path in which the window part of the turtle's state
@@ -9520,7 +9521,7 @@ in 6.3.2 we must prove the following lemma:
 
 </br></br>
 
-<br\><b>Lemma</b> If a given symmetry rotation (the ``net flip'') is performed over
+<br\>&nbsp; <b>Lemma</b> If a given symmetry rotation (the ``net flip'') is performed over
 and over, the initial rotational state will eventually be restored.
 You should recognize this as an example of a finite-state process, such as
 encountered in subsection 4.4.3. But now we need a bit more information
@@ -9529,7 +9530,7 @@ loop includes the initial state.
 
 </br></br>
 
-<br\><b>Proof</b> The key idea is that the same rotation is applied over and over,
+<br\>&nbsp; <b>Proof</b> The key idea is that the same rotation is applied over and over,
 so if the cube ever finds itself in some given state twice, the sequence of
 subsequent rotational states must be the same. Not only that, but the
 preceding sequence must also be the same, because applying the inverse
@@ -9559,7 +9560,7 @@ you can show that <b>m < 4</b> for any flip, and so we have the following:
 
 </br></br>
 
-<br\><b>A Truly Remarkable Theorem</b> Any looping program that closes in the
+<br\>&nbsp; <b>A Truly Remarkable Theorem</b> Any looping program that closes in the
 plane will close on the cube, but it may take as much as 4 times as long.
 Find programs that close in 1, 2, 3, and 4 times their planar closing
 runs. Isn't it remarkable that the number 4 is associated with cubes in
@@ -9705,11 +9706,11 @@ sphere as part of three-dimensional space. (You are welcome to look for
 alternatives.) This means that our representation will not be entirely
 intrinsic. But we can at least use vectors to describe the situation,
 rather than jumping directly to Cartesian coordinates. We'll indicate
-the turtle's position by a vector \textbf{P} pointing from the center of the sphere
+the turtle's position by a vector <b>P</b> pointing from the center of the sphere
 to the current turtle position. In addition, we'll represent the heading
-as a vector \textbf{H} that points in the direction the turtle is currently facing
-(see figure 7.1a). Note that \textbf{H} is tangent to the sphere and therefore
-perpendicular to \textbf{P}.
+as a vector <b>H</b> that points in the direction the turtle is currently facing
+(see figure 7.1a). Note that <b>H</b> is tangent to the sphere and therefore
+perpendicular to <b>P</b>.
 
 </br></br>
 
@@ -9725,9 +9726,9 @@ rotation formula of subsection 3.2.2:
 
 </br></br>
 
-The vector \textbf{H} can serve as <b>\operatorname{Perp}(\mathbf{P})</b> if we select \textbf{H} to be the same length as
-\textbf{P}. And then <b>-\mathbf{P}</b> is <b>\operatorname{Perp}(\mathbf{H})</b>. Therefore, we have in the plane determined
-by \textbf{P} and \textbf{H}
+The vector <b>H</b> can serve as <b>\operatorname{Perp}(\mathbf{P})</b> if we select <b>H</b> to be the same length as
+<b>P</b>. And then <b>-\mathbf{P}</b> is <b>\operatorname{Perp}(\mathbf{H})</b>. Therefore, we have in the plane determined
+by <b>P</b> and <b>H</b>
 
 </br></br>
 
@@ -9740,12 +9741,12 @@ by \textbf{P} and \textbf{H}
 </br></br>
 
 That's all; we are done with <span class='textsc'>forward</span>.
-What about <span class='textsc'>right</span>and <span class='textsc'>left</span>?They just rotate \textbf{H} in the plane tangent
-to the sphere at \textbf{P} and leave \textbf{P} alone. Again, this is simple to compute
-if we can get our hands on Perp(\textbf{H}). We do this in the same straightforward way in which we dealt with the three-dimensional turtle in section
-3.4. Along with \textbf{P} and \textbf{H}, include in the turtle's state a third vector \textbf{L}
-(for left), which is perpendicular to both \textbf{P} and \textbf{H}. Then, in the plane
-determined by \textbf{H} and \textbf{L}, \textbf{L} can serve as Perp(\textbf{H}) and -\textbf{H} as Perp(\textbf{H}). So
+What about <span class='textsc'>right</span>and <span class='textsc'>left</span>?They just rotate <b>H</b> in the plane tangent
+to the sphere at <b>P</b> and leave <b>P</b> alone. Again, this is simple to compute
+if we can get our hands on Perp(<b>H</b>). We do this in the same straightforward way in which we dealt with the three-dimensional turtle in section
+3.4. Along with <b>P</b> and <b>H</b>, include in the turtle's state a third vector <b>L</b>
+(for left), which is perpendicular to both <b>P</b> and <b>H</b>. Then, in the plane
+determined by <b>H</b> and <b>L</b>, <b>L</b> can serve as Perp(<b>H</b>) and -<b>H</b> as Perp(<b>H</b>). So
 in this plane we have <p><br>\operatorname{Rotate}(H, A) = (\cos A)H + (\sin A)L</p>
 <p><br>\operatorname{Rotate}(L, A) = (\cos A)L - (\sin A)H</p>
 
@@ -9762,8 +9763,8 @@ commands).
 
 </br></br>
 
-In summary: The turtle's state is represented by three vectors \textbf{P}, \textbf{H},
-and \textbf{L}, which are initially set up to be mutually perpendicular and of
+In summary: The turtle's state is represented by three vectors <b>P</b>, <b>H</b>,
+and <b>L</b>, which are initially set up to be mutually perpendicular and of
 the same length. <span class='textsc'>forward</span>is the operation
 
 </br></br>
@@ -10017,7 +10018,7 @@ in a new direction. (See figure 7.5b.)
 </br></br>
 
 This section answers some of the questions raised in the previous one.
-We urge you \textbf{NOT TO READ FARTHER} until you've explored some of
+We urge you <b>NOT TO READ FARTHER</b> until you've explored some of
 these issues on your own.
 
 </br></br>
@@ -10079,7 +10080,7 @@ following principle:
 
 </br></br>
 
-\textbf{POLY duality principle} On a sphere, <span class='textsc'>poly</span>(<b>\alpha</b>, <b>\beta</b>) closes in exactly the
+<b>POLY duality principle</b> On a sphere, <span class='textsc'>poly</span>(<b>\alpha</b>, <b>\beta</b>) closes in exactly the
 same number of steps as <span class='textsc'>poly</span>(<b>\beta</b>, <b>\alpha</b>).
 
 </br></br>
@@ -10139,7 +10140,7 @@ which these <span class='textsc'>poly</span> vertices lie is a circle of latitud
 
 </br></br>
 
-\textbf{Net rotation theorem} If we rotate the sphere by a about the <span class='textsc'>forward</span>
+<b>Net rotation theorem</b> If we rotate the sphere by a about the <span class='textsc'>forward</span>
 axis and then rotate it through <b>\alpha</b> about the <span class='textsc'>left</span> axis, the net effect will
 be the same as a single rotation (about some axis that depends on <b>\alpha</b> and <b>\beta</b>).
 
@@ -10242,7 +10243,7 @@ The exact formula for <b>\theta</b> is tricky to find. Here is the result:
 
 </br></br>
 
-\textbf{Theorem} The symmetry angle <b>\theta</b> for the combined operation <span class='textsc'>forward</span> <b>\alpha</b>,
+<b>Theorem</b> The symmetry angle <b>\theta</b> for the combined operation <span class='textsc'>forward</span> <b>\alpha</b>,
 <span class='textsc'>left</span> <b>\beta</b> satisfies the formula
 <p><br>\cos \frac{\theta}{2} = \cos \frac{\alpha}{2} \cos \frac{\beta}{2} </p>
 How can we prove such a thing? It's not easy. First of all, we need some
@@ -10250,7 +10251,7 @@ way to see <b>\theta</b> in terms of the <span class='textsc'>forward</span> and
 denote the combined operation <span class='textsc'>forward</span> <b>\alpha</b>, <span class='textsc'>left</span> <b>\beta</b>. The transformation
 <b>T</b> is, by the theorem in 7.3.2, a rotation through angle e about some axis.
 If we choose a point P on that axis, then P must return to its initial
-position after the two parts of the <span class='textsc'>poly</span> step. So look at some vector \textbf{v}
+position after the two parts of the <span class='textsc'>poly</span> step. So look at some vector <b>v</b>
 tangent to the sphere at P (figure 7.10a). The transformation T should
 have the net effect of rotating v by (J. Examine carefully how v and P
 move under T: First, the <span class='textsc'>forward</span> <b>\alpha</b> rotation moves P along along some
@@ -10264,7 +10265,7 @@ this time along an arc B on a circle of latitude for the <span class='textsc'>le
 
 </br></br>
 
-Before following \textbf{v} on its trek, let's focus on the arcs A and B. They lie
+Before following <b>v</b> on its trek, let's focus on the arcs A and B. They lie
 in perpendicular planes and intersect at the two points P and Q (figure
 7.10b). Look at the intersection at P. Let <b>\phi</b> be the angle between A
 and B at P (that is, the angle that a turtle crawling on the sphere along
@@ -10273,18 +10274,18 @@ By symmetry the arcs intersect at the same angle <b>\phi</b> at Q.
 
 </br></br>
 
-In determining what happens to \textbf{v}, the crucial observation is that
+In determining what happens to <b>v</b>, the crucial observation is that
 the rigid rotations of the sphere we are about to perform maintain a
 constant angle between v and the latitudes of rotation. (Glue a vector to
 a globe latitude, rotate about the globe's axis, and watch what happens.)
 
 </br></br>
 
-Keeping this observation in mind, start \textbf{v} pointing along A. It stays
+Keeping this observation in mind, start <b>v</b> pointing along A. It stays
 pointed along A as we rotate the sphere by <b>\alpha</b>. Figure 7.10d shows that
-when \textbf{v} reaches Q it points at the angle <b>\phi</b> with respect to the B circle.
-Rotating back by <b>\beta</b> returns \textbf{v} to P, maintaining the angle <b>\phi</b> from B.
-Figure 7.10e shows that \textbf{v} has made a net rotation from start to finish
+when <b>v</b> reaches Q it points at the angle <b>\phi</b> with respect to the B circle.
+Rotating back by <b>\beta</b> returns <b>v</b> to P, maintaining the angle <b>\phi</b> from B.
+Figure 7.10e shows that <b>v</b> has made a net rotation from start to finish
 of <b>\theta = 2\phi</b>.
 
 </br></br>
@@ -10302,13 +10303,13 @@ We'll apply this formula to unit vectors a and b pointing along arcs
 A and B, respectively, at P. The angle between a and b is, as we know,
 <b>\phi = \theta / 2</b>, and so we have
 <p><br>\mathbf{a} \cdot \mathbf{b} = \cos \frac {\theta}{2} </p>
- Now let's set up a coordinate system in which to compute <b>\mathbf{a} \cdot \mathbf{b}</b>. Let \textbf{z}
+ Now let's set up a coordinate system in which to compute <b>\mathbf{a} \cdot \mathbf{b}</b>. Let <b>z</b>
 be a unit-length vector at <b>P</b> pointing along the chord joining <b>P</b> to <b>Q</b>
-(figure 7.10f). Let \textbf{x} be a unit vector in the plane of <b>A</b> and perpendicular
-to \textbf{z}. Similarly, let \textbf{y} be a vector perpendicular to \textbf{z} lying in the plane of
-<b>B</b>. The angle between \textbf{a} and \textbf{z} is just the angle between the chord and
+(figure 7.10f). Let <b>x</b> be a unit vector in the plane of <b>A</b> and perpendicular
+to <b>z</b>. Similarly, let <b>y</b> be a vector perpendicular to <b>z</b> lying in the plane of
+<b>B</b>. The angle between <b>a</b> and <b>z</b> is just the angle between the chord and
 the circular arc <b>A</b>, which is equal in turn to half the arc angle <b>\alpha</b>. So we
-can produce the vector \textbf{a} by rotating \textbf{z} toward \textbf{x} through an angle <b>\alpha / 2</b>.
+can produce the vector <b>a</b> by rotating <b>z</b> toward <b>x</b> through an angle <b>\alpha / 2</b>.
 
 </br></br>
 
@@ -10316,8 +10317,8 @@ Therefore, we have
 <p><br> \mathbf{a} = \mathbf{z} \cos \frac {\alpha} {2} + \mathbf{x} \sin \frac {\alpha} {2} </p>
  Similarly, we have
 <p><br> b = z \cos \frac {\beta} {2} y \sin \frac {\beta} {2} </p>
- Taking the dot product of these two expressions, we find that since \textbf{z},
-\textbf{x}, and \textbf{y} are mutually perpendicular, all the terms are zero except the
+ Taking the dot product of these two expressions, we find that since <b>z</b>,
+<b>x</b>, and <b>y</b> are mutually perpendicular, all the terms are zero except the
 term containing <b>\mathbf{z} \cdot \mathbf{z} = 1</b>. Thus,
 <p><br> \mathbf{a} \cdot \mathbf{b} = \cos \frac {\alpha} {2} \cos \frac {\beta} {2} </p>
  Combining this with equation 1 gives
@@ -10407,7 +10408,7 @@ the sphere about the axis passing through <b>P</b>.
 
 </br></br>
 
-\textbf{Proof that T has a fixed point} Examine how <b>T</b> moves the sphere. Each
+<b>Proof that T has a fixed point</b> Examine how <b>T</b> moves the sphere. Each
 of the rotations <span class='textsc'>forward</span>0: and <span class='textsc'>left</span> <b>\beta</b> moves points around on the
 latitudes of their respective axes. If a point <b>p</b> gets moved to <b>q</b> by
 <span class='textsc'>forward</span> <b>\alpha</b>, then <b>p</b> and <b>q</b> must lie on the same latitude of the <span class='textsc'>forward</span>
